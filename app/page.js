@@ -1,66 +1,208 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { 
+  ShieldCheck, Users, Briefcase, Building2, UserCheck, CheckCircle2, 
+  MapPin, Factory, Hotel, HardHat, Warehouse, Star 
+} from 'lucide-react';
+import styles from './page.module.css';
+
+const heroImages = [
+  '/weblium_hero_bg.jpg',
+  '/vmd_hero_guard.jpg',
+  '/vmd_hero_housekeeping.jpg',
+  '/vmd_hero_formation.jpg'
+];
 
 export default function Home() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={styles.home}>
+      {/* HERO SECTION */}
+      <section className={styles.hero}>
+        {heroImages.map((src, index) => (
+          <div 
+            key={src} 
+            className={`${styles.heroBg} ${index === currentImage ? styles.heroBgActive : ''}`}
+            style={{ backgroundImage: `linear-gradient(rgba(10, 31, 63, 0.7), rgba(10, 31, 63, 0.7)), url(${src})` }}
+          />
+        ))}
+        <div className={styles.heroOverlay}></div>
+        {/* We will use a placeholder image color for now, later we can add the generated image */}
+        <div className={`container ${styles.heroContent}`}>
+          <h1 className={styles.heroTitle}>Professional Security & Facility Management Services in Pune</h1>
+          <p className={styles.heroSubtitle}>
+            Reliable Security Guards, Housekeeping & Facility Solutions for Residential, Commercial and Industrial Clients.
           </p>
+          <div className={styles.heroButtons}>
+            <Link href="/contact" className="btn-primary">Request a Free Quote</Link>
+            <a href="tel:8459845730" className="btn-outline" style={{ borderColor: 'var(--white)', color: 'var(--white)' }}>
+              Call Now
+            </a>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ABOUT SUMMARY */}
+      <section className={`section bg-off-white`}>
+        <div className="container text-center">
+          <h2 className="section-title">Service • Trust • Safety</h2>
+          <p className={styles.aboutText}>
+            VMD Management Services is a premier security and facility management agency based in Pune. 
+            We are dedicated to providing top-tier security personnel, meticulous housekeeping, and comprehensive 
+            facility management solutions tailored to your specific needs.
+          </p>
+          <Link href="/about" className="btn-outline">Learn More About Us</Link>
         </div>
-      </main>
+      </section>
+
+      {/* FUTURE VISION */}
+      <section className={`section ${styles.visionSection}`}>
+        <div className="container text-center">
+          <div className={styles.visionBox}>
+            <h3>Future Vision</h3>
+            <h2>AS Group of Companies</h2>
+            <p>
+              VMD Management Services is proudly expanding. Our roadmap leads to the formation of the 
+              <strong> AS Group of Companies</strong>, creating a unified ecosystem of professional services 
+              across Maharashtra and beyond.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES GRID */}
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Our Services</h2>
+          <div className={styles.grid}>
+            {[
+              { title: 'Security Guards', icon: <ShieldCheck size={40} /> },
+              { title: 'Housekeeping Services', icon: <Users size={40} /> },
+              { title: 'Office Boys', icon: <Briefcase size={40} /> },
+              { title: 'Supervisors', icon: <UserCheck size={40} /> },
+              { title: 'Facility Management', icon: <Building2 size={40} /> },
+              { title: 'Industrial Security', icon: <Factory size={40} /> },
+              { title: 'Residential Security', icon: <MapPin size={40} /> },
+              { title: 'Corporate Security', icon: <Building2 size={40} /> },
+            ].map((service, index) => (
+              <div key={index} className={styles.card}>
+                <div className={styles.cardIcon}>{service.icon}</div>
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <Link href="/services" className={styles.cardLink}>Learn More &rarr;</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="section bg-navy">
+        <div className="container">
+          <h2 className="section-title">Why Choose VMD</h2>
+          <div className={styles.whyGrid}>
+            {[
+              'Trained Staff', 'Police Verified Guards', 'Uniformed Personnel', 
+              '24×7 Support', 'Quick Replacement', 'Regular Site Inspection', 'Professional Management'
+            ].map((item, index) => (
+              <div key={index} className={styles.whyItem}>
+                <CheckCircle2 className={styles.checkIcon} size={24} />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES WE SERVE */}
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Industries We Serve</h2>
+          <div className={styles.industryGrid}>
+            {[
+              { name: 'Housing Societies', icon: <Building2 size={32} /> },
+              { name: 'Corporate Offices', icon: <Briefcase size={32} /> },
+              { name: 'IT Companies', icon: <Building2 size={32} /> },
+              { name: 'Hospitals', icon: <MapPin size={32} /> },
+              { name: 'Schools & Colleges', icon: <Users size={32} /> },
+              { name: 'Banks', icon: <ShieldCheck size={32} /> },
+              { name: 'Warehouses', icon: <Warehouse size={32} /> },
+              { name: 'Factories', icon: <Factory size={32} /> },
+              { name: 'Hotels', icon: <Hotel size={32} /> },
+              { name: 'Construction Sites', icon: <HardHat size={32} /> },
+            ].map((industry, index) => (
+              <div key={index} className={styles.industryCard}>
+                <div className={styles.industryIcon}>{industry.icon}</div>
+                <h4>{industry.name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST ELEMENTS (STATS) */}
+      <section className={`section bg-off-white`}>
+        <div className="container">
+          <div className={styles.statsGrid}>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>10+</h3>
+              <p>Years of Experience</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>500+</h3>
+              <p>Guards Deployed</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>200+</h3>
+              <p>Happy Clients</p>
+            </div>
+            <div className={styles.statItem}>
+              <h3 className={styles.statNumber}>30m</h3>
+              <p>Response Time</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Client Testimonials</h2>
+          <div className={styles.testimonialGrid}>
+            {[1, 2, 3].map((_, index) => (
+              <div key={index} className={styles.testimonialCard}>
+                <div className={styles.stars}>
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--gold)" color="var(--gold)" />)}
+                </div>
+                <p className={styles.testimonialText}>
+                  "VMD Management Services has completely transformed our society's security setup. Their guards are highly professional and always alert."
+                </p>
+                <h4 className={styles.clientName}>- Happy Client {index + 1}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className={`section ${styles.ctaSection}`}>
+        <div className="container text-center">
+          <h2 className={styles.ctaTitle}>Ready to secure your premises?</h2>
+          <p className={styles.ctaText}>Get a free quotation tailored to your specific requirements today.</p>
+          <div className={styles.heroButtons} style={{ justifyContent: 'center' }}>
+            <Link href="/contact" className="btn-primary">Get Your Free Quote</Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

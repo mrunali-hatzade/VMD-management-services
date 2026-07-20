@@ -1,0 +1,81 @@
+.pageHeader {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  color: var(--white);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.pageHeader p {
+  color: var(--gold);
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #E5E7EB;
+  border-radius: var(--border-radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background-color: var(--navy);
+  color: var(--white);
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.icon {
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover .icon {
+  color: var(--gold);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+  color: var(--white);
+}
+
+.card p {
+  color: var(--gray);
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.card:hover p {
+  color: #D1D5DB;
+}

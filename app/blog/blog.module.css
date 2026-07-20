@@ -1,0 +1,106 @@
+.pageHeader {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.pageHeader h1 {
+  color: var(--white);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.pageHeader p {
+  color: var(--gold);
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .blogGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.blogCard {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blogCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.cardContent {
+  padding: 2.5rem 2rem;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background-color: rgba(212, 168, 67, 0.15);
+  color: var(--gold);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.postTitle a {
+  color: var(--navy);
+}
+
+.postTitle a:hover {
+  color: var(--gold);
+}
+
+.postMeta {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--gray);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.postMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.postExcerpt {
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.readMore:hover {
+  color: var(--gold);
+}
