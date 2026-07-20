@@ -1,13 +1,14 @@
 .hero {
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   background-color: var(--navy);
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 80px; /* offset for navbar */
+  padding-top: 95px; /* offset for navbar */
+  padding-bottom: 100px; /* space for stats bar */
   overflow: hidden;
 }
 
@@ -31,7 +32,71 @@
 .heroContent {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 850px;
+  color: var(--white);
+  padding: 2rem 1rem 4rem;
+}
+
+/* HERO INTEGRATED STATS BAR */
+.heroStatsBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 31, 63, 0.92);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 3;
+  padding: 1.5rem 0;
+}
+
+.heroStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .heroStatsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.heroStatCol {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.heroStatCol:last-child {
+  border-right: none;
+}
+
+@media (max-width: 767px) {
+  .heroStatCol:nth-child(2) {
+    border-right: none;
+  }
+  .heroStatCol {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.75rem 0.5rem;
+  }
+  .heroStatCol:nth-child(3), .heroStatCol:nth-child(4) {
+    border-bottom: none;
+  }
+}
+
+.heroStatNum {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gold);
+  font-family: var(--font-heading);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.heroStatLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   color: var(--white);
 }
 
@@ -167,25 +232,22 @@
 
 @media (min-width: 768px) {
   .whyGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .whyGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .whyItem {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem 1.5rem;
+  padding: 1.2rem 1.5rem;
+  background: white;
   border-radius: var(--border-radius);
-  font-weight: 500;
-  color: var(--white);
+  box-shadow: var(--box-shadow);
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .checkIcon {
@@ -291,10 +353,7 @@
 }
 
 .ctaSection {
-  background: linear-gradient(rgba(10, 31, 63, 0.9), rgba(10, 31, 63, 0.9)), url('https://placehold.co/1920x600/0A1F3F/FFFFFF?text=Facility+Management');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--navy);
   color: var(--white);
   padding: 6rem 0;
 }

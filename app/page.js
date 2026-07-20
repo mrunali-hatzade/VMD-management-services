@@ -5,15 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ShieldCheck, Users, Briefcase, Building2, UserCheck, CheckCircle2, 
-  MapPin, Factory, Hotel, HardHat, Warehouse, Star 
+  MapPin, Factory, Hotel, HardHat, Warehouse, Star, Phone, MessageCircle, ChevronDown, Check
 } from 'lucide-react';
 import styles from './page.module.css';
+import FadeIn from '../components/FadeIn/FadeIn';
 
 const heroImages = [
   '/weblium_hero_bg.jpg',
-  '/vmd_hero_guard.jpg',
-  '/vmd_hero_housekeeping.jpg',
-  '/vmd_hero_formation.jpg'
+  '/hero_housekeeping.jpg',
+  '/hero_team.jpg',
+  '/hero_surveillance.jpg'
 ];
 
 export default function Home() {
@@ -36,8 +37,6 @@ export default function Home() {
             style={{ backgroundImage: `linear-gradient(rgba(10, 31, 63, 0.7), rgba(10, 31, 63, 0.7)), url(${src})` }}
           />
         ))}
-        <div className={styles.heroOverlay}></div>
-        {/* We will use a placeholder image color for now, later we can add the generated image */}
         <div className={`container ${styles.heroContent}`}>
           <h1 className={styles.heroTitle}>Professional Security & Facility Management Services in Pune</h1>
           <p className={styles.heroSubtitle}>
@@ -50,40 +49,55 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        {/* HERO BOTTOM STATS BAR */}
+        <div className={styles.heroStatsBar}>
+          <div className="container">
+            <div className={styles.heroStatsGrid}>
+              <div className={styles.heroStatCol}>
+                <div className={styles.heroStatNum}>10+</div>
+                <div className={styles.heroStatLabel}>YEARS EXPERIENCE</div>
+              </div>
+              <div className={styles.heroStatCol}>
+                <div className={styles.heroStatNum}>500+</div>
+                <div className={styles.heroStatLabel}>SECURITY PERSONNEL</div>
+              </div>
+              <div className={styles.heroStatCol}>
+                <div className={styles.heroStatNum}>300+</div>
+                <div className={styles.heroStatLabel}>HAPPY CLIENTS</div>
+              </div>
+              <div className={styles.heroStatCol}>
+                <div className={styles.heroStatNum}>24×7</div>
+                <div className={styles.heroStatLabel}>SUPPORT</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ABOUT SUMMARY */}
       <section className={`section bg-off-white`}>
         <div className="container text-center">
-          <h2 className="section-title">Service • Trust • Safety</h2>
-          <p className={styles.aboutText}>
-            VMD Management Services is a premier security and facility management agency based in Pune. 
-            We are dedicated to providing top-tier security personnel, meticulous housekeeping, and comprehensive 
-            facility management solutions tailored to your specific needs.
-          </p>
-          <Link href="/about" className="btn-outline">Learn More About Us</Link>
+          <FadeIn>
+            <h2 className="section-title">Service • Trust • Safety</h2>
+            <p className={styles.aboutText}>
+              VMD Management Services is a premier security and facility management agency based in Pune. 
+              We are dedicated to providing top-tier security personnel, meticulous housekeeping, and comprehensive 
+              facility management solutions tailored to your specific needs.
+            </p>
+            <Link href="/about" className="btn-outline">Learn More About Us</Link>
+          </FadeIn>
         </div>
       </section>
 
-      {/* FUTURE VISION */}
-      <section className={`section ${styles.visionSection}`}>
-        <div className="container text-center">
-          <div className={styles.visionBox}>
-            <h3>Future Vision</h3>
-            <h2>AS Group of Companies</h2>
-            <p>
-              VMD Management Services is proudly expanding. Our roadmap leads to the formation of the 
-              <strong> AS Group of Companies</strong>, creating a unified ecosystem of professional services 
-              across Maharashtra and beyond.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* SERVICES GRID */}
-      <section className="section">
+      <section className="section bg-off-white">
         <div className="container">
-          <h2 className="section-title">Our Services</h2>
+          <FadeIn>
+            <h2 className="section-title">Our Services</h2>
+          </FadeIn>
           <div className={styles.grid}>
             {[
               { title: 'Security Guards', icon: <ShieldCheck size={40} /> },
@@ -95,38 +109,46 @@ export default function Home() {
               { title: 'Residential Security', icon: <MapPin size={40} /> },
               { title: 'Corporate Security', icon: <Building2 size={40} /> },
             ].map((service, index) => (
-              <div key={index} className={styles.card}>
-                <div className={styles.cardIcon}>{service.icon}</div>
-                <h3 className={styles.cardTitle}>{service.title}</h3>
-                <Link href="/services" className={styles.cardLink}>Learn More &rarr;</Link>
-              </div>
+              <FadeIn key={index} delay={index * 0.1}>
+                <div className={styles.card}>
+                  <div className={styles.cardIcon}>{service.icon}</div>
+                  <h3 className={styles.cardTitle}>{service.title}</h3>
+                  <Link href="/services" className={styles.cardLink}>Learn More &rarr;</Link>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="section bg-navy">
+      <section className="section bg-off-white">
         <div className="container">
-          <h2 className="section-title">Why Choose VMD</h2>
+          <FadeIn>
+            <h2 className="section-title">Why Choose VMD</h2>
+          </FadeIn>
           <div className={styles.whyGrid}>
             {[
               'Trained Staff', 'Police Verified Guards', 'Uniformed Personnel', 
               '24×7 Support', 'Quick Replacement', 'Regular Site Inspection', 'Professional Management'
             ].map((item, index) => (
-              <div key={index} className={styles.whyItem}>
-                <CheckCircle2 className={styles.checkIcon} size={24} />
-                <span>{item}</span>
-              </div>
+              <FadeIn key={index} delay={index * 0.05} direction="left">
+                <div className={styles.whyItem}>
+                  <CheckCircle2 className={styles.checkIcon} size={24} />
+                  <span>{item}</span>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* INDUSTRIES WE SERVE */}
-      <section className="section">
+      <section className="section bg-off-white">
         <div className="container">
-          <h2 className="section-title">Industries We Serve</h2>
+          <FadeIn>
+            <h2 className="section-title">Industries We Serve</h2>
+          </FadeIn>
           <div className={styles.industryGrid}>
             {[
               { name: 'Housing Societies', icon: <Building2 size={32} /> },
@@ -140,54 +162,38 @@ export default function Home() {
               { name: 'Hotels', icon: <Hotel size={32} /> },
               { name: 'Construction Sites', icon: <HardHat size={32} /> },
             ].map((industry, index) => (
-              <div key={index} className={styles.industryCard}>
-                <div className={styles.industryIcon}>{industry.icon}</div>
-                <h4>{industry.name}</h4>
-              </div>
+              <FadeIn key={index} delay={index * 0.05} direction="up">
+                <div className={styles.industryCard}>
+                  <div className={styles.industryIcon}>{industry.icon}</div>
+                  <h4>{industry.name}</h4>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TRUST ELEMENTS (STATS) */}
-      <section className={`section bg-off-white`}>
-        <div className="container">
-          <div className={styles.statsGrid}>
-            <div className={styles.statItem}>
-              <h3 className={styles.statNumber}>10+</h3>
-              <p>Years of Experience</p>
-            </div>
-            <div className={styles.statItem}>
-              <h3 className={styles.statNumber}>500+</h3>
-              <p>Guards Deployed</p>
-            </div>
-            <div className={styles.statItem}>
-              <h3 className={styles.statNumber}>200+</h3>
-              <p>Happy Clients</p>
-            </div>
-            <div className={styles.statItem}>
-              <h3 className={styles.statNumber}>30m</h3>
-              <p>Response Time</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* TESTIMONIALS */}
-      <section className="section">
+      <section className="section bg-off-white">
         <div className="container">
-          <h2 className="section-title">Client Testimonials</h2>
+          <FadeIn>
+            <h2 className="section-title">Client Testimonials</h2>
+          </FadeIn>
           <div className={styles.testimonialGrid}>
             {[1, 2, 3].map((_, index) => (
-              <div key={index} className={styles.testimonialCard}>
-                <div className={styles.stars}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--gold)" color="var(--gold)" />)}
+              <FadeIn key={index} delay={index * 0.2}>
+                <div className={styles.testimonialCard}>
+                  <div className={styles.stars}>
+                    {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--gold)" color="var(--gold)" />)}
+                  </div>
+                  <p className={styles.testimonialText}>
+                    "VMD Management Services has completely transformed our society's security setup. Their guards are highly professional and always alert."
+                  </p>
+                  <h4 className={styles.clientName}>- Happy Client {index + 1}</h4>
                 </div>
-                <p className={styles.testimonialText}>
-                  "VMD Management Services has completely transformed our society's security setup. Their guards are highly professional and always alert."
-                </p>
-                <h4 className={styles.clientName}>- Happy Client {index + 1}</h4>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -196,11 +202,13 @@ export default function Home() {
       {/* CTA SECTION */}
       <section className={`section ${styles.ctaSection}`}>
         <div className="container text-center">
-          <h2 className={styles.ctaTitle}>Ready to secure your premises?</h2>
-          <p className={styles.ctaText}>Get a free quotation tailored to your specific requirements today.</p>
-          <div className={styles.heroButtons} style={{ justifyContent: 'center' }}>
-            <Link href="/contact" className="btn-primary">Get Your Free Quote</Link>
-          </div>
+          <FadeIn direction="up">
+            <h2 className={styles.ctaTitle}>Ready to secure your premises?</h2>
+            <p className={styles.ctaText}>Get a free quotation tailored to your specific requirements today.</p>
+            <div className={styles.heroButtons} style={{ justifyContent: 'center' }}>
+              <Link href="/contact" className="btn-primary">Get Your Free Quote</Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>

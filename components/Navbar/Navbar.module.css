@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 95px;
   background-color: transparent;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
@@ -20,18 +20,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logo {
   text-decoration: none;
-}
-
-.logoText {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
 }
 
 .desktopMenu {
