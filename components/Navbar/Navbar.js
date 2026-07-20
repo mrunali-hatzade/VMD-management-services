@@ -29,7 +29,7 @@ export default function Navbar() {
         {/* Logo Left */}
         <Link href="/" className={styles.logo}>
           <div className={styles.logoCard}>
-            <Image src="/logo without name.png" alt="VMD Management Services" width={48} height={48} style={{ objectFit: 'contain' }} priority />
+            <Image src="/logo without name.png" alt="VMD Management Services" width={42} height={42} className={styles.logoImg} style={{ objectFit: 'contain' }} priority />
             <div className={styles.logoTextContainer}>
               <span className={styles.logoTextTitle}>VMD</span>
               <span className={styles.logoTextSub}>MANAGEMENT SERVICES</span>
