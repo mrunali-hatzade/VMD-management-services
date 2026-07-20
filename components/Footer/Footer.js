@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ShieldCheck, ArrowRight, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, ShieldCheck, ArrowRight } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -84,7 +84,7 @@ export default function Footer() {
         <div className={`container ${styles.bottomContainer}`}>
           <p>&copy; {new Date().getFullYear()} VMD Management Services. All Rights Reserved.</p>
           <p className={styles.creditText}>
-            Designed with <Heart size={14} fill="var(--gold)" color="var(--gold)" /> by <strong>Simplified Works</strong>
+            Powered by <strong>Simplified Works</strong>
           </p>
         </div>
       </div>

@@ -9,15 +9,35 @@ import FadeIn from '../../components/FadeIn/FadeIn';
 import LightboxModal from '../../components/LightboxModal/LightboxModal';
 
 const fullGallery = [
-  { id: 1, title: 'Security Guard Patrol Drill', category: 'Security Guards', src: '/hero_team.jpg' },
-  { id: 2, title: 'Corporate Floor Housekeeping', category: 'Housekeeping', src: '/hero_housekeeping.jpg' },
-  { id: 3, title: 'Industrial Control Room Surveillance', category: 'Industrial', src: '/hero_surveillance.jpg' },
-  { id: 4, title: 'Guard Formation & Uniform Inspection', category: 'Training', src: '/vmd_hero_formation.jpg' },
-  { id: 5, title: 'Residential Gated Protection', category: 'Corporate', src: '/vmd_hero_guard.jpg' },
-  { id: 6, title: 'Special VIP Event Guarding', category: 'Events', src: '/weblium_hero_bg.jpg' },
-  { id: 7, title: 'Fire Extinguisher Training Drill', category: 'Training', src: '/vmd_hero_housekeeping.jpg' },
-  { id: 8, title: 'Commercial Office Access Control', category: 'Corporate', src: '/hero_team.jpg' },
-  { id: 9, title: 'Warehouse Material Audit Guarding', category: 'Industrial', src: '/hero_surveillance.jpg' },
+  // Security Guards
+  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
+  { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/srv_residential_security.jpg' },
+  { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/vmd_hero_guard.jpg' },
+  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/ind_housing_societies.jpg' },
+
+  // Housekeeping
+  { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
+  { id: 6, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/hero_housekeeping.jpg' },
+  { id: 7, title: 'Deep Cleaning Services', category: 'Housekeeping', src: '/vmd_hero_housekeeping.jpg' },
+
+  // Corporate
+  { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/office_team.jpg' },
+  { id: 9, title: 'Corporate Client Sites', category: 'Corporate', src: '/client_sites.jpg' },
+  { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/srv_corporate_security.jpg' },
+  { id: 11, title: 'Executive Support Staff', category: 'Corporate', src: '/hero_team.jpg' },
+
+  // Industrial
+  { id: 12, title: 'Industrial Facility Security', category: 'Industrial', src: '/srv_industrial_security.jpg' },
+  { id: 13, title: 'Control Room Surveillance', category: 'Industrial', src: '/hero_surveillance.jpg' },
+  { id: 14, title: 'Facility Management Maintenance', category: 'Industrial', src: '/srv_facility_mgmt.jpg' },
+
+  // Training
+  { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
+  { id: 16, title: 'Physical Drill & Inspection', category: 'Training', src: '/vmd_hero_formation.jpg' },
+
+  // Events
+  { id: 17, title: 'Event Crowd Management', category: 'Events', src: '/weblium_hero_bg.jpg' },
+  { id: 18, title: 'VIP Protection Supervisors', category: 'Events', src: '/srv_supervisors.jpg' },
 ];
 
 export default function GalleryPage() {

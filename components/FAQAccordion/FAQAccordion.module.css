@@ -17,7 +17,14 @@
 
 .faqItem.active {
   border-color: var(--gold);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 10px 25px rgba(212, 165, 44, 0.15);
+  transform: translateY(-2px);
+}
+
+.faqItem:hover {
+  border-color: var(--gold);
+  box-shadow: 0 5px 15px rgba(212, 165, 44, 0.1);
+  transform: translateY(-2px);
 }
 
 .faqQuestion {
@@ -36,6 +43,7 @@
 
 .faqQuestion:hover {
   color: var(--gold-hover);
+  background: rgba(212, 165, 44, 0.02);
 }
 
 .icon {

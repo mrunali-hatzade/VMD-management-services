@@ -33,6 +33,12 @@
   gap: 0.75rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.logoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logoTextContainer {
@@ -137,6 +143,11 @@
   color: var(--gold);
   flex-shrink: 0;
   margin-top: 0.2rem;
+  transition: transform 0.3s ease;
+}
+
+.contactList li:hover .contactIcon {
+  transform: scale(1.2);
 }
 
 .footerBottom {

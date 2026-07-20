@@ -38,6 +38,7 @@ body {
   background-color: var(--white);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -131,6 +132,24 @@ button {
   justify-content: center;
   gap: 0.5rem;
   box-shadow: 0 4px 14px rgba(212, 165, 44, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.btn-primary:hover::after {
+  animation: shine 1s ease forwards;
 }
 
 .btn-primary:hover {
@@ -196,6 +215,24 @@ button {
   justify-content: center;
   gap: 0.5rem;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-whatsapp::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.btn-whatsapp:hover::after {
+  animation: shine 1s ease forwards;
 }
 
 .btn-whatsapp:hover {
@@ -208,3 +245,20 @@ button {
 .bg-navy { background-color: var(--navy); color: var(--white); }
 .bg-navy .section-title { color: var(--white); }
 .bg-navy .section-desc { color: #CBD5E0; }
+
+/* Dynamic Animations Keyframes */
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}

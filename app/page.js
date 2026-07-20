@@ -52,12 +52,11 @@ export default function Home() {
 
   // Gallery items for preview
   const galleryItems = [
-    { id: 1, title: 'Professional Security Guard Patrol', category: 'Security Guards', src: '/hero_team.jpg' },
-    { id: 2, title: 'Corporate Facility Housekeeping', category: 'Housekeeping', src: '/hero_housekeeping.jpg' },
-    { id: 3, title: 'Control Room CCTV Surveillance', category: 'Industrial', src: '/hero_surveillance.jpg' },
-    { id: 4, title: 'Guard Formation & Inspection', category: 'Training', src: '/vmd_hero_formation.jpg' },
-    { id: 5, title: 'Residential Complex Protection', category: 'Corporate', src: '/vmd_hero_guard.jpg' },
-    { id: 6, title: 'Event Security Operations', category: 'Events', src: '/weblium_hero_bg.jpg' },
+    { id: 1, title: 'Guards in uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
+    { id: 2, title: 'Housekeeping staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
+    { id: 3, title: 'Office team', category: 'Corporate', src: '/office_team.jpg' },
+    { id: 4, title: 'Training sessions', category: 'Training', src: '/training_sessions.jpg' },
+    { id: 5, title: 'Client sites', category: 'Industrial', src: '/client_sites.jpg' },
   ];
 
   const filteredGallery = activeGalleryTab === 'All' 
@@ -200,8 +199,8 @@ export default function Home() {
       {/* 2. ABOUT SECTION */}
       <section id="about" className={`section ${styles.aboutSection}`}>
         <div className="container">
-          <FadeIn>
-            <div className={styles.aboutGrid}>
+          <div className={styles.aboutGrid}>
+            <FadeIn direction="left">
               <div className={styles.aboutImageCol}>
                 <div className={styles.aboutImageCard}>
                   <Image 
@@ -217,7 +216,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </FadeIn>
 
+            <FadeIn direction="right">
               <div className={styles.aboutTextCol}>
                 <span className="section-tag">About VMD Management Services</span>
                 <h2 className={styles.aboutHeading}>Enterprise Security & Operational Facility Excellence</h2>
@@ -261,8 +262,8 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -277,14 +278,14 @@ export default function Home() {
 
           <div className={styles.servicesGrid}>
             {[
-              { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={36} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/vmd_hero_guard.jpg' },
-              { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={36} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/hero_housekeeping.jpg' },
-              { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={36} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/hero_team.jpg' },
-              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/vmd_hero_formation.jpg' },
-              { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={36} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/weblium_hero_bg.jpg' },
-              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/hero_surveillance.jpg' },
-              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/vmd_hero_guard.jpg' },
-              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/hero_team.jpg' },
+              { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={36} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards.jpg' },
+              { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={36} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
+              { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={36} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
+              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/srv_supervisors.jpg' },
+              { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={36} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/srv_facility_mgmt.jpg' },
+              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/srv_industrial_security.jpg' },
+              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/srv_residential_security.jpg' },
+              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/srv_corporate_security.jpg' },
             ].map((srv, idx) => (
               <FadeIn key={srv.slug} delay={idx * 0.05}>
                 <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
@@ -344,16 +345,16 @@ export default function Home() {
 
           <div className={styles.industryGrid}>
             {[
-              { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/vmd_hero_guard.jpg' },
-              { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/hero_team.jpg' },
-              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/hero_surveillance.jpg' },
-              { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/weblium_hero_bg.jpg' },
-              { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/vmd_hero_formation.jpg' },
-              { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/hero_team.jpg' },
-              { title: 'Warehouses', icon: <Warehouse size={32} />, desc: 'Stock verification & perimeter guarding.', img: '/hero_surveillance.jpg' },
-              { title: 'Factories', icon: <Factory size={32} />, desc: 'Material gate pass & worker attendance control.', img: '/vmd_hero_housekeeping.jpg' },
-              { title: 'Hotels', icon: <Hotel size={32} />, desc: 'Guest security & valet management.', img: '/hero_housekeeping.jpg' },
-              { title: 'Construction Sites', icon: <HardHat size={32} />, desc: 'Raw material safeguarding & site entry tracking.', img: '/weblium_hero_bg.jpg' },
+              { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies.jpg' },
+              { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/ind_corporate_offices.jpg' },
+              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/srv_corporate_security.jpg' },
+              { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/srv_housekeeping.jpg' },
+              { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/srv_residential_security.jpg' },
+              { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/srv_security_guards.jpg' },
+              { title: 'Warehouses', icon: <Warehouse size={32} />, desc: 'Stock verification & perimeter guarding.', img: '/srv_industrial_security.jpg' },
+              { title: 'Factories', icon: <Factory size={32} />, desc: 'Material gate pass & worker attendance control.', img: '/srv_facility_mgmt.jpg' },
+              { title: 'Hotels', icon: <Hotel size={32} />, desc: 'Guest security & valet management.', img: '/srv_office_boys.jpg' },
+              { title: 'Construction Sites', icon: <HardHat size={32} />, desc: 'Raw material safeguarding & site entry tracking.', img: '/srv_supervisors.jpg' },
             ].map((ind, idx) => (
               <FadeIn key={ind.title} delay={idx * 0.05}>
                 <div className={styles.industryCard}>
@@ -440,10 +441,12 @@ export default function Home() {
 
           <div className={styles.clientLogosGrid}>
             {['Societies', 'IT Parks', 'Industrial Hubs', 'Hospitals', 'Logistics', 'Retail Outlets'].map((logo, idx) => (
-              <div key={idx} className={styles.clientLogoCard}>
-                <Building2 size={28} color="var(--navy)" />
-                <span>{logo} Partner</span>
-              </div>
+              <FadeIn key={idx} delay={idx * 0.1}>
+                <div className={styles.clientLogoCard}>
+                  <Building2 size={28} color="var(--navy)" />
+                  <span>{logo} Partner</span>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -537,7 +540,9 @@ export default function Home() {
             <p className="section-desc">Answers to common queries regarding guard deployment, compliance, and billing.</p>
           </div>
 
-          <FAQAccordion items={faqList} />
+          <FadeIn direction="up">
+            <FAQAccordion items={faqList} />
+          </FadeIn>
         </div>
       </section>
 

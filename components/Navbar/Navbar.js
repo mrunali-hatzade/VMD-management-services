@@ -65,6 +65,14 @@ export default function Navbar() {
     return false;
   };
 
+  const handleHomeClick = (e) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   const navItems = [
     { label: 'Home', href: '/', path: '/', section: 'home' },
     { label: 'About', href: '/about', path: '/about', section: 'about' },
@@ -81,7 +89,7 @@ export default function Navbar() {
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContainer}`}>
         {/* Logo Left */}
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={styles.logo} onClick={handleHomeClick}>
           <div className={styles.logoCard}>
             <Image src="/logo without name.png" alt="VMD Management Services" width={42} height={42} className={styles.logoImg} style={{ objectFit: 'contain' }} priority />
             <div className={styles.logoTextContainer}>
@@ -100,6 +108,7 @@ export default function Navbar() {
                 key={item.label} 
                 href={item.href} 
                 className={`${styles.navLink} ${active ? styles.activeNavLink : ''}`}
+                onClick={item.href === '/' ? handleHomeClick : undefined}
               >
                 {item.label}
               </Link>
@@ -138,7 +147,13 @@ export default function Navbar() {
                   key={item.label} 
                   href={item.href} 
                   className={`${styles.mobileNavLink} ${active ? styles.activeMobileNavLink : ''}`} 
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    if (item.href === '/') {
+                      handleHomeClick(e);
+                    } else {
+                      setIsOpen(false);
+                    }
+                  }}
                 >
                   {item.label}
                 </Link>
