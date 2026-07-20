@@ -1,55 +1,90 @@
-import Image from 'next/image';
-import styles from './gallery.module.css';
+"use client";
 
-export const metadata = {
-  title: 'Gallery | VMD Management Services',
-  description: 'View our team, training sessions, and client sites.',
-}
+import { useState } from 'react';
+import Image from 'next/image';
+import { Eye, ShieldCheck } from 'lucide-react';
+
+import styles from './gallery.module.css';
+import FadeIn from '../../components/FadeIn/FadeIn';
+import LightboxModal from '../../components/LightboxModal/LightboxModal';
+
+const fullGallery = [
+  { id: 1, title: 'Security Guard Patrol Drill', category: 'Security Guards', src: '/hero_team.jpg' },
+  { id: 2, title: 'Corporate Floor Housekeeping', category: 'Housekeeping', src: '/hero_housekeeping.jpg' },
+  { id: 3, title: 'Industrial Control Room Surveillance', category: 'Industrial', src: '/hero_surveillance.jpg' },
+  { id: 4, title: 'Guard Formation & Uniform Inspection', category: 'Training', src: '/vmd_hero_formation.jpg' },
+  { id: 5, title: 'Residential Gated Protection', category: 'Corporate', src: '/vmd_hero_guard.jpg' },
+  { id: 6, title: 'Special VIP Event Guarding', category: 'Events', src: '/weblium_hero_bg.jpg' },
+  { id: 7, title: 'Fire Extinguisher Training Drill', category: 'Training', src: '/vmd_hero_housekeeping.jpg' },
+  { id: 8, title: 'Commercial Office Access Control', category: 'Corporate', src: '/hero_team.jpg' },
+  { id: 9, title: 'Warehouse Material Audit Guarding', category: 'Industrial', src: '/hero_surveillance.jpg' },
+];
 
 export default function GalleryPage() {
-  const images = [
-    { category: 'Guards', src: 'https://placehold.co/600x400/0A1F3F/FFFFFF?text=Security+Guards' },
-    { category: 'Housekeeping', src: 'https://placehold.co/600x600/0A1F3F/FFFFFF?text=Housekeeping+Staff' },
-    { category: 'Office Team', src: 'https://placehold.co/800x600/0A1F3F/FFFFFF?text=Office+Team' },
-    { category: 'Training', src: 'https://placehold.co/600x800/0A1F3F/FFFFFF?text=Training+Session' },
-    { category: 'Client Sites', src: 'https://placehold.co/800x400/0A1F3F/FFFFFF?text=Client+Site+1' },
-    { category: 'Guards', src: 'https://placehold.co/600x600/0A1F3F/FFFFFF?text=Uniformed+Personnel' },
-  ];
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  const categories = ['All', 'Security Guards', 'Housekeeping', 'Training', 'Corporate', 'Industrial', 'Events'];
+
+  const filteredItems = activeCategory === 'All' 
+    ? fullGallery 
+    : fullGallery.filter(item => item.category === activeCategory);
 
   return (
-    <div>
-      <div className={styles.pageHeader}>
+    <div className={styles.page}>
+      {/* Banner */}
+      <section className={styles.banner}>
         <div className="container">
-          <h1>Our Gallery</h1>
-          <p>A Glimpse into Our Operations</p>
+          <FadeIn>
+            <div className={styles.bannerContent}>
+              <span className={styles.badge}>VISUAL EVIDENCE</span>
+              <h1>VMD On-Site Media Gallery</h1>
+              <p>Explore high-resolution captures of our security guarding operations, housekeeping teams, and guard training drills across Pune.</p>
+            </div>
+          </FadeIn>
         </div>
-      </div>
+      </section>
 
+      {/* Gallery Section */}
       <section className="section">
         <div className="container">
+          {/* Category Tabs */}
           <div className={styles.filterBar}>
-            <button className={`${styles.filterBtn} ${styles.active}`}>All</button>
-            <button className={styles.filterBtn}>Guards</button>
-            <button className={styles.filterBtn}>Housekeeping</button>
-            <button className={styles.filterBtn}>Office Team</button>
-            <button className={styles.filterBtn}>Training</button>
+            {categories.map((cat) => (
+              <button 
+                key={cat}
+                className={`${styles.filterBtn} ${activeCategory === cat ? styles.activeFilter : ''}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
 
-          <div className={styles.masonryGrid}>
-            {images.map((img, i) => (
-              <div key={i} className={styles.masonryItem}>
-                <div className={styles.imageWrapper}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img.src} alt={img.category} className={styles.image} />
+          {/* Masonry Grid */}
+          <div className={styles.galleryMasonry}>
+            {filteredItems.map((item) => (
+              <FadeIn key={item.id}>
+                <div className={styles.galleryItem} onClick={() => setSelectedImg(item)}>
+                  <Image src={item.src} alt={item.title} width={450} height={320} className={styles.img} />
                   <div className={styles.overlay}>
-                    <span>{img.category}</span>
+                    <Eye size={32} color="var(--gold)" />
+                    <span className={styles.itemCat}>{item.category}</span>
+                    <h3>{item.title}</h3>
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <LightboxModal 
+        isOpen={!!selectedImg}
+        image={selectedImg}
+        onClose={() => setSelectedImg(null)}
+      />
     </div>
   );
 }

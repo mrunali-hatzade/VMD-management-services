@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, FileText } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
@@ -24,22 +24,40 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.navContainer}`}>
+        {/* Logo Left */}
         <Link href="/" className={styles.logo}>
-          <Image src="/logo.png" alt="VMD Management Services" width={220} height={70} style={{ objectFit: 'contain', backgroundColor: 'white', padding: '4px', borderRadius: '4px' }} priority />
+          <div className={styles.logoCard}>
+            <Image src="/logo without name.png" alt="VMD Management Services" width={48} height={48} style={{ objectFit: 'contain' }} priority />
+            <div className={styles.logoTextContainer}>
+              <span className={styles.logoTextTitle}>VMD</span>
+              <span className={styles.logoTextSub}>MANAGEMENT SERVICES</span>
+            </div>
+          </div>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className={styles.desktopMenu}>
+        {/* Navigation Center */}
+        <nav className={styles.desktopMenu}>
           <Link href="/" className={styles.navLink}>Home</Link>
-          <Link href="/about" className={styles.navLink}>About Us</Link>
+          <Link href="/about" className={styles.navLink}>About</Link>
           <Link href="/services" className={styles.navLink}>Services</Link>
           <Link href="/industries" className={styles.navLink}>Industries</Link>
           <Link href="/gallery" className={styles.navLink}>Gallery</Link>
+          <Link href="/careers" className={styles.navLink}>Careers</Link>
+          <Link href="/blog" className={styles.navLink}>Blogs</Link>
           <Link href="/contact" className={styles.navLink}>Contact</Link>
-          <Link href="/contact" className="btn-primary">
-            Get a Quote
+        </nav>
+
+        {/* Right Side Buttons */}
+        <div className={styles.navButtons}>
+          <a href="tel:8459845730" className={styles.callBtn}>
+            <Phone size={16} />
+            <span>Call Now</span>
+          </a>
+          <Link href="/contact" className="btn-primary" style={{ padding: '0.65rem 1.25rem', fontSize: '0.85rem' }}>
+            <FileText size={16} />
+            <span>Request Quote</span>
           </Link>
         </div>
 
@@ -49,7 +67,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
 
         {/* Mobile Menu Drawer */}
@@ -60,14 +78,21 @@ export default function Navbar() {
             <Link href="/services" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Services</Link>
             <Link href="/industries" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Industries</Link>
             <Link href="/gallery" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Gallery</Link>
+            <Link href="/careers" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Careers</Link>
+            <Link href="/blog" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Blogs</Link>
             <Link href="/contact" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Contact</Link>
-            <a href="tel:8459845730" className={styles.mobileCallBtn}>
-              <Phone size={18} />
-              Call Now
-            </a>
+            
+            <div className={styles.mobileBtnGroup}>
+              <a href="tel:8459845730" className={styles.mobileCallBtn}>
+                <Phone size={18} /> Call Now
+              </a>
+              <Link href="/contact" className="btn-primary" style={{ width: '100%' }} onClick={() => setIsOpen(false)}>
+                Request Quote
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

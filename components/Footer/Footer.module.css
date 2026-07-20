@@ -1,17 +1,18 @@
 .footer {
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: var(--navy-dark);
+  color: #CBD5E0;
   padding-top: 5rem;
+  border-top: 1px solid rgba(212, 165, 44, 0.2);
 }
 
 .footerContainer {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  margin-bottom: 4rem;
+  padding-bottom: 4rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .footerContainer {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -19,41 +20,68 @@
 
 @media (min-width: 1024px) {
   .footerContainer {
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1.5fr 1fr 1.25fr 1.25fr;
   }
 }
 
-.footerLogo {
+.logoCard {
+  background-color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logoTextContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.logoTextTitle {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0066B2;
+  letter-spacing: 0.5px;
+}
+
+.logoTextSub {
+  font-size: 0.7rem;
   font-weight: 800;
-  color: var(--white);
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
+  color: #0066B2;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
 }
 
 .footerDescription {
-  color: var(--gray);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #A0AEC0;
   margin-bottom: 1.5rem;
 }
 
-.visionBadge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--navy);
+.trustBadgeInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 165, 44, 0.1);
+  border: 1px solid rgba(212, 165, 44, 0.3);
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
 }
 
 .columnTitle {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--white);
+  font-weight: 700;
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -64,50 +92,79 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40px;
+  width: 35px;
   height: 2px;
   background-color: var(--gold);
 }
 
-.linkList, .contactList {
+.linkList {
   list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.linkList li {
-  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .linkList a {
-  color: var(--gray);
-  transition: color 0.3s ease;
+  color: #CBD5E0;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .linkList a:hover {
   color: var(--gold);
-  padding-left: 5px;
+  transform: translateX(4px);
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .contactList li {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  color: var(--gray);
+  gap: 0.75rem;
+  font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .contactIcon {
   color: var(--gold);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.2rem;
 }
 
 .footerBottom {
-  background-color: var(--navy-light);
+  background-color: #050E1D;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.5rem 0;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #A0AEC0;
   text-align: center;
-  color: var(--gray);
-  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .bottomContainer {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.creditText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }

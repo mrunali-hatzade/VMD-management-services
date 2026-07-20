@@ -1,87 +1,173 @@
-.pageHeader {
-  background-color: var(--navy);
+.banner {
+  background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/vmd_hero_guard.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 8rem 0 5rem;
   color: var(--white);
-  padding: 120px 0 60px;
   text-align: center;
 }
 
-.pageHeader h1 {
-  color: var(--white);
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+.bannerContent {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.pageHeader p {
-  color: var(--gold);
-  font-size: 1.25rem;
+.badge {
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--gold);
+  background: rgba(212, 165, 44, 0.15);
+  border: 1px solid rgba(212, 165, 44, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
 }
 
-.servicesGrid {
+.bannerContent h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.bannerContent p {
+  font-size: 1.2rem;
+  color: #CBD5E0;
+  line-height: 1.6;
+}
+
+.grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .servicesGrid {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .servicesGrid {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--light-gray);
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+  border-color: var(--gold);
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .cardBg {
+  transform: scale(1.1);
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(14, 35, 69, 0.95) 50%, rgba(14, 35, 69, 0.4));
+}
+
+.cardBody {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem;
+  color: var(--white);
+}
+
+.iconCircle {
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.cardBody h3 {
+  color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.cardBody p {
+  color: #CBD5E0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.cardBtn {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.3s ease;
+}
+
+.cardBtn:hover {
+  gap: 0.65rem;
+}
+
+.standardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .standardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .standardsGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.serviceCard {
-  background-color: var(--off-white);
-  padding: 3rem 2rem;
-  border-radius: var(--border-radius);
-  transition: all 0.3s ease;
-  border-top: 4px solid transparent;
+.standardItem {
   display: flex;
-  flex-direction: column;
-}
-
-.serviceCard:hover {
-  background-color: var(--white);
-  box-shadow: var(--box-shadow-lg);
-  border-top-color: var(--gold);
-  transform: translateY(-5px);
-}
-
-.iconWrapper {
-  color: var(--navy);
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.serviceCard:hover .iconWrapper {
-  color: var(--gold);
-}
-
-.serviceCard h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.serviceCard p {
-  color: var(--gray);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.quoteLink {
-  color: var(--navy);
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  color: var(--white);
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  letter-spacing: 1px;
-}
-
-.quoteLink:hover {
-  color: var(--gold);
+  font-size: 0.95rem;
 }

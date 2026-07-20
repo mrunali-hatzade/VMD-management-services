@@ -1,20 +1,41 @@
-.pageHeader {
-  background-color: var(--navy);
+.banner {
+  background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/weblium_hero_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 8rem 0 5rem;
   color: var(--white);
-  padding: 120px 0 60px;
   text-align: center;
 }
 
-.pageHeader h1 {
-  color: var(--white);
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+.bannerContent {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.pageHeader p {
-  color: var(--gold);
-  font-size: 1.25rem;
+.badge {
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--gold);
+  background: rgba(212, 165, 44, 0.15);
+  border: 1px solid rgba(212, 165, 44, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.bannerContent h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.bannerContent p {
+  font-size: 1.2rem;
+  color: #CBD5E0;
+  line-height: 1.6;
 }
 
 .grid {
@@ -23,7 +44,7 @@
   gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -35,47 +56,71 @@
   }
 }
 
-.card {
-  border: 1px solid #E5E7EB;
-  border-radius: var(--border-radius);
-  padding: 2.5rem 1.5rem;
+.industryCard {
+  position: relative;
+  height: 280px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.4s ease;
+}
+
+.industryCard:hover {
+  transform: translateY(-8px);
+}
+
+.industryBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.industryCard:hover .industryBg {
+  transform: scale(1.1);
+}
+
+.industryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(14, 35, 69, 0.95) 40%, rgba(14, 35, 69, 0.4));
+}
+
+.industryContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--white);
   text-align: center;
-  transition: all 0.3s ease;
 }
 
-.card:hover {
-  background-color: var(--navy);
-  color: var(--white);
-  transform: translateY(-5px);
-  box-shadow: var(--box-shadow-lg);
-}
-
-.icon {
-  color: var(--navy);
-  margin-bottom: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.card:hover .icon {
+.industryIcon {
   color: var(--gold);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: center;
 }
 
-.card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  transition: color 0.3s ease;
-}
-
-.card:hover h3 {
+.industryContent h3 {
   color: var(--white);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
 }
 
-.card p {
-  color: var(--gray);
+.industryContent p {
+  font-size: 0.9rem;
+  color: #CBD5E0;
   line-height: 1.5;
-  transition: color 0.3s ease;
-}
-
-.card:hover p {
-  color: #D1D5DB;
 }

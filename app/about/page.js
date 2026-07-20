@@ -1,98 +1,131 @@
-import Link from 'next/link';
-import { Target, Eye, Shield, Award, Users } from 'lucide-react';
-import styles from './about.module.css';
+"use client";
 
-export const metadata = {
-  title: 'About Us | VMD Management Services',
-  description: 'Learn about VMD Management Services, our mission, vision, and the AS Group of Companies roadmap.',
-}
+import Image from 'next/image';
+import Link from 'next/link';
+import { 
+  ShieldCheck, Award, Eye, Sparkles, UserCheck, HeartHandshake, CheckCircle2, 
+  ArrowRight, Phone, MessageCircle, FileText, Building2, Users
+} from 'lucide-react';
+
+import styles from './about.module.css';
+import FadeIn from '../../components/FadeIn/FadeIn';
 
 export default function AboutPage() {
   return (
-    <div>
-      {/* PAGE HEADER */}
-      <div className={styles.pageHeader}>
+    <div className={styles.page}>
+      {/* Banner */}
+      <section className={styles.banner}>
         <div className="container">
-          <h1>About Us</h1>
-          <p>Service • Trust • Safety</p>
-        </div>
-      </div>
-
-      {/* INTRODUCTION */}
-      <section className="section">
-        <div className="container">
-          <div className={styles.introLayout}>
-            <div>
-              <h2 className="section-title" style={{ textAlign: 'left', left: 0, transform: 'none' }}>Who We Are</h2>
-              <p className={styles.leadText}>
-                VMD Management Services is a leading provider of security and facility management solutions in Pune. 
-                With a commitment to excellence, we safeguard your assets and ensure your premises run smoothly.
-              </p>
-              <p className={styles.paragraph}>
-                Founded with a vision to redefine the standards of security and facility management, 
-                our team brings together industry experts, rigorously trained personnel, and modern management practices. 
-                Whether you need dedicated security guards for a residential society or comprehensive facility management 
-                for a corporate office, we have the expertise to deliver.
-              </p>
+          <FadeIn>
+            <div className={styles.bannerContent}>
+              <span className={styles.badge}>ISO 9001:2015 CERTIFIED</span>
+              <h1>About VMD Management Services</h1>
+              <p>Delivering high-vigilance security guarding and commercial facility management across Pune & Maharashtra since 2014.</p>
             </div>
-            <div className={styles.visionCard}>
-              <h3>Future Vision</h3>
-              <h2>AS Group of Companies</h2>
-              <p>
-                Our journey doesn't stop here. VMD Management Services is on a strategic growth path to become the 
-                <strong> AS Group of Companies</strong>. This evolution will allow us to offer an even broader spectrum 
-                of professional services, creating a unified ecosystem of trust, safety, and operational excellence 
-                across Maharashtra.
-              </p>
-            </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* MISSION & VISION */}
+      {/* Main Overview & Image */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div className={styles.grid2Col}>
+              <div className={styles.imageBox}>
+                <Image 
+                  src="/hero_team.jpg" 
+                  alt="VMD Management Staff" 
+                  width={600} 
+                  height={450} 
+                  className={styles.img}
+                />
+                <div className={styles.expCard}>
+                  <h3>10+</h3>
+                  <p>Years of Service Excellence</p>
+                </div>
+              </div>
+
+              <div className={styles.contentBox}>
+                <span className="section-tag">Corporate Profile</span>
+                <h2>Maharashtra’s Leading Security & Facility Partner</h2>
+                <p>
+                  VMD Management Services was established with a singular vision: to revolutionize physical guarding and soft facility management through strict discipline, continuous field supervision, and comprehensive statutory compliance.
+                </p>
+                <p>
+                  Over the past decade, we have grown into a 500+ strong workforce protecting high-end residential societies, multi-national IT parks, manufacturing plants, and healthcare institutions.
+                </p>
+
+                <div className={styles.keyBadges}>
+                  <div className={styles.badgeItem}><CheckCircle2 color="var(--gold)" /> 100% Police Verified Personnel</div>
+                  <div className={styles.badgeItem}><CheckCircle2 color="var(--gold)" /> Statutory PF, ESIC & GST Compliant</div>
+                  <div className={styles.badgeItem}><CheckCircle2 color="var(--gold)" /> 24/7 Mobile Patrol Supervision</div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Mission Vision Values */}
       <section className="section bg-off-white">
         <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Foundation of Trust</span>
+            <h2 className="section-title">Mission, Vision & Core Values</h2>
+          </div>
+
           <div className={styles.mvGrid}>
-            <div className={styles.mvCard}>
-              <Target size={48} className={styles.iconGold} />
-              <h3>Our Mission</h3>
-              <p>
-                To provide unparalleled security and facility management services that exceed client expectations 
-                through rigorous training, technological integration, and unwavering dedication to safety and hygiene.
-              </p>
-            </div>
-            <div className={styles.mvCard}>
-              <Eye size={48} className={styles.iconGold} />
-              <h3>Our Vision</h3>
-              <p>
-                To be the most trusted and preferred partner for security and facility management in India, 
-                ultimately growing into the multifaceted AS Group of Companies to serve a wider array of client needs.
-              </p>
+            <FadeIn delay={0.1}>
+              <div className={styles.mvBox}>
+                <Eye size={36} color="var(--gold)" />
+                <h3>Our Vision</h3>
+                <p>To be the most trusted, reliable, and technology-empowered security and facility service provider across western India.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className={styles.mvBox}>
+                <Sparkles size={36} color="var(--gold)" />
+                <h3>Our Mission</h3>
+                <p>Safeguarding lives, property, and corporate assets through proactive vigilance, trained staff, and quick emergency response.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className={styles.mvBox}>
+                <Award size={36} color="var(--gold)" />
+                <h3>Quality Policy</h3>
+                <p>Continuous operational audits, strict guard grooming, and zero-tolerance toward absenteeism or negligence.</p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Core Values */}
+          <div className={styles.valuesWrapper}>
+            <h3>Our Core Operating Values</h3>
+            <div className={styles.valuesGrid}>
+              <div className={styles.valItem}><ShieldCheck size={24} /> <strong>Integrity</strong> - Uncompromising honesty in duty and gate reporting.</div>
+              <div className={styles.valItem}><Award size={24} /> <strong>Discipline</strong> - Punctual shifts, clean uniforms, and sharp posture.</div>
+              <div className={styles.valItem}><CheckCircle2 size={24} /> <strong>Reliability</strong> - Guaranteed backup replacements within 2 hours.</div>
+              <div className={styles.valItem}><HeartHandshake size={24} /> <strong>Customer First</strong> - Dedicated account managers for instant query resolution.</div>
+              <div className={styles.valItem}><UserCheck size={24} /> <strong>Professionalism</strong> - Respectful communication with residents and office staff.</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CORE VALUES */}
-      <section className="section">
-        <div className="container text-center">
-          <h2 className="section-title">Our Core Values</h2>
-          <div className={styles.valuesGrid}>
-            <div className={styles.valueItem}>
-              <Shield size={32} className={styles.iconNavy} />
-              <h4>Integrity</h4>
-              <p>We act with honesty and transparency in all our dealings.</p>
-            </div>
-            <div className={styles.valueItem}>
-              <Award size={32} className={styles.iconNavy} />
-              <h4>Excellence</h4>
-              <p>We strive for the highest quality in every service we provide.</p>
-            </div>
-            <div className={styles.valueItem}>
-              <Users size={32} className={styles.iconNavy} />
-              <h4>Client-Centric</h4>
-              <p>Your safety and satisfaction are at the heart of our operations.</p>
-            </div>
+      {/* CTA Section */}
+      <section className="section bg-navy" style={{ textAlign: 'center' }}>
+        <div className="container">
+          <h2 style={{ color: 'var(--white)', fontSize: '2.5rem', marginBottom: '1rem' }}>Partner With VMD Management Services</h2>
+          <p style={{ color: '#CBD5E0', fontSize: '1.2rem', marginBottom: '2rem' }}>Experience seamless security guarding and commercial facility management today.</p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/contact" className="btn-primary">
+              <FileText size={18} /> Request Free Quotation
+            </Link>
+            <a href="tel:8459845730" className="btn-white">
+              <Phone size={18} /> Speak to Operations
+            </a>
           </div>
         </div>
       </section>

@@ -1,106 +1,177 @@
-.pageHeader {
-  background-color: var(--navy);
+.banner {
+  background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/hero_surveillance.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 8rem 0 5rem;
   color: var(--white);
-  padding: 120px 0 60px;
   text-align: center;
 }
 
-.pageHeader h1 {
-  color: var(--white);
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+.bannerContent {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.pageHeader p {
-  color: var(--gold);
-  font-size: 1.25rem;
+.badge {
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--gold);
+  background: rgba(212, 165, 44, 0.15);
+  border: 1px solid rgba(212, 165, 44, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.bannerContent h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.bannerContent p {
+  font-size: 1.2rem;
+  color: #CBD5E0;
+  line-height: 1.6;
+}
+
+.categoryFilter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.catBtn {
+  background: var(--off-white);
+  color: var(--navy);
+  padding: 0.65rem 1.35rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--light-gray);
+}
+
+.catBtn:hover, .activeCat {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
 }
 
 .blogGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .blogGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (min-width: 1024px) {
+  .blogGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .blogCard {
-  background-color: var(--white);
-  border-radius: var(--border-radius);
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--box-shadow);
+  border: 1px solid var(--light-gray);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blogCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: var(--box-shadow-lg);
+  border-color: var(--gold);
+}
+
+.cardImageWrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blogCard:hover .cardImg {
+  transform: scale(1.08);
+}
+
+.catBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .cardContent {
-  padding: 2.5rem 2rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
-.categoryBadge {
-  display: inline-block;
-  background-color: rgba(212, 168, 67, 0.15);
-  color: var(--gold);
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
+.metaRow {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--gray-light);
+  margin-bottom: 0.85rem;
+}
+
+.metaRow span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .postTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.postTitle a {
+  font-size: 1.25rem;
+  font-weight: 800;
   color: var(--navy);
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
 }
 
-.postTitle a:hover {
-  color: var(--gold);
-}
-
-.postMeta {
-  display: flex;
-  gap: 1.5rem;
-  color: var(--gray);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-}
-
-.postMeta span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.postExcerpt {
+.excerpt {
+  font-size: 0.92rem;
   color: var(--gray);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.readMore {
+.readMoreBtn {
+  color: var(--gold-hover);
+  font-weight: 700;
+  font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  color: var(--navy);
-  font-weight: 600;
-  font-size: 0.875rem;
-}
-
-.readMore:hover {
-  color: var(--gold);
+  gap: 0.35rem;
 }

@@ -1,113 +1,246 @@
 "use client";
 
 import { useState } from 'react';
-import { Upload, CheckCircle2 } from 'lucide-react';
+import { 
+  Users, Award, ShieldCheck, CheckCircle2, FileCheck, Upload, 
+  Send, Phone, Building2, Check
+} from 'lucide-react';
+
 import styles from './careers.module.css';
+import FadeIn from '../../components/FadeIn/FadeIn';
 
 export default function CareersPage() {
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     phone: '',
-    experience: '0-2 years',
-    position: 'Security Guard'
+    email: '',
+    experience: '1-3 Years',
+    position: 'Security Guard',
+    address: '',
+    notes: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Application submitted successfully!');
-    setFormData({ name: '', phone: '', experience: '0-2 years', position: 'Security Guard' });
+    alert('Thank you for applying to VMD Management Services. Our HR team will review your application and contact you for an interview.');
+    setFormData({ fullName: '', phone: '', email: '', experience: '1-3 Years', position: 'Security Guard', address: '', notes: '' });
   };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const documents = [
-    'Aadhaar Card',
-    'PAN Card',
-    'Police Verification Certificate',
-    '4 Passport Size Photos',
-    'Bank Passbook Copy',
-    'Previous Experience Letter (if any)'
-  ];
 
   return (
-    <div>
-      <div className={styles.pageHeader}>
+    <div className={styles.page}>
+      {/* Banner */}
+      <section className={styles.banner}>
         <div className="container">
-          <h1>Careers</h1>
-          <p>Join as a Security Guard or Facility Staff</p>
+          <FadeIn>
+            <div className={styles.bannerContent}>
+              <span className={styles.badge}>EXCELLENT GROWTH & SALARY</span>
+              <h1>Join Our Security & Facility Team</h1>
+              <p>Build a rewarding corporate career with Pune's premier security and facility management agency.</p>
+            </div>
+          </FadeIn>
         </div>
-      </div>
+      </section>
 
+      {/* Benefits & Training */}
       <section className="section">
         <div className="container">
-          <div className={styles.layout}>
-            {/* Form Section */}
-            <div className={styles.formSection}>
-              <h2>Apply Online</h2>
-              <form onSubmit={handleSubmit} className={styles.applicationForm}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="name">Full Name</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
-                </div>
-                <div className={styles.formRow}>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="position">Applying For</label>
-                    <select id="position" name="position" value={formData.position} onChange={handleChange}>
-                      <option value="Security Guard">Security Guard</option>
-                      <option value="Supervisor">Supervisor</option>
-                      <option value="Housekeeping">Housekeeping Staff</option>
-                      <option value="Office Boy">Office Boy</option>
-                    </select>
-                  </div>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="experience">Experience</label>
-                    <select id="experience" name="experience" value={formData.experience} onChange={handleChange}>
-                      <option value="Fresher">Fresher</option>
-                      <option value="0-2 years">0-2 years</option>
-                      <option value="2-5 years">2-5 years</option>
-                      <option value="5+ years">5+ years</option>
-                    </select>
-                  </div>
-                </div>
-                <div className={styles.formGroup}>
-                  <label>Upload Resume / Bio-data</label>
-                  <div className={styles.fileUpload}>
-                    <Upload size={24} className={styles.uploadIcon} />
-                    <span>Click to browse or drag and drop your file</span>
-                    <input type="file" className={styles.hiddenInput} />
-                  </div>
-                </div>
-                <button type="submit" className="btn-primary" style={{ width: '100%' }}>Submit Application</button>
-              </form>
-            </div>
+          <div className="section-header">
+            <span className="section-tag">Why Work With VMD</span>
+            <h2 className="section-title">Career Benefits & Staff Welfare</h2>
+            <p className="section-desc">We value our workforce with timely salaries, EPF, ESIC insurance, accommodation support, and rapid promotion paths.</p>
+          </div>
 
-            {/* Info Section */}
-            <div className={styles.infoSection}>
-              <h2>Required Documents</h2>
-              <p className={styles.infoText}>
-                Please ensure you have the following original documents and their photocopies ready when called for an interview.
-              </p>
-              <ul className={styles.docList}>
-                {documents.map((doc, i) => (
-                  <li key={i}>
-                    <CheckCircle2 className={styles.checkIcon} size={20} />
-                    <span>{doc}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className={styles.contactCard}>
-                <h3>Need Help?</h3>
-                <p>Call our HR department directly:</p>
-                <a href="tel:8459845730" className={styles.phoneLink}>8459845730</a>
+          <div className={styles.benefitsGrid}>
+            <FadeIn delay={0.1}>
+              <div className={styles.benefitCard}>
+                <Award size={36} color="var(--gold)" />
+                <h3>On-Time Monthly Salary</h3>
+                <p>Guaranteed bank transfer on or before 10th of every month without delays.</p>
               </div>
-            </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className={styles.benefitCard}>
+                <ShieldCheck size={36} color="var(--gold)" />
+                <h3>PF & ESIC Medical Benefits</h3>
+                <p>Full ESI medical coverage for you and your family plus Provident Fund savings.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className={styles.benefitCard}>
+                <Users size={36} color="var(--gold)" />
+                <h3>Professional Training</h3>
+                <p>Free physical drill, fire safety, access control, and etiquette training sessions.</p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className={styles.benefitCard}>
+                <Building2 size={36} color="var(--gold)" />
+                <h3>Career Advancement</h3>
+                <p>Clear promotion pathways from Security Guard → Head Guard → Field Supervisor → Operations Manager.</p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Application Form & Documents Checklist Section */}
+      <section className="section bg-off-white">
+        <div className="container">
+          <div className={styles.applicationGrid}>
+            {/* Required Documents checklist */}
+            <FadeIn direction="right">
+              <div className={styles.docBox}>
+                <span className="section-tag" style={{ color: 'var(--gold)' }}>Requirement Checklist</span>
+                <h3>Mandatory Documents for Joining</h3>
+                <p>Please bring original and xerox copies of the following documents during your walk-in interview:</p>
+
+                <div className={styles.docList}>
+                  <div className={styles.docItem}>
+                    <CheckCircle2 size={22} color="var(--gold)" />
+                    <div>
+                      <strong>Aadhaar Card</strong>
+                      <p>Valid UIDAI card with correct date of birth.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.docItem}>
+                    <CheckCircle2 size={22} color="var(--gold)" />
+                    <div>
+                      <strong>PAN Card</strong>
+                      <p>For EPF account creation and tax filing.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.docItem}>
+                    <CheckCircle2 size={22} color="var(--gold)" />
+                    <div>
+                      <strong>Police Verification Certificate</strong>
+                      <p>Character certificate from your local police station.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.docItem}>
+                    <CheckCircle2 size={22} color="var(--gold)" />
+                    <div>
+                      <strong>Updated Resume & Educational Marksheet</strong>
+                      <p>10th / 12th pass certificate for supervisor roles.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.docItem}>
+                    <CheckCircle2 size={22} color="var(--gold)" />
+                    <div>
+                      <strong>4 Passport Size Photographs</strong>
+                      <p>In clean background for ID card & EPF files.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.hrCallBox}>
+                  <Phone size={20} color="var(--gold)" />
+                  <div>
+                    <strong>HR Recruitment Helpline</strong>
+                    <p>Call 8459845730 for direct walk-in details.</p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Application Form */}
+            <FadeIn direction="left">
+              <div className={styles.formCard}>
+                <h3>Submit Your Application</h3>
+                <p>Fill out the form below and our HR recruitment manager will contact you for an interview.</p>
+
+                <form onSubmit={handleSubmit}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="fullName">Full Name *</label>
+                    <input 
+                      type="text" 
+                      id="fullName" 
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      placeholder="e.g. Ramesh Kumar" 
+                      required 
+                    />
+                  </div>
+
+                  <div className={styles.formRow}>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="phone">Phone Number *</label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="Mobile Number" 
+                        required 
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="email">Email Address</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="Optional" 
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formRow}>
+                    <div className={styles.formGroup}>
+                      <label htmlFor="position">Position Applied For *</label>
+                      <select 
+                        id="position"
+                        value={formData.position}
+                        onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                      >
+                        <option value="Security Guard">Security Guard</option>
+                        <option value="Housekeeping Staff">Housekeeping Staff</option>
+                        <option value="Office Boy">Office Boy</option>
+                        <option value="Field Supervisor">Field Supervisor</option>
+                        <option value="Facility Manager">Facility Manager</option>
+                      </select>
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label htmlFor="experience">Prior Experience</label>
+                      <select 
+                        id="experience"
+                        value={formData.experience}
+                        onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                      >
+                        <option value="Freshers">Fresher</option>
+                        <option value="1-3 Years">1 - 3 Years</option>
+                        <option value="3-5 Years">3 - 5 Years</option>
+                        <option value="5+ Years">5+ Years</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label htmlFor="address">Current City / Location in Pune *</label>
+                    <input 
+                      type="text" 
+                      id="address" 
+                      value={formData.address}
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                      placeholder="e.g. Hadapsar, Kothrud, Chinchwad" 
+                      required 
+                    />
+                  </div>
+
+                  <button type="submit" className="btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
+                    <Send size={18} /> Submit Candidate Profile
+                  </button>
+                </form>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
