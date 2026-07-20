@@ -114,7 +114,37 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Why Choose VMD */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">The VMD Advantage</span>
+            <h2 className="section-title">Why Choose VMD Management Services</h2>
+            <p className="section-desc">Our commitment to rigorous standards, accountability, and rapid deployment sets us apart from the competition.</p>
+          </div>
+
+          <div className={styles.whyGrid}>
+            {[
+              { icon: <ShieldCheck size={32} />, title: 'Police Verified Guards', desc: 'Every guard undergoes mandatory local police station character verification before deployment.' },
+              { icon: <Users size={32} />, title: 'Trained & Uniformed Staff', desc: 'Standardized uniforms, ID badges, and regular physical drill and fire safety training.' },
+              { icon: <CheckCircle2 size={32} />, title: 'Quick Replacement', desc: 'Guaranteed backup guard replacement within 2 hours in case of absenteeism.' },
+              { icon: <Eye size={32} />, title: 'Surprise Night Audits', desc: 'Field supervisors conduct unannounced day & night patrols to audit guard alertness.' },
+              { icon: <Award size={32} />, title: 'Statutory Compliance', desc: 'Full adherence to PF, ESIC, GST, and Maharashtra State Minimum Wages regulations.' },
+              { icon: <Building2 size={32} />, title: 'Dedicated Account Manager', desc: 'Single point of contact for instant query resolution and seamless communication.' },
+              { icon: <UserCheck size={32} />, title: 'Background Verification', desc: 'Thorough Aadhaar validation, address verification, and previous employment checks.' },
+              { icon: <HeartHandshake size={32} />, title: '24×7 Emergency Support', desc: 'Quick Response Team (QRT) on standby round the clock for critical incident handling.' },
+            ].map((item, idx) => (
+              <FadeIn key={idx} delay={idx * 0.05}>
+                <div className={styles.whyCard}>
+                  <div className={styles.whyIcon}>{item.icon}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section bg-navy" style={{ textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ color: 'var(--white)', fontSize: '2.5rem', marginBottom: '1rem' }}>Partner With VMD Management Services</h2>

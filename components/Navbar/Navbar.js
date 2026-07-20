@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, FileText } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
@@ -9,6 +10,8 @@ import styles from './Navbar.module.css';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +20,62 @@ export default function Navbar() {
       } else {
         setScrolled(false);
       }
+
+      // Scroll spy for homepage sections
+      if (pathname === '/') {
+        const sections = ['about', 'services', 'industries', 'testimonials', 'gallery', 'contact'];
+        const scrollPosition = window.scrollY + 200;
+
+        let current = 'home';
+        for (const section of sections) {
+          const el = document.getElementById(section);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+              current = section;
+              break;
+            }
+          }
+        }
+        setActiveSection(current);
+      }
     };
     
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
+
+  const isLinkActive = (item) => {
+    // On the homepage, use scroll spy to highlight section-based items
+    if (pathname === '/') {
+      if (item.section) {
+        return activeSection === item.section;
+      }
+      return false;
+    }
+    // On other pages, match by pathname
+    if (item.path === '/') {
+      return false; // Don't highlight Home on sub-pages
+    }
+    if (pathname === item.path || pathname.startsWith(item.path + '/')) {
+      return true;
+    }
+    return false;
+  };
+
+  const navItems = [
+    { label: 'Home', href: '/', path: '/', section: 'home' },
+    { label: 'About', href: '/about', path: '/about', section: 'about' },
+    { label: 'Services', href: '/services', path: '/services', section: 'services' },
+    { label: 'Industries', href: '/industries', path: '/industries', section: 'industries' },
+    { label: 'Testimonials', href: '/#testimonials', path: '/#testimonials', section: 'testimonials' },
+    { label: 'Gallery', href: '/gallery', path: '/gallery', section: 'gallery' },
+    { label: 'Careers', href: '/careers', path: '/careers', section: 'careers' },
+    { label: 'Blogs', href: '/blog', path: '/blog', section: 'blog' },
+    { label: 'Contact', href: '/contact', path: '/contact', section: 'contact' },
+  ];
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
@@ -39,14 +93,18 @@ export default function Navbar() {
 
         {/* Navigation Center */}
         <nav className={styles.desktopMenu}>
-          <Link href="/" className={styles.navLink}>Home</Link>
-          <Link href="/about" className={styles.navLink}>About</Link>
-          <Link href="/services" className={styles.navLink}>Services</Link>
-          <Link href="/industries" className={styles.navLink}>Industries</Link>
-          <Link href="/gallery" className={styles.navLink}>Gallery</Link>
-          <Link href="/careers" className={styles.navLink}>Careers</Link>
-          <Link href="/blog" className={styles.navLink}>Blogs</Link>
-          <Link href="/contact" className={styles.navLink}>Contact</Link>
+          {navItems.map((item) => {
+            const active = isLinkActive(item);
+            return (
+              <Link 
+                key={item.label} 
+                href={item.href} 
+                className={`${styles.navLink} ${active ? styles.activeNavLink : ''}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Side Buttons */}
@@ -73,14 +131,19 @@ export default function Navbar() {
         {/* Mobile Menu Drawer */}
         <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
           <div className={styles.mobileMenuInner}>
-            <Link href="/" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/about" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>About Us</Link>
-            <Link href="/services" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Services</Link>
-            <Link href="/industries" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Industries</Link>
-            <Link href="/gallery" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Gallery</Link>
-            <Link href="/careers" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Careers</Link>
-            <Link href="/blog" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Blogs</Link>
-            <Link href="/contact" className={styles.mobileNavLink} onClick={() => setIsOpen(false)}>Contact</Link>
+            {navItems.map((item) => {
+              const active = isLinkActive(item);
+              return (
+                <Link 
+                  key={item.label} 
+                  href={item.href} 
+                  className={`${styles.mobileNavLink} ${active ? styles.activeMobileNavLink : ''}`} 
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             
             <div className={styles.mobileBtnGroup}>
               <a href="tel:8459845730" className={styles.mobileCallBtn}>

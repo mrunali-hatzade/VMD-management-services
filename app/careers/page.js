@@ -41,6 +41,63 @@ export default function CareersPage() {
         </div>
       </section>
 
+      {/* Join as Security Guard Feature Section */}
+      <section className={`section ${styles.guardJoinSection}`}>
+        <div className="container">
+          <FadeIn>
+            <div className={styles.guardJoinCard}>
+              <div className={styles.guardJoinHeader}>
+                <div className={styles.guardBadge}>
+                  <ShieldCheck size={20} color="var(--gold)" /> Immediate Openings
+                </div>
+                <h2>Join as Security Guard in Pune</h2>
+                <p>We are actively recruiting physically fit, disciplined, and police-verified Security Guards & Supervisors for immediate site deployment across Pune, Chinchwad, and Hadapsar.</p>
+              </div>
+
+              <div className={styles.guardHighlightGrid}>
+                <div className={styles.guardHighlightItem}>
+                  <CheckCircle2 size={24} color="var(--gold)" />
+                  <div>
+                    <strong>Monthly Salary: ₹15,000 - ₹25,000</strong>
+                    <p>On-time bank payment + Overtime (OT) benefits.</p>
+                  </div>
+                </div>
+                <div className={styles.guardHighlightItem}>
+                  <CheckCircle2 size={24} color="var(--gold)" />
+                  <div>
+                    <strong>8-Hour & 12-Hour Duty Shifts</strong>
+                    <p>Day & Night shifts available in IT Parks & Societies.</p>
+                  </div>
+                </div>
+                <div className={styles.guardHighlightItem}>
+                  <CheckCircle2 size={24} color="var(--gold)" />
+                  <div>
+                    <strong>Free Uniform & Accommodation Support</strong>
+                    <p>Complete uniform kit & hostel facility assistance.</p>
+                  </div>
+                </div>
+                <div className={styles.guardHighlightItem}>
+                  <CheckCircle2 size={24} color="var(--gold)" />
+                  <div>
+                    <strong>Spot Joining & EPF/ESI Medical</strong>
+                    <p>Immediate joining upon document & police verification.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.guardCtaRow}>
+                <a href="tel:8459845730" className="btn-primary">
+                  <Phone size={18} /> Call Recruitment HR: 8459845730
+                </a>
+                <a href="https://wa.me/918459845730?text=Hi%2C%20I%20want%20to%20join%20as%20Security%20Guard" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                  <Send size={18} /> Apply via WhatsApp
+                </a>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Benefits & Training */}
       <section className="section">
         <div className="container">

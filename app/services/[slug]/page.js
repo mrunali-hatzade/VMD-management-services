@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ShieldCheck, Users, Briefcase, Building2, UserCheck, Factory, MapPin, Building,
-  CheckCircle2, ArrowRight, Phone, MessageCircle, HelpCircle
+  CheckCircle2, ArrowRight, ArrowLeft, Phone, MessageCircle, HelpCircle
 } from 'lucide-react';
 
 import styles from './service.module.css';
@@ -223,10 +223,16 @@ export default function ServiceDetailPage({ params }) {
         <div className="container">
           <FadeIn>
             <div className={styles.bannerContent}>
+              <Link href="/services" className={styles.backBreadcrumb}>
+                <ArrowLeft size={16} /> All Services / {service.title}
+              </Link>
               <div className={styles.bannerIcon}>{service.icon}</div>
               <h1>{service.title}</h1>
               <p>{service.subtitle}</p>
               <div className={styles.btnGroup}>
+                <Link href="/services" className="btn-white">
+                  <ArrowLeft size={18} /> Back to Services
+                </Link>
                 <Link href="/contact" className="btn-primary">
                   Request Service Quote &rarr;
                 </Link>
@@ -288,7 +294,7 @@ export default function ServiceDetailPage({ params }) {
                     <a href="tel:8459845730" className="btn-primary" style={{ width: '100%' }}>
                       <Phone size={16} /> 8459845730
                     </a>
-                    <a href="https://wa.me/918799859129" target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
+                    <a href={`https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
                       <MessageCircle size={16} /> WhatsApp Us
                     </a>
                   </div>

@@ -2,7 +2,7 @@
   background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/vmd_hero_formation.jpg');
   background-size: cover;
   background-position: center;
-  padding: 8rem 0 5rem;
+  padding: 6rem 0 3.5rem;
   color: var(--white);
   text-align: center;
 }

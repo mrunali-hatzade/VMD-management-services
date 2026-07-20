@@ -100,6 +100,19 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className={styles.heroTagline}
+          >
+            <span>Service</span>
+            <span className={styles.taglineDot}>•</span>
+            <span>Trust</span>
+            <span className={styles.taglineDot}>•</span>
+            <span>Safety</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
             className={styles.heroBadge}
           >
             <ShieldCheck size={18} color="var(--gold)" />
@@ -136,7 +149,7 @@ export default function Home() {
             <a href="tel:8459845730" className="btn-white">
               <Phone size={18} /> Call Now
             </a>
-            <a href="https://wa.me/918799859129" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+            <a href="https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
               <MessageCircle size={18} /> WhatsApp
             </a>
           </motion.div>
@@ -185,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* 2. ABOUT SECTION */}
-      <section className={`section ${styles.aboutSection}`}>
+      <section id="about" className={`section ${styles.aboutSection}`}>
         <div className="container">
           <FadeIn>
             <div className={styles.aboutGrid}>
@@ -254,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* 3. SERVICES SECTION */}
-      <section className="section bg-off-white">
+      <section id="services" className="section bg-off-white">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">What We Deliver</span>
@@ -274,17 +287,19 @@ export default function Home() {
               { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/hero_team.jpg' },
             ].map((srv, idx) => (
               <FadeIn key={srv.slug} delay={idx * 0.05}>
-                <div className={styles.serviceCard}>
-                  <div className={styles.serviceBgImage} style={{ backgroundImage: `url(${srv.img})` }}></div>
-                  <div className={styles.serviceCardContent}>
-                    <div className={styles.serviceIcon}>{srv.icon}</div>
-                    <h3>{srv.title}</h3>
-                    <p>{srv.desc}</p>
-                    <Link href={`/services/${srv.slug}`} className={styles.serviceLink}>
-                      Learn More <ChevronRight size={16} />
-                    </Link>
+                <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
+                  <div className={styles.serviceCard}>
+                    <div className={styles.serviceBgImage} style={{ backgroundImage: `url(${srv.img})` }}></div>
+                    <div className={styles.serviceCardContent}>
+                      <div className={styles.serviceIcon}>{srv.icon}</div>
+                      <h3>{srv.title}</h3>
+                      <p>{srv.desc}</p>
+                      <span className={styles.serviceLink}>
+                        Learn More <ChevronRight size={16} />
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </FadeIn>
             ))}
           </div>
@@ -318,40 +333,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. OUR PROCESS (HOW WE WORK TIMELINE) */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">How We Work</span>
-            <h2 className="section-title">Our Structured 6-Step Process</h2>
-            <p className="section-desc">From initial site survey to active monitoring, we ensure seamless operational deployment.</p>
-          </div>
-
-          <div className={styles.timelineWrapper}>
-            {[
-              { step: '01', title: 'Requirement Discussion', desc: 'Understanding your security scope, shift timings, and specific manpower needs.' },
-              { step: '02', title: 'Site Visit & Audit', desc: 'Comprehensive inspection of entry/exit points, risks, and guard posts.' },
-              { step: '03', title: 'Risk Assessment', desc: 'Formulating site-specific SOPs, visitor logs, and emergency protocols.' },
-              { step: '04', title: 'Proposal & Approval', desc: 'Transparent SLA and competitive quotation tailored to your budget.' },
-              { step: '05', title: 'Staff Deployment', desc: 'Deploying police-verified, uniformed, and post-briefed security personnel.' },
-              { step: '06', title: 'Continuous Monitoring', desc: 'Daily supervisor checks, night surprise audits, and monthly client reviews.' },
-            ].map((step, idx) => (
-              <FadeIn key={step.step} delay={idx * 0.1} direction="up">
-                <div className={styles.timelineItem}>
-                  <div className={styles.stepBadge}>{step.step}</div>
-                  <div className={styles.timelineContent}>
-                    <h4>{step.title}</h4>
-                    <p>{step.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 6. INDUSTRIES WE SERVE (10 Premium Image Cards) */}
-      <section className="section bg-off-white">
+      <section id="industries" className="section bg-off-white">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Diverse Expertise</span>
@@ -381,38 +364,6 @@ export default function Home() {
                     <h4>{ind.title}</h4>
                     <p>{ind.desc}</p>
                   </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. TRUST SECTION (Why Clients Trust VMD) */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Peace of Mind</span>
-            <h2 className="section-title">Why Clients Trust VMD</h2>
-            <p className="section-desc">Built on a foundation of strict compliance, verified background checks, and active supervision.</p>
-          </div>
-
-          <div className={styles.trustGrid}>
-            {[
-              { title: 'Police Verification', desc: 'Every guard undergoes mandatory local police station character verification.', icon: <BadgeCheck size={32} /> },
-              { title: 'Background Checks', desc: 'Thorough address verification, previous employment check, and Aadhaar validation.', icon: <FileCheck size={32} /> },
-              { title: 'Uniformed Staff', desc: 'Standardized neat uniforms, ID badges, lanyards, and complete gear kit.', icon: <ShieldCheck size={32} /> },
-              { title: 'Supervisor Visits', desc: 'Surprise day and night patrols by field supervisors to audit guard alertness.', icon: <Eye size={32} /> },
-              { title: 'Emergency Support', desc: 'Quick Response Team (QRT) ready 24/7 to handle critical incidents.', icon: <Zap size={32} /> },
-              { title: 'Statutory Compliance', desc: 'Full adherence to PF, ESIC, GST, and State Minimum Wages regulations.', icon: <FileText size={32} /> },
-              { title: 'Daily Reporting', desc: 'Digital and physical visitor, vehicle, and incident register maintenance.', icon: <Clock size={32} /> },
-              { title: 'Professional Management', desc: 'Single point of contact account manager for seamless communication.', icon: <Award size={32} /> },
-            ].map((trust, idx) => (
-              <FadeIn key={trust.title} delay={idx * 0.05}>
-                <div className={styles.trustCard}>
-                  <div className={styles.trustCardIcon}>{trust.icon}</div>
-                  <h3>{trust.title}</h3>
-                  <p>{trust.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -499,7 +450,7 @@ export default function Home() {
       </section>
 
       {/* 11. CLIENT TESTIMONIALS SLIDER */}
-      <section className="section bg-off-white">
+      <section id="testimonials" className="section bg-off-white">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Testimonials</span>
@@ -534,7 +485,7 @@ export default function Home() {
       </section>
 
       {/* 12. GALLERY PREVIEW */}
-      <section className="section">
+      <section id="gallery" className="section">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">On-Ground Action</span>
@@ -591,7 +542,7 @@ export default function Home() {
       </section>
 
       {/* 14. CONTACT US FORM SECTION */}
-      <section className={`section ${styles.contactSection}`}>
+      <section id="contact" className={`section ${styles.contactSection}`}>
         <div className="container">
           <div className={styles.contactGrid}>
             <FadeIn direction="left">

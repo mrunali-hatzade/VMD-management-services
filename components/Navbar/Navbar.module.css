@@ -22,6 +22,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .logo {
@@ -108,7 +111,10 @@
 .desktopMenu {
   display: none;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
+  flex: 1;
+  margin: 0 1rem;
 }
 
 @media (min-width: 1080px) {
@@ -120,10 +126,11 @@
 .navLink {
   color: var(--white);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .navLink::after {
@@ -143,6 +150,21 @@
 
 .navLink:hover::after {
   width: 100%;
+}
+
+.activeNavLink {
+  color: var(--gold) !important;
+  font-weight: 700;
+}
+
+.activeNavLink::after {
+  width: 100% !important;
+}
+
+.activeMobileNavLink {
+  color: var(--gold) !important;
+  border-bottom-color: var(--gold) !important;
+  font-weight: 700;
 }
 
 .navButtons {

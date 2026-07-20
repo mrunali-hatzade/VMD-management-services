@@ -2,7 +2,7 @@
   background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/hero_team.jpg');
   background-size: cover;
   background-position: center;
-  padding: 8rem 0 5rem;
+  padding: 6rem 0 3.5rem;
   color: var(--white);
   text-align: center;
 }
@@ -196,4 +196,65 @@
 .valItem svg {
   color: var(--gold);
   flex-shrink: 0;
+}
+
+/* Why Choose VMD */
+.whyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .whyGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.whyCard {
+  background: var(--off-white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--light-gray);
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whyCard:hover {
+  background: var(--white);
+  border-color: var(--gold);
+  box-shadow: var(--box-shadow);
+  transform: translateY(-4px);
+}
+
+.whyIcon {
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.whyCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.whyCard p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  line-height: 1.6;
 }

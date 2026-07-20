@@ -68,7 +68,7 @@ export default function Footer() {
               <Phone size={20} className={styles.contactIcon} />
               <span>
                 24x7 Helpline: 8459845730<br/>
-                WhatsApp: +91 87998 59129
+                WhatsApp: +91 84598 45730
               </span>
             </li>
             <li>

@@ -2,7 +2,7 @@
   background: linear-gradient(rgba(14, 35, 69, 0.9), rgba(14, 35, 69, 0.9)), url('/vmd_hero_formation.jpg');
   background-size: cover;
   background-position: center;
-  padding: 8rem 0 5rem;
+  padding: 6rem 0 3.5rem;
   color: var(--white);
   text-align: center;
 }
@@ -32,10 +32,92 @@
   margin-bottom: 1rem;
 }
 
-.bannerContent p {
-  font-size: 1.2rem;
+.guardJoinSection {
+  background-color: var(--off-white);
+  padding: 4rem 0;
+}
+
+.guardJoinCard {
+  background: var(--navy);
+  color: var(--white);
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(212, 165, 44, 0.3);
+  box-shadow: var(--box-shadow-lg);
+}
+
+.guardJoinHeader {
+  margin-bottom: 2.5rem;
+}
+
+.guardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 165, 44, 0.15);
+  border: 1px solid rgba(212, 165, 44, 0.4);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.guardJoinHeader h2 {
+  color: var(--white);
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.guardJoinHeader p {
   color: #CBD5E0;
+  font-size: 1.05rem;
   line-height: 1.6;
+  max-width: 850px;
+}
+
+.guardHighlightGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .guardHighlightGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.guardHighlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+}
+
+.guardHighlightItem strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.guardHighlightItem p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #CBD5E0;
+}
+
+.guardCtaRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .benefitsGrid {
@@ -58,11 +140,16 @@
 
 .benefitCard {
   background: var(--white);
-  padding: 2.5rem 2rem;
+  padding: 2.25rem 1.75rem;
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--light-gray);
   box-shadow: var(--box-shadow);
   transition: transform 0.3s ease;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .benefitCard:hover {
@@ -76,7 +163,9 @@
   font-weight: 800;
   margin-top: 1rem;
   margin-bottom: 0.75rem;
-
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 .benefitCard p {

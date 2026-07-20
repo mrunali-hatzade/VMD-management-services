@@ -43,18 +43,20 @@ export default function ServicesPage() {
           <div className={styles.grid}>
             {servicesList.map((srv, idx) => (
               <FadeIn key={srv.slug} delay={idx * 0.05}>
-                <div className={styles.card}>
-                  <div className={styles.cardBg} style={{ backgroundImage: `url(${srv.img})` }}></div>
-                  <div className={styles.cardOverlay}></div>
-                  <div className={styles.cardBody}>
-                    <div className={styles.iconCircle}>{srv.icon}</div>
-                    <h3>{srv.title}</h3>
-                    <p>{srv.desc}</p>
-                    <Link href={`/services/${srv.slug}`} className={styles.cardBtn}>
-                      View Full Details <ArrowRight size={16} />
-                    </Link>
+                <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
+                  <div className={styles.card}>
+                    <div className={styles.cardBg} style={{ backgroundImage: `url(${srv.img})` }}></div>
+                    <div className={styles.cardOverlay}></div>
+                    <div className={styles.cardBody}>
+                      <div className={styles.iconCircle}>{srv.icon}</div>
+                      <h3>{srv.title}</h3>
+                      <p>{srv.desc}</p>
+                      <span className={styles.cardBtn}>
+                        View Full Details <ArrowRight size={16} />
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </FadeIn>
             ))}
           </div>

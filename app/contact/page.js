@@ -112,7 +112,7 @@ export default function ContactPage() {
                     <a href="tel:8459845730" className="btn-white">
                       <Phone size={16} /> Call
                     </a>
-                    <a href="https://wa.me/918799859129" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                    <a href="https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
                       <MessageCircle size={16} /> WhatsApp
                     </a>
                   </div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
             <div className={styles.infoBox}>
               <AlertCircle size={32} color="var(--gold)" />
               <h4>Emergency Contacts</h4>
-              <p>24/7 Control Room: 8459845730<br/>Direct WhatsApp: +91 87998 59129</p>
+              <p>24/7 Control Room: 8459845730<br/>Direct WhatsApp: +91 84598 45730</p>
             </div>
           </div>
         </div>

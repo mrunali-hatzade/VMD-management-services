@@ -40,6 +40,25 @@
   align-items: center;
 }
 
+.heroTagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+  font-family: var(--font-heading);
+}
+
+.taglineDot {
+  color: var(--white);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
 .heroBadge {
   display: inline-flex;
   align-items: center;
@@ -51,7 +70,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--gold);
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   backdrop-filter: blur(8px);
 }
 
@@ -404,6 +423,7 @@
   border: 1px solid var(--light-gray);
   transition: all 0.4s ease;
   height: 100%;
+  cursor: pointer;
 }
 
 .serviceCard:hover {
@@ -477,6 +497,13 @@
 @media (min-width: 1024px) {
   .whyGrid {
     grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 20px; /* Space for staggered cards */
+  }
+  .whyCard:nth-child(even) {
+    transform: translateY(20px);
+  }
+  .whyCard:nth-child(even):hover {
+    transform: translateY(17px);
   }
 }
 
@@ -566,26 +593,36 @@
 
 /* 6. INDUSTRIES WE SERVE */
 .industryGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  overflow-x: auto;
   gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--off-white);
 }
 
-@media (min-width: 640px) {
-  .industryGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.industryGrid::-webkit-scrollbar {
+  height: 8px;
+}
+.industryGrid::-webkit-scrollbar-track {
+  background: var(--off-white);
+  border-radius: 4px;
+}
+.industryGrid::-webkit-scrollbar-thumb {
+  background-color: var(--gold);
+  border-radius: 4px;
 }
 
-@media (min-width: 1024px) {
-  .industryGrid {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.industryGrid > div {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
 }
 
 .industryCard {
   position: relative;
-  height: 240px;
+  height: 280px;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--box-shadow);
@@ -768,6 +805,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
 }
 
 .certCard h4 {
@@ -775,11 +815,17 @@
   font-weight: 700;
   margin-top: 0.75rem;
   margin-bottom: 0.25rem;
+  min-height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.25;
 }
 
 .certCard p {
   font-size: 0.75rem;
   color: var(--gray);
+  margin-top: auto;
 }
 
 /* 10. CLIENT LOGOS */
