@@ -3,19 +3,75 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
   background-color: transparent;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, height 0.4s ease;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
   z-index: 1000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .scrolled {
   background-color: var(--navy);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  height: 80px;
 }
+
+/* --- TOP BAR --- */
+.topBar {
+  width: 100%;
+  background-color: rgba(9, 23, 46, 0.5); /* Semi-transparent initially */
+  backdrop-filter: blur(4px);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scrolled .topBar {
+  background-color: var(--navy-dark); /* Solid dark navy on scroll */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.topBarLeft, .topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.topBarItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a.topBarItem:hover {
+  color: var(--gold);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    display: none; /* Hide on mobile to save space */
+  }
+}
+/* --------------- */
 
 .navContainer {
   display: flex;
@@ -25,6 +81,12 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
+  height: 90px;
+  transition: height 0.4s ease;
+}
+
+.scrolled .navContainer {
+  height: 75px;
 }
 
 .logo {
@@ -74,11 +136,11 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
+  .navContainer {
     height: 70px;
   }
   
-  .scrolled {
+  .scrolled .navContainer {
     height: 65px;
   }
 

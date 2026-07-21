@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, FileText } from 'lucide-react';
+import { Menu, X, Phone, FileText, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 
@@ -87,6 +87,25 @@ export default function Navbar() {
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      {/* Top Bar (Contact Info) */}
+      <div className={styles.topBar}>
+        <div className={`container ${styles.topBarContainer}`}>
+          <div className={styles.topBarLeft}>
+            <a href="tel:+918459845730" className={styles.topBarItem}>
+              <Phone size={14} /> +91 84598 45730
+            </a>
+            <a href="mailto:vmdmanagementservices@gmail.com" className={styles.topBarItem}>
+              <Mail size={14} /> vmdmanagementservices@gmail.com
+            </a>
+          </div>
+          <div className={styles.topBarRight}>
+            <a href="https://maps.google.com/?q=Pune,Maharashtra" target="_blank" rel="noopener noreferrer" className={styles.topBarItem}>
+              <MapPin size={14} /> Pune, Maharashtra
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className={`container ${styles.navContainer}`}>
         {/* Logo Left */}
         <Link href="/" className={styles.logo} onClick={handleHomeClick}>
