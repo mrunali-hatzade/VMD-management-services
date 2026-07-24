@@ -25,15 +25,36 @@ export default function ContactPage() {
     e.preventDefault();
     
     try {
-      const response = await fetch('/api/contact', {
+      // 1. Send email via Web3Forms (client-side — access key is a public form ID)
+      const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          access_key: '5226c118-edc3-434d-b887-11684c32771a',
+          subject: `New VMD Contact Inquiry: ${formData.name}`,
+          from_name: 'VMD Management Services',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          replyto: formData.email
+        })
       });
-      
-      if (response.ok) {
+
+      const web3Data = await web3Res.json();
+
+      // 2. Dispatch WhatsApp notification via server route (non-blocking)
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }).catch(() => {});
+
+      if (web3Data.success) {
         alert(`Thank you, ${formData.name}! Your message has been sent directly to the owner's email and WhatsApp. No further action is required.`);
       } else {
         alert('There was a problem submitting your inquiry. Please try again.');

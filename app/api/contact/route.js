@@ -5,77 +5,70 @@ export async function POST(request) {
     const body = await request.json();
     const { name, email, phone, service, message } = body;
 
-    // Load credentials from environment variables
-    const formspreeFormId = process.env.FORMSPREE_FORM_ID;
-    const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
-    const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
-    const twilioFrom = process.env.TWILIO_WHATSAPP_FROM || 'whatsapp:+14155238886'; // Default Twilio Sandbox
-    const adminTo = process.env.ADMIN_WHATSAPP_TO || 'whatsapp:+919767355347';
-
-    console.log('📬 Dispatched background contact details:');
+    console.log('📬 Contact inquiry received:');
     console.log(`Name: ${name}, Email: ${email}, Phone: ${phone}, Service: ${service}`);
 
-    // 1. Dispatch Email via Formspree if FORMSPREE_FORM_ID is provided
-    let formspreeDispatched = false;
-    if (formspreeFormId) {
+    // Dispatch WhatsApp Alert via Official WhatsApp Business Cloud API
+    let whatsappDispatched = false;
+    const whatsappAccessToken = process.env.WHATSAPP_ACCESS_TOKEN;
+    const whatsappPhoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+    const targetPhone = process.env.ADMIN_WHATSAPP_TO || '919767355347';
+
+    if (whatsappAccessToken && whatsappPhoneNumberId) {
       try {
-        const formspreeRes = await fetch(`https://formspree.io/f/${formspreeFormId}`, {
+        const cleanPhone = targetPhone.replace(/[^0-9]/g, '');
+
+        const metaUrl = `https://graph.facebook.com/v18.0/${whatsappPhoneNumberId}/messages`;
+        const metaRes = await fetch(metaUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Authorization': `Bearer ${whatsappAccessToken}`,
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            name,
-            email,
-            phone,
-            service,
-            message,
-            _to: 'mrunalithatzade20@gmail.com'
+            messaging_product: "whatsapp",
+            recipient_type: "individual",
+            to: cleanPhone,
+            type: "template",
+            template: {
+              name: "vmd_contact_alert",
+              language: {
+                code: "en_US"
+              },
+              components: [
+                {
+                  type: "body",
+                  parameters: [
+                    { type: "text", text: name },
+                    { type: "text", text: email },
+                    { type: "text", text: phone },
+                    { type: "text", text: service },
+                    { type: "text", text: message }
+                  ]
+                }
+              ]
+            }
           })
         });
-        formspreeDispatched = formspreeRes.ok;
+
+        whatsappDispatched = metaRes.ok;
+        if (!metaRes.ok) {
+          const errData = await metaRes.json();
+          console.error('Meta WhatsApp API Error Details:', errData);
+        } else {
+          console.log('✅ WhatsApp notification dispatched successfully');
+        }
       } catch (err) {
-        console.error('Error forwarding to Formspree:', err.message);
+        console.error('Error sending WhatsApp via Meta API:', err.message);
       }
     } else {
-      console.warn('⚠️ FORMSPREE_FORM_ID is missing in environment variables. Skipping real email dispatch.');
-    }
-
-    // 2. Dispatch WhatsApp Alert via Twilio if Credentials are provided
-    let twilioDispatched = false;
-    if (twilioAccountSid && twilioAuthToken) {
-      try {
-        const waText = `New Contact Inquiry:\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Service:* ${service}\n*Message:* ${message}`;
-        
-        const params = new URLSearchParams();
-        params.append('From', twilioFrom);
-        params.append('To', adminTo);
-        params.append('Body', waText);
-
-        const authHeader = 'Basic ' + Buffer.from(`${twilioAccountSid}:${twilioAuthToken}`).toString('base64');
-        const twilioRes = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioAccountSid}/Messages.json`, {
-          method: 'POST',
-          headers: {
-            'Authorization': authHeader,
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: params.toString()
-        });
-
-        twilioDispatched = twilioRes.ok;
-      } catch (err) {
-        console.error('Error sending WhatsApp via Twilio:', err.message);
-      }
-    } else {
-      console.warn('⚠️ TWILIO_ACCOUNT_SID or TWILIO_AUTH_TOKEN is missing in environment variables. Skipping real WhatsApp dispatch.');
+      console.warn('⚠️ WHATSAPP_ACCESS_TOKEN or WHATSAPP_PHONE_NUMBER_ID is missing. Skipping WhatsApp dispatch.');
     }
 
     return NextResponse.json({ 
       success: true, 
-      formspreeDispatched,
-      twilioDispatched,
-      message: 'Inquiry dispatch attempted.' 
+      whatsappDispatched,
+      message: 'Contact inquiry processed.' 
     });
   } catch (error) {
     return NextResponse.json({ 
