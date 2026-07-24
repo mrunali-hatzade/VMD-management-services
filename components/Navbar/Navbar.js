@@ -99,8 +99,12 @@ export default function Navbar() {
             </a>
           </div>
           <div className={styles.topBarRight}>
-            <a href="https://maps.google.com/?q=Pune,Maharashtra" target="_blank" rel="noopener noreferrer" className={styles.topBarItem}>
-              <MapPin size={14} /> Pune, Maharashtra
+            <a href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" target="_blank" rel="noopener noreferrer" className={styles.topBarItem}>
+              <MapPin size={14} /> Sadashiv Peth
+            </a>
+            <span style={{ opacity: 0.4 }}>|</span>
+            <a href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" target="_blank" rel="noopener noreferrer" className={styles.topBarItem}>
+              <MapPin size={14} /> Mundhwa
             </a>
           </div>
         </div>
@@ -110,11 +114,7 @@ export default function Navbar() {
         {/* Logo Left */}
         <Link href="/" className={styles.logo} onClick={handleHomeClick}>
           <div className={styles.logoCard}>
-            <Image src="/logo without name.png" alt="VMD Management Services" width={42} height={42} className={styles.logoImg} style={{ objectFit: 'contain' }} priority />
-            <div className={styles.logoTextContainer}>
-              <span className={styles.logoTextTitle}>VMD</span>
-              <span className={styles.logoTextSub}>MANAGEMENT SERVICES</span>
-            </div>
+            <Image src="/vmd_logo_kh.jpg" alt="VMD Management Services" width={140} height={42} className={styles.logoImg} style={{ objectFit: 'contain', width: 'auto', height: '42px' }} priority />
           </div>
         </Link>
 

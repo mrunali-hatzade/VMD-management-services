@@ -17,7 +17,7 @@ const blogPosts = [
     readTime: '5 min read',
     author: 'VMD Security Desk',
     excerpt: 'Discover essential access control measures, CCTV surveillance practices, and visitor logging rules to safeguard residential complexes.',
-    img: '/vmd_hero_guard.jpg'
+    img: '/gal_residential_guard.jpg'
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const blogPosts = [
     readTime: '6 min read',
     author: 'Safety Audit Team',
     excerpt: 'How regular fire extinguisher inspections and evacuation mock drills reduce risk and protect corporate employees.',
-    img: '/hero_surveillance.jpg'
+    img: '/gal_cctv_control_room.jpg'
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const blogPosts = [
     readTime: '4 min read',
     author: 'Legal & HR Cell',
     excerpt: 'Understanding the legal importance and peace of mind behind mandatory local police station character checks.',
-    img: '/vmd_hero_formation.jpg'
+    img: '/gal_gate_check.jpg'
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const blogPosts = [
     readTime: '5 min read',
     author: 'Facility Management Desk',
     excerpt: 'Maintaining high hygiene standards in high-traffic corporate washrooms and open-plan workstations.',
-    img: '/hero_housekeeping.jpg'
+    img: '/gal_floor_cleaning.jpg'
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const blogPosts = [
     readTime: '7 min read',
     author: 'Industrial Operations',
     excerpt: 'Effective weighbridge logging, truck driver frisking, and gate pass audit protocols for manufacturing units.',
-    img: '/weblium_hero_bg.jpg'
+    img: '/gal_industrial_facility.jpg'
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const blogPosts = [
     readTime: '5 min read',
     author: 'Operations Director',
     excerpt: 'Why bundling security guarding, MEP maintenance, and housekeeping under one SLA reduces cost by 20%.',
-    img: '/hero_team.jpg'
+    img: '/gal_facility_maintenance.jpg'
   }
 ];
 

@@ -2,6 +2,7 @@ import './globals.css';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import WhatsAppButton from '../components/WhatsAppButton/WhatsAppButton';
+import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 
 export const metadata = {
   title: 'VMD Management Services | Security & Facility Agency in Pune',
@@ -85,6 +86,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ScrollToTop />
       </body>
     </html>
   );

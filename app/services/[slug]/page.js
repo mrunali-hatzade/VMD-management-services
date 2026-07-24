@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppIcon from '../../../components/WhatsAppIcon/WhatsAppIcon';
 import { use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -294,8 +295,8 @@ export default function ServiceDetailPage({ params }) {
                     <a href="tel:8459845730" className="btn-primary" style={{ width: '100%' }}>
                       <Phone size={16} /> 8459845730
                     </a>
-                    <a href={`https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
-                      <MessageCircle size={16} /> WhatsApp Us
+                    <a href={`https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
+                      <WhatsAppIcon size={16} color="#FFFFFF" /> WhatsApp Us
                     </a>
                   </div>
                 </div>

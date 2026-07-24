@@ -17,6 +17,8 @@ import AnimatedCounter from '../components/AnimatedCounter/AnimatedCounter';
 import FAQAccordion from '../components/FAQAccordion/FAQAccordion';
 import LightboxModal from '../components/LightboxModal/LightboxModal';
 
+import WhatsAppIcon from '../components/WhatsAppIcon/WhatsAppIcon';
+
 const heroImages = [
   '/weblium_hero_bg.jpg',
   '/hero_housekeeping.jpg',
@@ -44,19 +46,43 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for contacting VMD Management Services. Our operations supervisor will get back to you shortly.');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contactForm)
+      });
+      
+      if (response.ok) {
+        alert(`Thank you, ${contactForm.name}! Your message has been sent directly to the owner's email and WhatsApp. No further action is required.`);
+      } else {
+        alert('There was a problem submitting your inquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Submission error. Please try again.');
+    }
+    
     setContactForm({ name: '', email: '', phone: '', service: 'Security Guards', message: '' });
   };
 
   // Gallery items for preview
   const galleryItems = [
-    { id: 1, title: 'Guards in uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
-    { id: 2, title: 'Housekeeping staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
-    { id: 3, title: 'Office team', category: 'Corporate', src: '/office_team.jpg' },
-    { id: 4, title: 'Training sessions', category: 'Training', src: '/training_sessions.jpg' },
-    { id: 5, title: 'Client sites', category: 'Industrial', src: '/client_sites.jpg' },
+    { id: 1, title: 'Guards in Uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
+    { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard.jpg' },
+    { id: 3, title: 'Housekeeping Staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
+    { id: 4, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/gal_floor_cleaning.jpg' },
+    { id: 5, title: 'Office Operations Team', category: 'Corporate', src: '/office_team.jpg' },
+    { id: 6, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security.jpg' },
+    { id: 7, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility.jpg' },
+    { id: 8, title: 'Client Site Inspection', category: 'Industrial', src: '/client_sites.jpg' },
+    { id: 9, title: 'Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
+    { id: 10, title: 'Physical Drill & Fitness', category: 'Training', src: '/gal_physical_drill.jpg' },
   ];
 
   const filteredGallery = activeGalleryTab === 'All' 
@@ -148,8 +174,8 @@ export default function Home() {
             <a href="tel:8459845730" className="btn-white">
               <Phone size={18} /> Call Now
             </a>
-            <a href="https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-              <MessageCircle size={18} /> WhatsApp
+            <a href="https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+              <WhatsAppIcon size={18} color="#FFFFFF" /> WhatsApp
             </a>
           </motion.div>
 
@@ -172,7 +198,7 @@ export default function Home() {
           <div className="container">
             <div className={styles.counterGrid}>
               <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="10+" /></div>
+                <div className={styles.counterNum}><AnimatedCounter value="20+" /></div>
                 <div className={styles.counterLabel}>Years Experience</div>
               </div>
               <div className={styles.counterCol}>
@@ -204,14 +230,14 @@ export default function Home() {
               <div className={styles.aboutImageCol}>
                 <div className={styles.aboutImageCard}>
                   <Image 
-                    src="/hero_team.jpg" 
+                    src="/vmd_hero_formation.jpg" 
                     alt="VMD Management Services Team" 
                     width={600} 
                     height={480} 
                     className={styles.aboutImage}
                   />
                   <div className={styles.floatingExpCard}>
-                    <h3>10+</h3>
+                    <h3>20+</h3>
                     <p>Years of Service Excellence</p>
                   </div>
                 </div>
@@ -224,9 +250,7 @@ export default function Home() {
                 <h2 className={styles.aboutHeading}>Enterprise Security & Operational Facility Excellence</h2>
                 
                 <p className={styles.aboutDesc}>
-                  VMD Management Services is a premier corporate security and facility management agency based in Pune. 
-                  We specialize in deploying rigorously trained, police-verified security personnel, proactive facility managers, 
-                  and meticulous housekeeping staff tailored to high-value industrial, commercial, and residential assets.
+                  VMD Management Services is a trusted provider of professional Security & Facility Management Services in Pune. We specialize in delivering trained security guards, housekeeping staff, office support, and facility management solutions for residential, commercial, corporate, and industrial clients. Our commitment to safety, reliability, and service excellence helps businesses and communities operate with confidence. With experienced professionals, strict quality standards, and 24×7 support, we strive to build long-term relationships based on trust and performance.
                 </p>
 
                 <div className={styles.missionVisionGrid}>
@@ -240,7 +264,7 @@ export default function Home() {
                   <div className={styles.mvCard}>
                     <Sparkles size={22} className={styles.mvIcon} />
                     <div>
-                      <h4>Our Mission</h4>
+                      <h4>Future Mission</h4>
                       <p>Protecting client assets with 24/7 vigilance, discipline, and technology-driven operations.</p>
                     </div>
                   </div>
@@ -347,14 +371,14 @@ export default function Home() {
             {[
               { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies.jpg' },
               { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/ind_corporate_offices.jpg' },
-              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/srv_corporate_security.jpg' },
-              { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/srv_housekeeping.jpg' },
-              { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/srv_residential_security.jpg' },
-              { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/srv_security_guards.jpg' },
-              { title: 'Warehouses', icon: <Warehouse size={32} />, desc: 'Stock verification & perimeter guarding.', img: '/srv_industrial_security.jpg' },
-              { title: 'Factories', icon: <Factory size={32} />, desc: 'Material gate pass & worker attendance control.', img: '/srv_facility_mgmt.jpg' },
-              { title: 'Hotels', icon: <Hotel size={32} />, desc: 'Guest security & valet management.', img: '/srv_office_boys.jpg' },
-              { title: 'Construction Sites', icon: <HardHat size={32} />, desc: 'Raw material safeguarding & site entry tracking.', img: '/srv_supervisors.jpg' },
+              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/ind_it_companies.jpg' },
+              { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/ind_hospitals.jpg' },
+              { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/ind_schools_colleges.jpg' },
+              { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/ind_banks.jpg' },
+              { title: 'Warehouses', icon: <Warehouse size={32} />, desc: 'Stock verification & perimeter guarding.', img: '/ind_warehouses.jpg' },
+              { title: 'Factories', icon: <Factory size={32} />, desc: 'Material gate pass & worker attendance control.', img: '/ind_factories.jpg' },
+              { title: 'Hotels', icon: <Hotel size={32} />, desc: 'Guest security & valet management.', img: '/ind_hotels.jpg' },
+              { title: 'Construction Sites', icon: <HardHat size={32} />, desc: 'Raw material safeguarding & site entry tracking.', img: '/ind_construction_sites.jpg' },
             ].map((ind, idx) => (
               <FadeIn key={ind.title} delay={idx * 0.05}>
                 <div className={styles.industryCard}>
@@ -377,7 +401,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.statsBarGrid}>
             <div className={styles.statBox}>
-              <div className={styles.statVal}><AnimatedCounter value="10+" /></div>
+              <div className={styles.statVal}><AnimatedCounter value="20+" /></div>
               <div className={styles.statLbl}>Years Experience</div>
             </div>
             <div className={styles.statBox}>
@@ -560,7 +584,7 @@ export default function Home() {
                   <div className={styles.detailItem}>
                     <div className={styles.detailIconCircle}><Phone size={20} /></div>
                     <div>
-                      <strong>24/7 Helpline & Mobile</strong>
+                      <strong>24/7 Contact & Mobile</strong>
                       <p>8459845730 / +91 87998 59129</p>
                     </div>
                   </div>
@@ -574,8 +598,29 @@ export default function Home() {
                   <div className={styles.detailItem}>
                     <div className={styles.detailIconCircle}><MapPin size={20} /></div>
                     <div>
-                      <strong>Pune Office Address</strong>
-                      <p>123 VMD Hub, Business Lane, Pune, MH 411001</p>
+                      <strong>Head Office (Sadashiv Peth)</strong>
+                      <a 
+                        href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
+                      >
+                        Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune 411030
+                      </a>
+                    </div>
+                  </div>
+                  <div className={styles.detailItem}>
+                    <div className={styles.detailIconCircle}><MapPin size={20} /></div>
+                    <div>
+                      <strong>Branch Office (Mundhwa)</strong>
+                      <a 
+                        href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
+                      >
+                        Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Pune 411036
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -1,24 +1,42 @@
-.whatsappBtn {
+.floatingContainer {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.whatsappBtn, .callBtn {
   width: 60px;
   height: 60px;
-  background-color: #25D366;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
   transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsappBtn {
+  background-color: #25D366;
   animation: pulse 2s infinite;
 }
 
 .whatsappBtn:hover {
   transform: scale(1.1);
   background-color: #128C7E;
+}
+
+.callBtn {
+  background-color: #0056b3; /* Or standard blue #007bff, using slightly darker for contrast */
+}
+
+.callBtn:hover {
+  transform: scale(1.1);
+  background-color: #004494;
 }
 
 @keyframes pulse {
@@ -34,9 +52,12 @@
 }
 
 @media (max-width: 768px) {
-  .whatsappBtn {
+  .floatingContainer {
     bottom: 1.5rem;
     right: 1.5rem;
+  }
+  
+  .whatsappBtn, .callBtn {
     width: 50px;
     height: 50px;
   }

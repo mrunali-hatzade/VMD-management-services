@@ -179,3 +179,38 @@
   align-items: center;
   gap: 0.35rem;
 }
+
+/* Social Media Section */
+.socialWrapper {
+  margin-top: 1.5rem;
+}
+
+.socialHeading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #A0AEC0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialBtn:hover {
+  color: var(--gold);
+  transform: translateX(4px);
+}

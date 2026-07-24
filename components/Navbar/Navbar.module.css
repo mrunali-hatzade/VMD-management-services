@@ -41,7 +41,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 1rem;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .topBarLeft, .topBarRight {
@@ -78,9 +80,9 @@ a.topBarItem:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   height: 90px;
   transition: height 0.4s ease;
 }

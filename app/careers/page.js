@@ -1,5 +1,6 @@
 "use client";
 
+import WhatsAppIcon from '../../components/WhatsAppIcon/WhatsAppIcon';
 import { useState } from 'react';
 import { 
   Users, Award, ShieldCheck, CheckCircle2, FileCheck, Upload, 
@@ -20,9 +21,28 @@ export default function CareersPage() {
     notes: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for applying to VMD Management Services. Our HR team will review your application and contact you for an interview.');
+    
+    try {
+      const response = await fetch('/api/careers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Thank you for applying to VMD Management Services! Your application details have been submitted directly to VMD HR. No further action is required.');
+      } else {
+        alert('There was a problem submitting your application. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Submission error. Please try again.');
+    }
+    
     setFormData({ fullName: '', phone: '', email: '', experience: '1-3 Years', position: 'Security Guard', address: '', notes: '' });
   };
 
@@ -89,8 +109,8 @@ export default function CareersPage() {
                 <a href="tel:8459845730" className="btn-primary">
                   <Phone size={18} /> Call Recruitment HR: 8459845730
                 </a>
-                <a href="https://wa.me/918459845730?text=Hi%2C%20I%20want%20to%20join%20as%20Security%20Guard" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-                  <Send size={18} /> Apply via WhatsApp
+                <a href="https://wa.me/919767355347?text=Hi%2C%20I%20want%20to%20join%20as%20Security%20Guard" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                  <WhatsAppIcon size={18} color="#FFFFFF" /> Apply via WhatsApp
                 </a>
               </div>
             </div>

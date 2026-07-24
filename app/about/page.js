@@ -20,7 +20,7 @@ export default function AboutPage() {
             <div className={styles.bannerContent}>
               <span className={styles.badge}>ISO 9001:2015 CERTIFIED</span>
               <h1>About VMD Management Services</h1>
-              <p>Delivering high-vigilance security guarding and commercial facility management across Pune & Maharashtra since 2014.</p>
+              <p>Delivering high-vigilance security guarding and commercial facility management across Pune & Maharashtra for over 20 years.</p>
             </div>
           </FadeIn>
         </div>
@@ -33,14 +33,14 @@ export default function AboutPage() {
             <div className={styles.grid2Col}>
               <div className={styles.imageBox}>
                 <Image 
-                  src="/hero_team.jpg" 
+                  src="/vmd_hero_formation.jpg" 
                   alt="VMD Management Staff" 
                   width={600} 
                   height={450} 
                   className={styles.img}
                 />
                 <div className={styles.expCard}>
-                  <h3>10+</h3>
+                  <h3>20+</h3>
                   <p>Years of Service Excellence</p>
                 </div>
               </div>
@@ -49,10 +49,10 @@ export default function AboutPage() {
                 <span className="section-tag">Corporate Profile</span>
                 <h2>Maharashtra’s Leading Security & Facility Partner</h2>
                 <p>
-                  VMD Management Services was established with a singular vision: to revolutionize physical guarding and soft facility management through strict discipline, continuous field supervision, and comprehensive statutory compliance.
+                  VMD Management Services is a trusted provider of professional Security & Facility Management Services in Pune. We specialize in delivering trained security guards, housekeeping staff, office support, and facility management solutions for residential, commercial, corporate, and industrial clients.
                 </p>
                 <p>
-                  Over the past decade, we have grown into a 500+ strong workforce protecting high-end residential societies, multi-national IT parks, manufacturing plants, and healthcare institutions.
+                  Our commitment to safety, reliability, and service excellence helps businesses and communities operate with confidence. With experienced professionals, strict quality standards, and 24×7 support, we strive to build long-term relationships based on trust and performance.
                 </p>
 
                 <div className={styles.keyBadges}>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             <FadeIn delay={0.2}>
               <div className={styles.mvBox}>
                 <Sparkles size={36} color="var(--gold)" />
-                <h3>Our Mission</h3>
+                <h3>Future Mission</h3>
                 <p>Safeguarding lives, property, and corporate assets through proactive vigilance, trained staff, and quick emergency response.</p>
               </div>
             </FadeIn>

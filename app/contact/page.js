@@ -1,11 +1,14 @@
 "use client";
 
+import WhatsAppIcon from '../../components/WhatsAppIcon/WhatsAppIcon';
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Send, Clock, MessageCircle, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Clock, AlertCircle, Building2, ExternalLink } from 'lucide-react';
+
 import styles from './contact.module.css';
 import FadeIn from '../../components/FadeIn/FadeIn';
 
 export default function ContactPage() {
+  const [activeMapTab, setActiveMapTab] = useState('head');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,14 +17,48 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for reaching out to VMD Management Services. Our operations team will contact you within 30 minutes.');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert(`Thank you, ${formData.name}! Your message has been sent directly to the owner's email and WhatsApp. No further action is required.`);
+      } else {
+        alert('There was a problem submitting your inquiry. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Submission error. Please try again.');
+    }
+    
     setFormData({ name: '', email: '', phone: '', service: 'Security Guards', message: '' });
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const offices = {
+    head: {
+      title: 'Head Office (Sadashiv Peth)',
+      address: 'Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, Maharashtra 411030',
+      mapUrl: 'https://maps.google.com/maps?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directLink: 'https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030'
+    },
+    branch: {
+      title: 'Branch Office (Mundhwa)',
+      address: 'Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune - 411036',
+      mapUrl: 'https://maps.google.com/maps?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directLink: 'https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036'
+    }
   };
 
   return (
@@ -43,22 +80,78 @@ export default function ContactPage() {
       <section className="section">
         <div className="container">
           <div className={styles.contactLayout}>
-            {/* Left: Google Map Embed */}
+            {/* Left: Google Map Embed & Office Selector */}
             <FadeIn direction="right">
               <div className={styles.mapSection}>
-                <h3>Our Head Office Location</h3>
-                <p>Visit our Pune operations hub or reach out for on-site security audits.</p>
+                <h3>Our Office Locations</h3>
+                <p>Select an office location below to view on Google Maps or get instant directions.</p>
                 
+                {/* Office Map Switcher Buttons */}
+                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <button 
+                    type="button" 
+                    onClick={() => setActiveMapTab('head')}
+                    style={{
+                      flex: 1,
+                      padding: '0.6rem 0.85rem',
+                      borderRadius: 'var(--border-radius)',
+                      border: activeMapTab === 'head' ? '1px solid var(--gold)' : '1px solid rgba(255,255,255,0.2)',
+                      background: activeMapTab === 'head' ? 'var(--gold)' : 'rgba(255,255,255,0.1)',
+                      color: activeMapTab === 'head' ? 'var(--navy)' : 'var(--white)',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    📍 Head Office
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={() => setActiveMapTab('branch')}
+                    style={{
+                      flex: 1,
+                      padding: '0.6rem 0.85rem',
+                      borderRadius: 'var(--border-radius)',
+                      border: activeMapTab === 'branch' ? '1px solid var(--gold)' : '1px solid rgba(255,255,255,0.2)',
+                      background: activeMapTab === 'branch' ? 'var(--gold)' : 'rgba(255,255,255,0.1)',
+                      color: activeMapTab === 'branch' ? 'var(--navy)' : 'var(--white)',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    📍 Branch Office
+                  </button>
+                </div>
+
+                {/* Selected Address Brief */}
+                <div style={{ background: 'rgba(255,255,255,0.06)', padding: '0.85rem 1rem', borderRadius: 'var(--border-radius)', marginBottom: '1rem', borderLeft: '3px solid var(--gold)' }}>
+                  <strong style={{ color: 'var(--gold)', display: 'block', fontSize: '0.9rem' }}>{offices[activeMapTab].title}</strong>
+                  <p style={{ margin: '0.25rem 0 0.5rem', fontSize: '0.85rem', color: '#E2E8F0', lineHeight: 1.4 }}>{offices[activeMapTab].address}</p>
+                  <a 
+                    href={offices[activeMapTab].directLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ color: 'var(--gold)', fontSize: '0.8rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', textDecoration: 'none' }}
+                  >
+                    Open in Google Maps <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                {/* Map iFrame */}
                 <div className={styles.mapContainer}>
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.70906763428!2d73.72288009384784!3d18.524870612260654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    key={activeMapTab}
+                    src={offices[activeMapTab].mapUrl} 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
                     allowFullScreen="" 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="VMD Office Location"
+                    title={offices[activeMapTab].title}
                   ></iframe>
                 </div>
               </div>
@@ -88,20 +181,21 @@ export default function ContactPage() {
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label htmlFor="service">Service Required</label>
+                    <label htmlFor="service">Service Required *</label>
                     <select id="service" name="service" value={formData.service} onChange={handleChange}>
                       <option value="Security Guards">Security Guards</option>
                       <option value="Housekeeping Services">Housekeeping Services</option>
                       <option value="Office Boys">Office Boys</option>
-                      <option value="Supervisors">Supervisors</option>
+                      <option value="Supervisors">Supervisors & Patrol</option>
                       <option value="Facility Management">Facility Management</option>
                       <option value="Industrial Security">Industrial Security</option>
+                      <option value="Residential Security">Residential Security</option>
                       <option value="Corporate Security">Corporate Security</option>
                     </select>
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label htmlFor="message">Your Message *</label>
+                    <label htmlFor="message">Requirement Details *</label>
                     <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} placeholder="Details about your society/office location and staffing requirements..." required></textarea>
                   </div>
 
@@ -112,8 +206,8 @@ export default function ContactPage() {
                     <a href="tel:8459845730" className="btn-white">
                       <Phone size={16} /> Call
                     </a>
-                    <a href="https://wa.me/918459845730?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-                      <MessageCircle size={16} /> WhatsApp
+                    <a href="https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                      <WhatsAppIcon size={16} color="#FFFFFF" /> WhatsApp
                     </a>
                   </div>
                 </form>
@@ -126,23 +220,45 @@ export default function ContactPage() {
       {/* Info Bar Below */}
       <section className="section bg-off-white">
         <div className="container">
-          <div className={styles.infoCardsGrid}>
+          <div className={styles.infoCardsGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
             <div className={styles.infoBox}>
-              <MapPin size={32} color="var(--gold)" />
-              <h4>Headquarters Address</h4>
-              <p>123 VMD Hub, Business Lane, Pune, Maharashtra 411001</p>
+              <Building2 size={32} color="var(--gold)" />
+              <h4>Head Office</h4>
+              <p>Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, MH 411030</p>
+              <a 
+                href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
+              >
+                View Map <ExternalLink size={14} />
+              </a>
             </div>
 
             <div className={styles.infoBox}>
-              <Clock size={32} color="var(--gold)" />
-              <h4>Business Hours</h4>
-              <p>Office Hours: Mon - Sat (9:00 AM - 7:00 PM)<br/>On-Site Guard Vigil: 24/7/365</p>
+              <MapPin size={32} color="var(--gold)" />
+              <h4>Branch Office</h4>
+              <p>Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune - 411036</p>
+              <a 
+                href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
+              >
+                View Map <ExternalLink size={14} />
+              </a>
             </div>
 
             <div className={styles.infoBox}>
               <AlertCircle size={32} color="var(--gold)" />
-              <h4>Emergency Contacts</h4>
-              <p>24/7 Control Room: 8459845730<br/>Direct WhatsApp: +91 84598 45730</p>
+              <h4>Emergency Contact</h4>
+              <p>24/7 Contact: 8459845730<br/>WhatsApp: +91 97673 55347</p>
+              <a 
+                href="tel:8459845730" 
+                style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
+              >
+                Call Operations <Phone size={14} />
+              </a>
             </div>
           </div>
         </div>
