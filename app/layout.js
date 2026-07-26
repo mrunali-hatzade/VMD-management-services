@@ -51,28 +51,35 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
+  const localBusinessJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'VMD Management Services',
-    image: 'https://www.vmdmanagementservices.com/logo.png',
-    '@id': 'https://www.vmdmanagementservices.com',
+    image: 'https://www.vmdmanagementservices.com/vmd_logo_kh.jpg',
+    '@id': 'https://www.vmdmanagementservices.com/#organization',
     url: 'https://www.vmdmanagementservices.com',
     telephone: '+918459845730',
+    email: 'vmdmanagementservices@gmail.com',
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '123 VMD Hub, Business Lane',
+      streetAddress: 'Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth',
       addressLocality: 'Pune',
-      addressRegion: 'MH',
-      postalCode: '411001',
+      addressRegion: 'Maharashtra',
+      postalCode: '411030',
       addressCountry: 'IN'
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 18.5204,
-      longitude: 73.8567
+      latitude: 18.5132,
+      longitude: 73.8526
     },
+    areaServed: [
+      'Pune',
+      'Sadashiv Peth',
+      'Mundhwa',
+      'Maharashtra'
+    ],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: [
@@ -88,8 +95,16 @@ export default function RootLayout({ children }) {
       closes: '23:59'
     },
     sameAs: [
+      'https://wa.me/919767355347',
       'https://wa.me/918799859129'
     ]
+  };
+
+  const webSiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'VMD Management Services',
+    url: 'https://www.vmdmanagementservices.com',
   };
 
   return (
@@ -97,7 +112,11 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
       </head>
       <body>

@@ -1,5 +1,7 @@
 export default function sitemap() {
   const baseUrl = 'https://www.vmdmanagementservices.com';
+  // Fixed baseline lastModified date to avoid generating a new timestamp on every request
+  const lastModifiedDate = new Date('2026-07-26T00:00:00.000Z');
 
   const routes = [
     '',
@@ -43,7 +45,7 @@ export default function sitemap() {
 
     return {
       url: `${baseUrl}${route}`,
-      lastModified: new Date(),
+      lastModified: lastModifiedDate,
       changeFrequency,
       priority,
     };
