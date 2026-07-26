@@ -123,9 +123,6 @@ export default function Footer() {
       <div className={styles.footerBottom}>
         <div className={`container ${styles.bottomContainer}`}>
           <p>&copy; {new Date().getFullYear()} VMD Management Services. All Rights Reserved.</p>
-          <p className={styles.creditText}>
-            Powered by <strong>Simplified Works</strong>
-          </p>
         </div>
       </div>
     </footer>

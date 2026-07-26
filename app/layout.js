@@ -5,7 +5,11 @@ import WhatsAppButton from '../components/WhatsAppButton/WhatsAppButton';
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 
 export const metadata = {
-  title: 'VMD Management Services | Security & Facility Agency in Pune',
+  metadataBase: new URL('https://www.vmdmanagementservices.com'),
+  title: {
+    default: 'VMD Management Services | Security & Facility Agency in Pune',
+    template: '%s | VMD Management Services',
+  },
   description: 'Premier security guards, housekeeping, and facility management agency in Pune. Police-verified guards, 24/7 support, and ISO 9001:2015 certified operations.',
   keywords: [
     'Security Agency Pune',
@@ -17,18 +21,33 @@ export const metadata = {
     'Residential Security Pune',
     'Office Boy Services Pune'
   ].join(', '),
+  alternates: {
+    canonical: './',
+  },
   openGraph: {
     title: 'VMD Management Services | Security & Facility Agency in Pune',
     description: 'Reliable Security Guards, Housekeeping & Facility Solutions for Residential, Commercial and Industrial Clients in Pune.',
-    url: 'https://vmdmanagementservices.com',
+    url: 'https://www.vmdmanagementservices.com',
     siteName: 'VMD Management Services',
     locale: 'en_IN',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VMD Management Services | Security & Facility Agency in Pune',
+    description: 'Premier security guards, housekeeping, and facility management agency in Pune. Police-verified guards, 24/7 support.',
+  },
   robots: {
     index: true,
     follow: true,
-  }
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -36,9 +55,9 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'VMD Management Services',
-    image: 'https://vmdmanagementservices.com/logo.png',
-    '@id': 'https://vmdmanagementservices.com',
-    url: 'https://vmdmanagementservices.com',
+    image: 'https://www.vmdmanagementservices.com/logo.png',
+    '@id': 'https://www.vmdmanagementservices.com',
+    url: 'https://www.vmdmanagementservices.com',
     telephone: '+918459845730',
     priceRange: '₹₹',
     address: {
