@@ -1,59 +1,24 @@
 import { NextResponse } from 'next/server';
+import { sendWhatsAppMessage } from '@/lib/whatsapp';
 
 export async function POST(request) {
   try {
     const body = await request.json();
     const { fullName, phone, email, experience, position, address, notes } = body;
 
-    const web3formsAccessKey = process.env.WEB3FORMS_ACCESS_KEY;
+    console.log('📬 Career application received for server processing:');
+    console.log(`Candidate: ${fullName}, Position: ${position}, Experience: ${experience}`);
+
+    // =========================================================================
+    // 1. RESEND EMAIL DISPATCH (ACTIVE WITH VERIFIED DOMAIN / RESEND_API_KEY)
+    // =========================================================================
+    let emailDispatched = false;
+    let resendError = null;
     const resendApiKey = process.env.RESEND_API_KEY;
     const contactEmail = process.env.CONTACT_EMAIL || 'simplifiedworks.official@gmail.com';
+    const resendFromEmail = process.env.RESEND_FROM_EMAIL || 'VMD Careers <onboarding@resend.dev>';
 
-    console.log('📬 Dispatched background application details:');
-    console.log(`Candidate Name: ${fullName}, Applied Position: ${position}, Experience: ${experience}`);
-
-    let emailDispatched = false;
-    let emailError = null;
-
-    // 1. Dispatch Email via Web3Forms (Primary)
-    if (web3formsAccessKey) {
-      try {
-        const w3Res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: web3formsAccessKey,
-            subject: `New VMD Job Application: ${fullName} (${position})`,
-            from_name: 'VMD Careers',
-            fullName: fullName,
-            email: email,
-            phone: phone,
-            experience: experience,
-            position: position,
-            address: address,
-            notes: notes || 'N/A',
-            replyto: email
-          })
-        });
-
-        const w3Data = await w3Res.json();
-        emailDispatched = w3Data.success;
-        if (!w3Data.success) {
-          emailError = w3Data;
-          console.error('❌ Web3Forms Error (Careers):', w3Data);
-        } else {
-          console.log('✅ Career email dispatched successfully via Web3Forms');
-        }
-      } catch (err) {
-        console.error('Error sending email via Web3Forms:', err.message);
-      }
-    }
-
-    // 2. Resend API Fallback
-    if (!emailDispatched && resendApiKey) {
+    if (resendApiKey) {
       try {
         const resendRes = await fetch('https://api.resend.com/emails', {
           method: 'POST',
@@ -62,7 +27,7 @@ export async function POST(request) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            from: 'VMD Careers <onboarding@resend.dev>',
+            from: resendFromEmail,
             to: [contactEmail],
             reply_to: email,
             subject: `New VMD Job Application: ${fullName} (${position})`,
@@ -81,84 +46,63 @@ export async function POST(request) {
             `
           })
         });
-        
+
         emailDispatched = resendRes.ok;
         if (!resendRes.ok) {
-          emailError = await resendRes.json();
-          console.error('❌ Resend API Error (Careers):', JSON.stringify(emailError, null, 2));
+          resendError = await resendRes.json();
+          console.error('❌ Resend API Error (Careers):', JSON.stringify(resendError, null, 2));
         } else {
-          console.log(`✅ Resend career email dispatched successfully to ${contactEmail}`);
+          console.log(`✅ Resend career email sent successfully from [${resendFromEmail}] to [${contactEmail}]`);
         }
       } catch (err) {
         console.error('Error sending email via Resend API:', err.message);
       }
     }
 
-    if (!emailDispatched && !web3formsAccessKey && !resendApiKey) {
-      console.warn('⚠️ WEB3FORMS_ACCESS_KEY or RESEND_API_KEY is missing in environment variables.');
-    }
+    // =========================================================================
+    // 2. PABBLY CONNECT WEBHOOK TRIGGER (COMMENTED OUT)
+    // =========================================================================
+    let pabblyDispatched = false;
 
-    // 3. Dispatch WhatsApp Alert via Official WhatsApp Business Cloud API
+    // =========================================================================
+    // 3. META WHATSAPP CLOUD API DISPATCH (ACTIVE)
+    // =========================================================================
     let whatsappDispatched = false;
-    const whatsappAccessToken = process.env.WHATSAPP_ACCESS_TOKEN;
-    const whatsappPhoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
-    const targetPhone = process.env.ADMIN_WHATSAPP_TO || '919767355347';
+    let whatsappError = null;
+    const adminPhone = process.env.ADMIN_WHATSAPP_TO || '+919767355347';
 
-    if (whatsappAccessToken && whatsappPhoneNumberId) {
-      try {
-        const cleanPhone = targetPhone.replace(/[^0-9]/g, '');
+    const whatsappBody = [
+      `📋 *New VMD Job Application*`,
+      ``,
+      `👤 *Candidate:* ${fullName}`,
+      `📞 *Phone:* ${phone}`,
+      `📧 *Email:* ${email}`,
+      `💼 *Experience:* ${experience}`,
+      `🏷️ *Position:* ${position}`,
+      `📍 *Address:* ${address}`,
+      ``,
+      `📝 *Notes:*`,
+      `${notes || 'N/A'}`
+    ].join('\n');
 
-        const metaUrl = `https://graph.facebook.com/v18.0/${whatsappPhoneNumberId}/messages`;
-        const metaRes = await fetch(metaUrl, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${whatsappAccessToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            messaging_product: "whatsapp",
-            recipient_type: "individual",
-            to: cleanPhone,
-            type: "template",
-            template: {
-              name: "vmd_careers_alert",
-              language: {
-                code: "en_US"
-              },
-              components: [
-                {
-                  type: "body",
-                  parameters: [
-                    { type: "text", text: fullName },
-                    { type: "text", text: phone },
-                    { type: "text", text: email },
-                    { type: "text", text: experience },
-                    { type: "text", text: position },
-                    { type: "text", text: address },
-                    { type: "text", text: notes }
-                  ]
-                }
-              ]
-            }
-          })
-        });
+    const waResult = await sendWhatsAppMessage({
+      to: adminPhone,
+      message: whatsappBody
+    });
 
-        whatsappDispatched = metaRes.ok;
-        if (!metaRes.ok) {
-          const errData = await metaRes.json();
-          console.error('Meta WhatsApp API Error Details:', errData);
-        }
-      } catch (err) {
-        console.error('Error sending WhatsApp via Meta API:', err.message);
-      }
+    whatsappDispatched = waResult.success;
+    if (!waResult.success) {
+      whatsappError = waResult.error;
     }
 
     return NextResponse.json({ 
       success: true, 
       emailDispatched,
+      pabblyDispatched,
       whatsappDispatched,
-      emailError,
-      message: 'Application dispatch attempted.' 
+      whatsappError,
+      resendError,
+      message: 'Application processed successfully.' 
     });
   } catch (error) {
     return NextResponse.json({ 

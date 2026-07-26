@@ -14,7 +14,7 @@ import {
 import styles from './page.module.css';
 import FadeIn from '../components/FadeIn/FadeIn';
 import AnimatedCounter from '../components/AnimatedCounter/AnimatedCounter';
-import FAQAccordion from '../components/FAQAccordion/FAQAccordion';
+
 import LightboxModal from '../components/LightboxModal/LightboxModal';
 
 import WhatsAppIcon from '../components/WhatsAppIcon/WhatsAppIcon';
@@ -50,7 +50,8 @@ export default function Home() {
     e.preventDefault();
     
     try {
-      // 1. Send email via Web3Forms (client-side — access key is a public form ID)
+      /*
+      // WEB3FORMS (COMMENTED OUT)
       const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -69,18 +70,19 @@ export default function Home() {
           replyto: contactForm.email
         })
       });
+      */
 
-      const web3Data = await web3Res.json();
-
-      // 2. Dispatch WhatsApp notification via server route (non-blocking)
-      fetch('/api/contact', {
+      // PABBLY CONNECT TRIGGER (Server API Route)
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(contactForm)
-      }).catch(() => {});
+      });
 
-      if (web3Data.success) {
-        alert(`Thank you, ${contactForm.name}! Your message has been sent directly to the owner's email and WhatsApp. No further action is required.`);
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        alert(`Thank you, ${contactForm.name}! Your message has been submitted successfully.`);
       } else {
         alert('There was a problem submitting your inquiry. Please try again.');
       }
@@ -110,24 +112,7 @@ export default function Home() {
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeGalleryTab);
 
-  // FAQ Items (15+ Items)
-  const faqList = [
-    { question: 'Are your security guards police verified and trained?', answer: 'Yes, 100% of our security personnel undergo rigorous police background verification, physical fitness assessments, and mandatory training in emergency response, access control, and visitor management.' },
-    { question: 'What security & facility services does VMD offer in Pune?', answer: 'We specialize in Security Guards, Corporate & Industrial Security, Meticulous Housekeeping, Office Boys, Supervisors, Facility Management, Residential Society Guarding, and Warehouse Protection.' },
-    { question: 'How fast can VMD deploy security personnel to my site?', answer: 'We offer rapid emergency deployment within 24 to 48 hours for standard sites in Pune, PCMC, and surrounding industrial zones.' },
-    { question: 'Do you provide replacements if a guard is absent?', answer: 'Absolutely. We maintain a dedicated reserve bench of supervisors and guards to guarantee immediate, 100% attendance coverage without extra cost.' },
-    { question: 'Are your guards equipped with proper uniforms and safety gear?', answer: 'Yes, all guards are deployed in full, clean corporate uniforms complete with ID badges, lanyards, batons, whistles, torches, and safety boots.' },
-    { question: 'Do you conduct night inspections and supervisor visits?', answer: 'Yes, our mobile patrol supervisors conduct unannounced daytime and nighttime inspection visits to ensure guards remain vigilant at all times.' },
-    { question: 'Is VMD compliant with PF, ESIC, GST, and Labour Licenses?', answer: 'Yes, VMD Management Services is fully compliant with all statutory government regulations including EPF, ESIC, Labour Welfare Fund, GST, and Minimum Wages Act.' },
-    { question: 'What industries do you serve across Maharashtra?', answer: 'We serve Housing Societies, Corporate IT Parks, Hospitals, Educational Institutes, Commercial Malls, Warehouses, Manufacturing Factories, Construction Sites, and Hotels.' },
-    { question: 'How is billing and invoicing calculated for facility services?', answer: 'We offer transparent monthly billing based on agreed guard hours, shift schedules, and service scopes with no hidden fees.' },
-    { question: 'Can we request customized security protocols for our site?', answer: 'Yes, our risk assessment team visits your site to design custom Standing Operating Procedures (SOPs), material gate pass protocols, and vehicle entry logs.' },
-    { question: 'What is the minimum contract duration for facility management?', answer: 'We offer flexible short-term event contracts as well as standard annual corporate agreements with 30-day notice terms.' },
-    { question: 'Do you provide specialized housekeeping equipment and chemicals?', answer: 'Yes, we supply eco-friendly, industrial-grade cleaning chemicals, scrubbing machines, vacuum cleaners, and complete sanitation toolkits.' },
-    { question: 'How do you handle fire safety and emergency situations?', answer: 'Our guards receive basic firefighting, evacuation drill, and First-Aid training to handle emergencies prior to official emergency services arrival.' },
-    { question: 'Do you provide supervisors to manage housekeeping and guards?', answer: 'Yes, every deployed team is managed by an experienced field supervisor who serves as your single point of contact for daily reporting.' },
-    { question: 'How can I get a custom quotation for my society or office?', answer: 'You can fill out our website request form, call our 24x7 helpline at 8459845730, or send us a WhatsApp message for a free site audit and proposal.' },
-  ];
+
 
   return (
     <div className={styles.home}>
@@ -576,20 +561,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 13. COMPREHENSIVE FAQ SECTION */}
-      <section className="section bg-off-white">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Got Questions?</span>
-            <h2 className="section-title">Frequently Asked Questions</h2>
-            <p className="section-desc">Answers to common queries regarding guard deployment, compliance, and billing.</p>
-          </div>
 
-          <FadeIn direction="up">
-            <FAQAccordion items={faqList} />
-          </FadeIn>
-        </div>
-      </section>
 
       {/* 14. CONTACT US FORM SECTION */}
       <section id="contact" className={`section ${styles.contactSection}`}>

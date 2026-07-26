@@ -25,7 +25,8 @@ export default function ContactPage() {
     e.preventDefault();
     
     try {
-      // 1. Send email via Web3Forms (client-side — access key is a public form ID)
+      /*
+      // WEB3FORMS (COMMENTED OUT)
       const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -44,18 +45,19 @@ export default function ContactPage() {
           replyto: formData.email
         })
       });
+      */
 
-      const web3Data = await web3Res.json();
-
-      // 2. Dispatch WhatsApp notification via server route (non-blocking)
-      fetch('/api/contact', {
+      // PABBLY CONNECT TRIGGER (Server API Route)
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
-      }).catch(() => {});
+      });
 
-      if (web3Data.success) {
-        alert(`Thank you, ${formData.name}! Your message has been sent directly to the owner's email and WhatsApp. No further action is required.`);
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        alert(`Thank you, ${formData.name}! Your message has been submitted successfully.`);
       } else {
         alert('There was a problem submitting your inquiry. Please try again.');
       }
