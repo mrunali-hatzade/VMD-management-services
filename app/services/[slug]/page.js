@@ -237,7 +237,7 @@ export default function ServiceDetailPage({ params }) {
                 <Link href="/contact" className="btn-primary">
                   Request Service Quote &rarr;
                 </Link>
-                <a href="tel:8459845730" className="btn-white">
+                <a href="tel:8799859129" className="btn-white">
                   <Phone size={18} /> Call Specialist
                 </a>
               </div>
@@ -292,10 +292,10 @@ export default function ServiceDetailPage({ params }) {
                   <div className={styles.sidebarCta}>
                     <h4>Need Staffing For Your Site?</h4>
                     <p>Contact our Pune operations team for a free site audit and transparent rates.</p>
-                    <a href="tel:8459845730" className="btn-primary" style={{ width: '100%' }}>
-                      <Phone size={16} /> 8459845730
+                    <a href="tel:8799859129" className="btn-primary" style={{ width: '100%' }}>
+                      <Phone size={16} /> +91 87998 59129
                     </a>
-                    <a href={`https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
+                    <a href={`https://wa.me/919503996692?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20${encodeURIComponent(service.title)}%20services.`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: '100%', marginTop: '0.75rem' }}>
                       <WhatsAppIcon size={16} color="#FFFFFF" /> WhatsApp Us
                     </a>
                   </div>

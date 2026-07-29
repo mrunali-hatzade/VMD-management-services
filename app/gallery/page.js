@@ -10,18 +10,18 @@ import LightboxModal from '../../components/LightboxModal/LightboxModal';
 
 const fullGallery = [
   // Security Guards
-  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
+  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards.jpg' },
   { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard.jpg' },
   { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/gal_gate_check.jpg' },
-  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/gal_society_security.jpg' },
+  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/ind_housing_societies.jpg' },
 
   // Housekeeping
-  { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
+  { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/srv_housekeeping.jpg' },
   { id: 6, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/gal_floor_cleaning.jpg' },
   { id: 7, title: 'Deep Cleaning Services', category: 'Housekeeping', src: '/gal_deep_cleaning.jpg' },
 
   // Corporate
-  { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/office_team.jpg' },
+  { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/srv_office_boys.jpg' },
   { id: 9, title: 'Corporate Client Sites', category: 'Corporate', src: '/client_sites.jpg' },
   { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security.jpg' },
   { id: 11, title: 'Executive Support Staff', category: 'Corporate', src: '/gal_executive_staff.jpg' },
@@ -33,7 +33,6 @@ const fullGallery = [
 
   // Training
   { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
-  { id: 16, title: 'Physical Drill & Inspection', category: 'Training', src: '/gal_physical_drill.jpg' },
 
   // Events
   { id: 17, title: 'Event Crowd Management', category: 'Events', src: '/gal_event_crowd.jpg' },

@@ -96,16 +96,15 @@ export default function Home() {
 
   // Gallery items for preview
   const galleryItems = [
-    { id: 1, title: 'Guards in Uniform', category: 'Security Guards', src: '/guards_in_uniform.jpg' },
+    { id: 1, title: 'Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards.jpg' },
     { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard.jpg' },
-    { id: 3, title: 'Housekeeping Staff', category: 'Housekeeping', src: '/housekeeping_staff.jpg' },
+    { id: 3, title: 'Housekeeping Staff', category: 'Housekeeping', src: '/srv_housekeeping.jpg' },
     { id: 4, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/gal_floor_cleaning.jpg' },
-    { id: 5, title: 'Office Operations Team', category: 'Corporate', src: '/office_team.jpg' },
+    { id: 5, title: 'Office Operations Team', category: 'Corporate', src: '/srv_office_boys.jpg' },
     { id: 6, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security.jpg' },
     { id: 7, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility.jpg' },
     { id: 8, title: 'Client Site Inspection', category: 'Industrial', src: '/client_sites.jpg' },
     { id: 9, title: 'Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
-    { id: 10, title: 'Physical Drill & Fitness', category: 'Training', src: '/gal_physical_drill.jpg' },
   ];
 
   const filteredGallery = activeGalleryTab === 'All' 
@@ -168,64 +167,11 @@ export default function Home() {
             Reliable Security Guards, Housekeeping & Facility Solutions for Residential, Commercial and Industrial Clients.
           </motion.p>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className={styles.heroButtons}
-          >
-            <Link href="/contact" className="btn-primary">
-              <FileText size={18} /> Request Free Quote
-            </Link>
-            <a href="tel:8459845730" className="btn-white">
-              <Phone size={18} /> Call Now
-            </a>
-            <a href="https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-              <WhatsAppIcon size={18} color="#FFFFFF" /> WhatsApp
-            </a>
-          </motion.div>
 
-          {/* Hero Trust Badges */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className={styles.heroTrustGrid}
-          >
-            <div className={styles.trustBadgeItem}><Check size={16} color="var(--gold)" /> Police Verified Guards</div>
-            <div className={styles.trustBadgeItem}><Check size={16} color="var(--gold)" /> 24×7 Support</div>
-            <div className={styles.trustBadgeItem}><Check size={16} color="var(--gold)" /> Fast Deployment</div>
-            <div className={styles.trustBadgeItem}><Check size={16} color="var(--gold)" /> Trusted Professionals</div>
-          </motion.div>
+
         </div>
 
-        {/* Hero Bottom Animated Counter Bar */}
-        <div className={styles.heroCounterBar}>
-          <div className="container">
-            <div className={styles.counterGrid}>
-              <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="20+" /></div>
-                <div className={styles.counterLabel}>Years Experience</div>
-              </div>
-              <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="500+" /></div>
-                <div className={styles.counterLabel}>Professional Guards</div>
-              </div>
-              <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="350+" /></div>
-                <div className={styles.counterLabel}>Happy Clients</div>
-              </div>
-              <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="24×7" suffix="" /></div>
-                <div className={styles.counterLabel}>Emergency Support</div>
-              </div>
-              <div className={styles.counterCol}>
-                <div className={styles.counterNum}><AnimatedCounter value="98%" /></div>
-                <div className={styles.counterLabel}>Client Satisfaction</div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </section>
 
       {/* 2. ABOUT SECTION */}
@@ -236,7 +182,7 @@ export default function Home() {
               <div className={styles.aboutImageCol}>
                 <div className={styles.aboutImageCard}>
                   <Image 
-                    src="/vmd_hero_formation.jpg" 
+                    src="/about us.png" 
                     alt="VMD Management Services Team" 
                     width={600} 
                     height={480} 
@@ -264,14 +210,14 @@ export default function Home() {
                     <Eye size={22} className={styles.mvIcon} />
                     <div>
                       <h4>Our Vision</h4>
-                      <p>To be Maharashtra's most trusted benchmark in safety and facility management.</p>
+                      <p>We don’t build clients. We build trust. Clients follow trust.</p>
                     </div>
                   </div>
                   <div className={styles.mvCard}>
                     <Sparkles size={22} className={styles.mvIcon} />
                     <div>
-                      <h4>Future Mission</h4>
-                      <p>Protecting client assets with 24/7 vigilance, discipline, and technology-driven operations.</p>
+                      <h4>Future Vision</h4>
+                      <p>AS Group of Companies</p>
                     </div>
                   </div>
                 </div>
@@ -311,11 +257,11 @@ export default function Home() {
               { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={36} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards.jpg' },
               { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={36} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
               { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={36} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
-              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/srv_supervisors.jpg' },
-              { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={36} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/srv_facility_mgmt.jpg' },
-              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/srv_industrial_security.jpg' },
-              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/srv_residential_security.jpg' },
-              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/srv_corporate_security.jpg' },
+              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors.jpg' },
+              { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={36} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/gal_facility_maintenance.jpg' },
+              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/gal_industrial_facility.jpg' },
+              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard.jpg' },
+              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security.jpg' },
             ].map((srv, idx) => (
               <FadeIn key={srv.slug} delay={idx * 0.05}>
                 <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
@@ -377,7 +323,7 @@ export default function Home() {
             {[
               { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies.jpg' },
               { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/ind_corporate_offices.jpg' },
-              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/ind_it_companies.jpg' },
+              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/gal_reception_security.jpg' },
               { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/ind_hospitals.jpg' },
               { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/ind_schools_colleges.jpg' },
               { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/ind_banks.jpg' },
@@ -415,12 +361,16 @@ export default function Home() {
               <div className={styles.statLbl}>Guards Deployed</div>
             </div>
             <div className={styles.statBox}>
-              <div className={styles.statVal}><AnimatedCounter value="350+" /></div>
+              <div className={styles.statVal}><AnimatedCounter value="45+" /></div>
               <div className={styles.statLbl}>Satisfied Clients</div>
             </div>
             <div className={styles.statBox}>
-              <div className={styles.statVal}><AnimatedCounter value="150+" /></div>
+              <div className={styles.statVal}><AnimatedCounter value="50+" /></div>
               <div className={styles.statLbl}>Sites Managed</div>
+            </div>
+            <div className={styles.statBox}>
+              <div className={styles.statVal}><AnimatedCounter value="24×7" suffix="" /></div>
+              <div className={styles.statLbl}>Emergency Support</div>
             </div>
             <div className={styles.statBox}>
               <div className={styles.statVal}><AnimatedCounter value="98%" /></div>
@@ -442,11 +392,14 @@ export default function Home() {
           <div className={styles.certGrid}>
             {[
               { name: 'ISO 9001:2015', label: 'Quality Management Certified' },
+              { name: 'PSARA License', label: 'Private Security Agencies Act' },
               { name: 'Company Registration', label: 'Ministry of Corporate Affairs' },
               { name: 'GST Registered', label: 'Government of India' },
               { name: 'Labour License', label: 'State Labour Department' },
+              { name: 'Shopcat License', label: 'Shops & Establishments Reg.' },
               { name: 'EPF Compliant', label: 'Employees Provident Fund' },
               { name: 'ESIC Compliant', label: 'State Insurance Scheme' },
+              { name: 'WC Policy Covered', label: 'Workmen Compensation Ins.' },
               { name: 'Police Verified', label: 'State Police Department' },
             ].map((cert, idx) => (
               <FadeIn key={cert.name} delay={idx * 0.05}>
@@ -577,21 +530,39 @@ export default function Home() {
                   <div className={styles.detailItem}>
                     <div className={styles.detailIconCircle}><Phone size={20} /></div>
                     <div>
-                      <strong>24/7 Contact & Mobile</strong>
-                      <p>8459845730 / +91 87998 59129</p>
+                      <strong>Contact & Mobile</strong>
+                      <a href="tel:8799859129" style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', marginTop: '0.2rem' }}>
+                        +91 87998 59129
+                      </a>
                     </div>
                   </div>
                   <div className={styles.detailItem}>
                     <div className={styles.detailIconCircle}><Mail size={20} /></div>
                     <div>
                       <strong>Official Email</strong>
-                      <p>vmdmanagementservices@gmail.com</p>
+                      <a href="mailto:vmdmanagementservices@gmail.com" style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', marginTop: '0.2rem' }}>
+                        vmdmanagementservices@gmail.com
+                      </a>
                     </div>
                   </div>
                   <div className={styles.detailItem}>
                     <div className={styles.detailIconCircle}><MapPin size={20} /></div>
                     <div>
-                      <strong>Head Office (Sadashiv Peth)</strong>
+                      <strong>Head Office (Mundhwa)</strong>
+                      <a 
+                        href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
+                      >
+                        Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune 411036
+                      </a>
+                    </div>
+                  </div>
+                  <div className={styles.detailItem}>
+                    <div className={styles.detailIconCircle}><MapPin size={20} /></div>
+                    <div>
+                      <strong>Branch Office (Sadashiv Peth)</strong>
                       <a 
                         href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
                         target="_blank" 
@@ -599,20 +570,6 @@ export default function Home() {
                         style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
                       >
                         Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune 411030
-                      </a>
-                    </div>
-                  </div>
-                  <div className={styles.detailItem}>
-                    <div className={styles.detailIconCircle}><MapPin size={20} /></div>
-                    <div>
-                      <strong>Branch Office (Mundhwa)</strong>
-                      <a 
-                        href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
-                      >
-                        Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Pune 411036
                       </a>
                     </div>
                   </div>
@@ -631,7 +588,6 @@ export default function Home() {
                         id="hp_name" 
                         value={contactForm.name} 
                         onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} 
-                        placeholder="John Doe"
                         required 
                       />
                     </div>
@@ -642,7 +598,6 @@ export default function Home() {
                         id="hp_phone" 
                         value={contactForm.phone} 
                         onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} 
-                        placeholder="8459845730"
                         required 
                       />
                     </div>
@@ -656,7 +611,6 @@ export default function Home() {
                         id="hp_email" 
                         value={contactForm.email} 
                         onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} 
-                        placeholder="yourname@gmail.com"
                         required 
                       />
                     </div>
@@ -685,7 +639,6 @@ export default function Home() {
                       rows="4" 
                       value={contactForm.message} 
                       onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} 
-                      placeholder="Specify your property location, required number of guards, or shift requirements..."
                       required
                     ></textarea>
                   </div>

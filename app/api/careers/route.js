@@ -69,7 +69,7 @@ export async function POST(request) {
     // =========================================================================
     let whatsappDispatched = false;
     let whatsappError = null;
-    const adminPhone = process.env.ADMIN_WHATSAPP_TO || '+919767355347';
+    const adminPhone = process.env.ADMIN_WHATSAPP_TO || '+918799859129';
 
     const whatsappBody = [
       `📋 *New VMD Job Application*`,

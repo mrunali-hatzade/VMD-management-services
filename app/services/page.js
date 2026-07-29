@@ -14,11 +14,11 @@ const servicesList = [
   { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={40} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards.jpg' },
   { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={40} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
   { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={40} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
-  { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={40} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/srv_supervisors.jpg' },
-  { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={40} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/srv_facility_mgmt.jpg' },
-  { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={40} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/srv_industrial_security.jpg' },
-  { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={40} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/srv_residential_security.jpg' },
-  { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={40} />, desc: 'Sophisticated reception security and IT park access management.', img: '/srv_corporate_security.jpg' },
+  { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={40} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors.jpg' },
+  { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={40} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/gal_facility_maintenance.jpg' },
+  { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={40} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/gal_industrial_facility.jpg' },
+  { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={40} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard.jpg' },
+  { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={40} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security.jpg' },
 ];
 
 export default function ServicesPage() {
@@ -91,7 +91,7 @@ export default function ServicesPage() {
             <Link href="/contact" className="btn-primary">
               <FileText size={18} /> Request Free Quotation
             </Link>
-            <a href="tel:8459845730" className="btn-outline">
+            <a href="tel:8799859129" className="btn-outline">
               <Phone size={18} /> Call Operations
             </a>
           </div>

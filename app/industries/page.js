@@ -12,7 +12,7 @@ import FadeIn from '../../components/FadeIn/FadeIn';
 const industriesList = [
   { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies.jpg' },
   { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/ind_corporate_offices.jpg' },
-  { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/ind_it_companies.jpg' },
+  { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/gal_reception_security.jpg' },
   { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/ind_hospitals.jpg' },
   { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/ind_schools_colleges.jpg' },
   { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/ind_banks.jpg' },
@@ -68,7 +68,7 @@ export default function IndustriesPage() {
             <Link href="/contact" className="btn-primary">
               Request Site Audit & Quote <ArrowRight size={18} />
             </Link>
-            <a href="tel:8459845730" className="btn-white">
+            <a href="tel:8799859129" className="btn-white">
               <Phone size={18} /> Speak to Specialist
             </a>
           </div>

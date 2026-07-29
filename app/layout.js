@@ -63,10 +63,10 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'VMD Management Services',
-    image: 'https://www.vmdmanagementservices.com/vmd_logo_kh.jpg',
+    image: 'https://www.vmdmanagementservices.com/logo-transparent.png',
     '@id': 'https://www.vmdmanagementservices.com/#organization',
     url: 'https://www.vmdmanagementservices.com',
-    telephone: '+918459845730',
+    telephone: '+918799859129',
     email: 'vmdmanagementservices@gmail.com',
     priceRange: '₹₹',
     address: {
@@ -103,8 +103,7 @@ export default function RootLayout({ children }) {
       closes: '23:59'
     },
     sameAs: [
-      'https://wa.me/919767355347',
-      'https://wa.me/918799859129'
+      'https://wa.me/919503996692'
     ]
   };
 

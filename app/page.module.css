@@ -805,7 +805,7 @@
 
 @media (min-width: 768px) {
   .statsBarGrid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -843,7 +843,7 @@
 
 @media (min-width: 1024px) {
   .certGrid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 

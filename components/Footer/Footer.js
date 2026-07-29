@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Column 1: Brand & Overview */}
         <div className={styles.footerColumn}>
           <div className={styles.logoCard}>
-            <Image src="/vmd_logo_kh.jpg" alt="VMD Management Services Logo" width={150} height={45} style={{ objectFit: 'contain', width: 'auto', height: '45px' }} />
+            <Image src="/logo-transparent.png" alt="VMD Management Services Logo" width={180} height={50} style={{ objectFit: 'contain', width: 'auto', height: '50px' }} />
           </div>
           
           <p className={styles.footerDescription}>
@@ -79,20 +79,6 @@ export default function Footer() {
               <div>
                 <strong style={{ color: 'var(--gold)', display: 'block', fontSize: '0.85rem' }}>Head Office:</strong>
                 <a 
-                  href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ color: 'inherit', textDecoration: 'none' }}
-                >
-                  Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, MH 411030
-                </a>
-              </div>
-            </li>
-            <li>
-              <MapPin size={20} className={styles.contactIcon} style={{ flexShrink: 0, marginTop: '3px' }} />
-              <div>
-                <strong style={{ color: 'var(--gold)', display: 'block', fontSize: '0.85rem' }}>Branch Office:</strong>
-                <a 
                   href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -103,10 +89,24 @@ export default function Footer() {
               </div>
             </li>
             <li>
+              <MapPin size={20} className={styles.contactIcon} style={{ flexShrink: 0, marginTop: '3px' }} />
+              <div>
+                <strong style={{ color: 'var(--gold)', display: 'block', fontSize: '0.85rem' }}>Branch Office:</strong>
+                <a 
+                  href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ color: 'inherit', textDecoration: 'none' }}
+                >
+                  Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, MH 411030
+                </a>
+              </div>
+            </li>
+            <li>
               <Phone size={20} className={styles.contactIcon} style={{ flexShrink: 0 }} />
               <span>
-                24x7 Contact: <a href="tel:8459845730" style={{ color: 'inherit', textDecoration: 'none' }}>8459845730</a><br/>
-                WhatsApp: <a href="https://wa.me/919767355347" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>+91 97673 55347</a>
+                Contact: <a href="tel:8799859129" style={{ color: 'inherit', textDecoration: 'none' }}>+91 87998 59129</a><br/>
+                WhatsApp: <a href="https://wa.me/919503996692" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>+91 95039 96692</a>
               </span>
             </li>
             <li>

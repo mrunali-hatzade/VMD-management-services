@@ -106,10 +106,10 @@ export default function CareersPage() {
               </div>
 
               <div className={styles.guardCtaRow}>
-                <a href="tel:8459845730" className="btn-primary">
-                  <Phone size={18} /> Call Recruitment HR: 8459845730
+                <a href="tel:8799859129" className="btn-primary">
+                  <Phone size={18} /> Call Recruitment HR: +91 87998 59129
                 </a>
-                <a href="https://wa.me/919767355347?text=Hi%2C%20I%20want%20to%20join%20as%20Security%20Guard" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                <a href="https://wa.me/919503996692?text=Hi%2C%20I%20want%20to%20join%20as%20Security%20Guard" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
                   <WhatsAppIcon size={18} color="#FFFFFF" /> Apply via WhatsApp
                 </a>
               </div>
@@ -220,7 +220,7 @@ export default function CareersPage() {
                   <Phone size={20} color="var(--gold)" />
                   <div>
                     <strong>HR Recruitment Helpline</strong>
-                    <p>Call 8459845730 for direct walk-in details.</p>
+                    <p>Call +91 87998 59129 for direct walk-in details.</p>
                   </div>
                 </div>
               </div>
@@ -240,7 +240,6 @@ export default function CareersPage() {
                       id="fullName" 
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="e.g. Ramesh Kumar" 
                       required 
                     />
                   </div>
@@ -253,7 +252,6 @@ export default function CareersPage() {
                         id="phone" 
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="Mobile Number" 
                         required 
                       />
                     </div>
@@ -264,7 +262,6 @@ export default function CareersPage() {
                         id="email" 
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="Optional" 
                       />
                     </div>
                   </div>
@@ -307,7 +304,6 @@ export default function CareersPage() {
                       id="address" 
                       value={formData.address}
                       onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                      placeholder="e.g. Hadapsar, Kothrud, Chinchwad" 
                       required 
                     />
                   </div>

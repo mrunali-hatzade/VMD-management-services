@@ -71,16 +71,16 @@ export default function ContactPage() {
 
   const offices = {
     head: {
-      title: 'Head Office (Sadashiv Peth)',
-      address: 'Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, Maharashtra 411030',
-      mapUrl: 'https://maps.google.com/maps?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030&t=&z=15&ie=UTF8&iwloc=&output=embed',
-      directLink: 'https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030'
-    },
-    branch: {
-      title: 'Branch Office (Mundhwa)',
+      title: 'Head Office (Mundhwa)',
       address: 'Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune - 411036',
       mapUrl: 'https://maps.google.com/maps?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036&t=&z=15&ie=UTF8&iwloc=&output=embed',
       directLink: 'https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036'
+    },
+    branch: {
+      title: 'Branch Office (Sadashiv Peth)',
+      address: 'Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, Maharashtra 411030',
+      mapUrl: 'https://maps.google.com/maps?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directLink: 'https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030'
     }
   };
 
@@ -189,17 +189,17 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className={styles.contactForm}>
                   <div className={styles.formGroup}>
                     <label htmlFor="name">Full Name *</label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" required />
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
                   </div>
 
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label htmlFor="email">Email Address *</label>
-                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="name@gmail.com" required />
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
                     </div>
                     <div className={styles.formGroup}>
                       <label htmlFor="phone">Phone Number *</label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="8459845730" required />
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
                     </div>
                   </div>
 
@@ -219,17 +219,17 @@ export default function ContactPage() {
 
                   <div className={styles.formGroup}>
                     <label htmlFor="message">Requirement Details *</label>
-                    <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} placeholder="Details about your society/office location and staffing requirements..." required></textarea>
+                    <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required></textarea>
                   </div>
 
                   <div className={styles.btnRow}>
                     <button type="submit" className="btn-primary" style={{ flex: 1 }}>
                       <Send size={16} /> Submit Message
                     </button>
-                    <a href="tel:8459845730" className="btn-white">
+                    <a href="tel:8799859129" className="btn-white">
                       <Phone size={16} /> Call
                     </a>
-                    <a href="https://wa.me/919767355347?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+                    <a href="https://wa.me/919503996692?text=Hi%20VMD%20Management%20Services,%20I%20am%20interested%20in%20your%20security%20and%20facility%20services." target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
                       <WhatsAppIcon size={16} color="#FFFFFF" /> WhatsApp
                     </a>
                   </div>
@@ -247,20 +247,6 @@ export default function ContactPage() {
             <div className={styles.infoBox}>
               <Building2 size={32} color="var(--gold)" />
               <h4>Head Office</h4>
-              <p>Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, MH 411030</p>
-              <a 
-                href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
-              >
-                View Map <ExternalLink size={14} />
-              </a>
-            </div>
-
-            <div className={styles.infoBox}>
-              <MapPin size={32} color="var(--gold)" />
-              <h4>Branch Office</h4>
               <p>Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune - 411036</p>
               <a 
                 href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
@@ -273,11 +259,25 @@ export default function ContactPage() {
             </div>
 
             <div className={styles.infoBox}>
+              <MapPin size={32} color="var(--gold)" />
+              <h4>Branch Office</h4>
+              <p>Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune, MH 411030</p>
+              <a 
+                href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
+              >
+                View Map <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <div className={styles.infoBox}>
               <AlertCircle size={32} color="var(--gold)" />
               <h4>Emergency Contact</h4>
-              <p>24/7 Contact: 8459845730<br/>WhatsApp: +91 97673 55347</p>
+              <p>Contact: +91 87998 59129<br/>WhatsApp: +91 95039 96692</p>
               <a 
-                href="tel:8459845730" 
+                href="tel:8799859129" 
                 style={{ color: 'var(--gold)', fontWeight: 600, fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.5rem', textDecoration: 'none' }}
               >
                 Call Operations <Phone size={14} />

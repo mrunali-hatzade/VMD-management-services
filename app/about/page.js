@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  ShieldCheck, Award, Eye, Sparkles, UserCheck, HeartHandshake, CheckCircle2, 
+import {
+  ShieldCheck, Award, Eye, Sparkles, UserCheck, HeartHandshake, CheckCircle2,
   ArrowRight, Phone, MessageCircle, FileText, Building2, Users
 } from 'lucide-react';
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
             <div className={styles.grid2Col}>
               <div className={styles.imageBox}>
                 <Image 
-                  src="/vmd_hero_formation.jpg" 
+                  src="/about us.png" 
                   alt="VMD Management Staff" 
                   width={600} 
                   height={450} 
@@ -79,15 +79,15 @@ export default function AboutPage() {
               <div className={styles.mvBox}>
                 <Eye size={36} color="var(--gold)" />
                 <h3>Our Vision</h3>
-                <p>To be the most trusted, reliable, and technology-empowered security and facility service provider across western India.</p>
+                <p>We don’t build clients. We build trust. Clients follow trust.</p>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <div className={styles.mvBox}>
                 <Sparkles size={36} color="var(--gold)" />
-                <h3>Future Mission</h3>
-                <p>Safeguarding lives, property, and corporate assets through proactive vigilance, trained staff, and quick emergency response.</p>
+                <h3>Future Vision</h3>
+                <p>AS Group of Companies</p>
               </div>
             </FadeIn>
 
@@ -153,7 +153,7 @@ export default function AboutPage() {
             <Link href="/contact" className="btn-primary">
               <FileText size={18} /> Request Free Quotation
             </Link>
-            <a href="tel:8459845730" className="btn-white">
+            <a href="tel:8799859129" className="btn-white">
               <Phone size={18} /> Speak to Operations
             </a>
           </div>

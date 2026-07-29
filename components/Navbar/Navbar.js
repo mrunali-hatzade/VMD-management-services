@@ -91,8 +91,8 @@ export default function Navbar() {
       <div className={styles.topBar}>
         <div className={`container ${styles.topBarContainer}`}>
           <div className={styles.topBarLeft}>
-            <a href="tel:+918459845730" className={styles.topBarItem}>
-              <Phone size={14} /> +91 84598 45730
+            <a href="tel:+918799859129" className={styles.topBarItem}>
+              <Phone size={14} /> +91 87998 59129
             </a>
             <a href="mailto:vmdmanagementservices@gmail.com" className={styles.topBarItem}>
               <Mail size={14} /> vmdmanagementservices@gmail.com
@@ -114,7 +114,7 @@ export default function Navbar() {
         {/* Logo Left */}
         <Link href="/" className={styles.logo} onClick={handleHomeClick}>
           <div className={styles.logoCard}>
-            <Image src="/vmd_logo_kh.jpg" alt="VMD Management Services" width={140} height={42} className={styles.logoImg} style={{ objectFit: 'contain', width: 'auto', height: '42px' }} priority />
+            <Image src="/logo-transparent.png" alt="VMD Management Services" width={160} height={50} className={styles.logoImg} style={{ objectFit: 'contain', width: 'auto', height: '50px' }} priority />
           </div>
         </Link>
 
@@ -137,7 +137,7 @@ export default function Navbar() {
 
         {/* Right Side Buttons */}
         <div className={styles.navButtons}>
-          <a href="tel:8459845730" className={styles.callBtn}>
+          <a href="tel:8799859129" className={styles.callBtn}>
             <Phone size={16} />
             <span>Call Now</span>
           </a>
@@ -180,7 +180,7 @@ export default function Navbar() {
             })}
             
             <div className={styles.mobileBtnGroup}>
-              <a href="tel:8459845730" className={styles.mobileCallBtn}>
+              <a href="tel:8799859129" className={styles.mobileCallBtn}>
                 <Phone size={18} /> Call Now
               </a>
               <Link href="/contact" className="btn-primary" style={{ width: '100%' }} onClick={() => setIsOpen(false)}>
