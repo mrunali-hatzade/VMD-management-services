@@ -182,7 +182,7 @@ export default function Home() {
               <div className={styles.aboutImageCol}>
                 <div className={styles.aboutImageCard}>
                   <Image 
-                    src="/about us.png" 
+                    src="/about2.jpg" 
                     alt="VMD Management Services Team" 
                     width={600} 
                     height={480} 
