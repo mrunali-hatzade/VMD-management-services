@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { Menu, X, Phone, FileText, Mail, MapPin } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
@@ -86,7 +87,12 @@ export default function Navbar() {
   ];
 
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+    <motion.header 
+      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       {/* Top Bar (Contact Info) */}
       <div className={styles.topBar}>
         <div className={`container ${styles.topBarContainer}`}>
@@ -190,6 +196,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

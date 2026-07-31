@@ -34,7 +34,9 @@ export default function FadeIn({ children, delay = 0, direction = 'up' }) {
     direction === 'up' ? styles.up :
     direction === 'down' ? styles.down :
     direction === 'left' ? styles.left :
-    direction === 'right' ? styles.right : '';
+    direction === 'right' ? styles.right :
+    direction === 'scale' ? styles.scale :
+    direction === 'zoom' ? styles.zoom : '';
 
   return (
     <div

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, MapPin, ShieldCheck, ArrowRight } from 'lucide-react';
+import FadeIn from '../FadeIn/FadeIn';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -8,8 +9,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
         {/* Column 1: Brand & Overview */}
-        <div className={styles.footerColumn}>
-          <div className={styles.logoCard}>
+        <FadeIn delay={0.1} direction="up">
+          <div className={styles.footerColumn}>
+            <div className={styles.logoCard}>
             <Image src="/logo-transparent.png" alt="VMD Management Services Logo" width={180} height={50} style={{ objectFit: 'contain', width: 'auto', height: '50px' }} />
           </div>
           
@@ -38,12 +40,14 @@ export default function Footer() {
                 <span>vmdmanagementservices</span>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Column 2: Quick Links */}
-        <div className={styles.footerColumn}>
-          <h4 className={styles.columnTitle}>Quick Links</h4>
+        <FadeIn delay={0.2} direction="up">
+          <div className={styles.footerColumn}>
+            <h4 className={styles.columnTitle}>Quick Links</h4>
           <ul className={styles.linkList}>
             <li><Link href="/"><ArrowRight size={14} /> Home</Link></li>
             <li><Link href="/about"><ArrowRight size={14} /> About Us</Link></li>
@@ -55,10 +59,12 @@ export default function Footer() {
             <li><Link href="/contact"><ArrowRight size={14} /> Contact Us</Link></li>
           </ul>
         </div>
+        </FadeIn>
 
         {/* Column 3: Services & Industries */}
-        <div className={styles.footerColumn}>
-          <h4 className={styles.columnTitle}>Core Services</h4>
+        <FadeIn delay={0.3} direction="up">
+          <div className={styles.footerColumn}>
+            <h4 className={styles.columnTitle}>Core Services</h4>
           <ul className={styles.linkList}>
             <li><Link href="/services/security-guards"><ArrowRight size={14} /> Security Guards</Link></li>
             <li><Link href="/services/housekeeping-services"><ArrowRight size={14} /> Housekeeping</Link></li>
@@ -69,10 +75,12 @@ export default function Footer() {
             <li><Link href="/services/corporate-security"><ArrowRight size={14} /> Corporate Security</Link></li>
           </ul>
         </div>
+        </FadeIn>
 
         {/* Column 4: Contact Info */}
-        <div className={styles.footerColumn}>
-          <h4 className={styles.columnTitle}>Our Office Locations</h4>
+        <FadeIn delay={0.4} direction="up">
+          <div className={styles.footerColumn}>
+            <h4 className={styles.columnTitle}>Our Office Locations</h4>
           <ul className={styles.contactList}>
             <li>
               <MapPin size={20} className={styles.contactIcon} style={{ flexShrink: 0, marginTop: '3px' }} />
@@ -117,6 +125,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+        </FadeIn>
       </div>
       
       {/* Footer Bottom Bar */}

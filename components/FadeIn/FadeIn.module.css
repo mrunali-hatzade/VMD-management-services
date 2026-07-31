@@ -13,9 +13,11 @@
 .down { transform: translateY(-40px); }
 .left { transform: translateX(-40px); }
 .right { transform: translateX(40px); }
+.scale { transform: scale(0.85); }
+.zoom { transform: scale(1.15); }
 
 .visible {
   opacity: 1;
   visibility: visible;
-  transform: translate(0, 0);
+  transform: none;
 }

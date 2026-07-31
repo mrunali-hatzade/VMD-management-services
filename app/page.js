@@ -296,7 +296,7 @@ export default function Home() {
               { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard.jpg' },
               { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security.jpg' },
             ].map((srv, idx) => (
-              <FadeIn key={srv.slug} delay={idx * 0.05}>
+              <FadeIn key={srv.slug} delay={idx * 0.05} direction="scale">
                 <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
                   <div className={styles.serviceCard}>
                     <div className={styles.serviceBgImage} style={{ backgroundImage: `url(${srv.img})` }}></div>
@@ -332,7 +332,7 @@ export default function Home() {
               'Professional Management', 'Emergency Response', 'Dedicated Supervisor',
               'Background Verification', 'Fast Deployment', 'Quality Monitoring'
             ].map((item, idx) => (
-              <FadeIn key={idx} delay={idx * 0.03} direction="up">
+              <FadeIn key={idx} delay={idx * 0.03} direction="scale">
                 <div className={styles.whyCard}>
                   <CheckCircle2 size={24} color="var(--gold)" className={styles.whyIcon} />
                   <span>{item}</span>
@@ -365,7 +365,7 @@ export default function Home() {
               { title: 'Hotels', icon: <Hotel size={32} />, desc: 'Guest security & valet management.', img: '/ind_hotels.jpg' },
               { title: 'Construction Sites', icon: <HardHat size={32} />, desc: 'Raw material safeguarding & site entry tracking.', img: '/ind_construction_sites.jpg' },
             ].map((ind, idx) => (
-              <FadeIn key={ind.title} delay={idx * 0.05}>
+              <FadeIn key={ind.title} delay={idx * 0.05} direction="right">
                 <div className={styles.industryCard}>
                   <div className={styles.industryBg} style={{ backgroundImage: `url(${ind.img})` }}></div>
                   <div className={styles.industryOverlay}></div>
@@ -435,7 +435,7 @@ export default function Home() {
               { name: 'WC Policy Covered', label: 'Workmen Compensation Ins.' },
               { name: 'Police Verified', label: 'State Police Department' },
             ].map((cert, idx) => (
-              <FadeIn key={cert.name} delay={idx * 0.05}>
+              <FadeIn key={cert.name} delay={idx * 0.05} direction="zoom">
                 <div className={styles.certCard}>
                   <ShieldCheck size={36} color="var(--gold)" />
                   <h4>{cert.name}</h4>
@@ -457,7 +457,7 @@ export default function Home() {
 
           <div className={styles.clientLogosGrid}>
             {['Societies', 'IT Parks', 'Industrial Hubs', 'Hospitals', 'Logistics', 'Retail Outlets'].map((logo, idx) => (
-              <FadeIn key={idx} delay={idx * 0.1}>
+              <FadeIn key={idx} delay={idx * 0.1} direction="scale">
                 <div className={styles.clientLogoCard}>
                   <Building2 size={28} color="var(--navy)" />
                   <span>{logo} Partner</span>
@@ -483,7 +483,7 @@ export default function Home() {
               { name: 'Priya Kulkarni', role: 'HR Manager, TechVista IT Solutions', quote: 'Extremely professional housekeeping and office boy staff. Their response time during urgent manpower replacements is top-notch.' },
               { name: 'Anil Deshmukh', role: 'Plant Head, Sahyadri Engineering Pvt Ltd', quote: 'Perimeter security and gate entry pass tracking for raw materials has improved drastically since we contracted VMD 3 years ago.' },
             ].map((t, idx) => (
-              <FadeIn key={idx} delay={idx * 0.1}>
+              <FadeIn key={idx} delay={idx * 0.1} direction="left">
                 <div className={styles.testimonialCard}>
                   <div className={styles.stars}>
                     {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--gold)" color="var(--gold)" />)}
@@ -527,7 +527,7 @@ export default function Home() {
 
           <div className={styles.galleryGrid}>
             {filteredGallery.map((item) => (
-              <FadeIn key={item.id}>
+              <FadeIn key={item.id} direction="scale">
                 <div className={styles.galleryCard} onClick={() => setLightboxImg(item)}>
                   <Image src={item.src} alt={item.title} width={400} height={280} className={styles.galleryImg} />
                   <div className={styles.galleryOverlay}>
