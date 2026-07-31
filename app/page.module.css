@@ -1211,3 +1211,39 @@
   border-color: var(--navy);
   box-shadow: 0 0 0 3px rgba(14, 35, 69, 0.1);
 }
+
+/* 15. FAQ SECTION (For AI Overview) */
+.faqSection {
+  background-color: var(--off-white);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqCard {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--box-shadow);
+  text-align: left;
+}
+
+.faqCard h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.faqCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray);
+  margin: 0;
+}

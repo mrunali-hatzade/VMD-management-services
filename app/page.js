@@ -111,10 +111,43 @@ export default function Home() {
     ? galleryItems 
     : galleryItems.filter(item => item.category === activeGalleryTab);
 
-
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What types of security services do you offer in Pune?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We provide comprehensive security solutions including trained security guards, residential security, corporate security, and industrial security across all major areas in Pune.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Are your security guards police-verified?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, all our security guards undergo strict background checks and are police-verified before deployment to ensure maximum safety and reliability.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you provide housekeeping services as well?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, alongside security, we offer professional housekeeping services, office boy staff, and comprehensive facility management for commercial and residential properties.'
+        }
+      }
+    ]
+  };
 
   return (
     <div className={styles.home}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* 1. FULL SCREEN HERO SECTION */}
       <section className={styles.hero}>
         {heroImages.map((src, index) => (
@@ -514,7 +547,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 13. FREQUENTLY ASKED QUESTIONS (AI Overview Optimized) */}
+      <section className={`section ${styles.faqSection}`}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag" style={{ color: 'var(--gold)' }}>Quick Answers</span>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-desc">Find quick answers to common questions about our security and facility management services.</p>
+          </div>
 
+          <div className={styles.faqGrid}>
+            <FadeIn delay={0.1}>
+              <div className={styles.faqCard}>
+                <h3>What types of security services do you offer in Pune?</h3>
+                <p>We provide comprehensive security solutions including trained security guards, residential security, corporate security, and industrial security across all major areas in Pune.</p>
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={0.2}>
+              <div className={styles.faqCard}>
+                <h3>Are your security guards police-verified?</h3>
+                <p>Yes, all our security guards undergo strict background checks and are police-verified before deployment to ensure maximum safety and reliability.</p>
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={0.3}>
+              <div className={styles.faqCard}>
+                <h3>Do you provide housekeeping services as well?</h3>
+                <p>Yes, alongside security, we offer professional housekeeping services, office boy staff, and comprehensive facility management for commercial and residential properties.</p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
 
       {/* 14. CONTACT US FORM SECTION */}
       <section id="contact" className={`section ${styles.contactSection}`}>
