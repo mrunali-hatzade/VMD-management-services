@@ -63,7 +63,7 @@ export async function POST(request) {
     let pabblyDispatched = false;
 
     // =========================================================================
-    // 3. META WHATSAPP CLOUD API DISPATCH (TEMPLATE: vmd_contact_alert)
+    // 3. META WHATSAPP CLOUD API DISPATCH (TEMPLATE: vmd_contact_details)
     // =========================================================================
     let whatsappDispatched = false;
     let whatsappError = null;
@@ -74,7 +74,7 @@ export async function POST(request) {
     } else {
       const waResult = await sendWhatsAppMessage({
         to: adminPhone,
-        templateName: 'vmd_contact_alert',
+        templateName: 'vmd_contact_details',
         templateLanguage: 'en',
         templateComponents: [
           {
