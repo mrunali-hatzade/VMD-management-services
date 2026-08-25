@@ -20,10 +20,10 @@ import LightboxModal from '../components/LightboxModal/LightboxModal';
 import WhatsAppIcon from '../components/WhatsAppIcon/WhatsAppIcon';
 
 const heroImages = [
-  '/weblium_hero_bg.jpg',
+  '/weblium_hero_bg_v2.jpg',
   '/hero_housekeeping.jpg',
-  '/hero_team.jpg',
-  '/hero_surveillance.jpg'
+  '/hero_team_v2.jpg',
+  '/hero_surveillance_v2.jpg'
 ];
 
 export default function Home() {
@@ -96,15 +96,15 @@ export default function Home() {
 
   // Gallery items for preview
   const galleryItems = [
-    { id: 1, title: 'Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards.jpg' },
-    { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard.jpg' },
+    { id: 1, title: 'Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards_v2.jpg' },
+    { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard_v2.jpg' },
     { id: 3, title: 'Housekeeping Staff', category: 'Housekeeping', src: '/srv_housekeeping.jpg' },
     { id: 4, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/gal_floor_cleaning.jpg' },
     { id: 5, title: 'Office Operations Team', category: 'Corporate', src: '/srv_office_boys.jpg' },
-    { id: 6, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security.jpg' },
-    { id: 7, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility.jpg' },
+    { id: 6, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security_v2.jpg' },
+    { id: 7, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility_v2.jpg' },
     { id: 8, title: 'Client Site Inspection', category: 'Industrial', src: '/client_sites.jpg' },
-    { id: 9, title: 'Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
+    { id: 9, title: 'Training Sessions', category: 'Training', src: '/training_sessions_v2.jpg' },
   ];
 
   const filteredGallery = activeGalleryTab === 'All' 
@@ -287,14 +287,14 @@ export default function Home() {
 
           <div className={styles.servicesGrid}>
             {[
-              { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={36} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards.jpg' },
+              { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={36} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards_v2.jpg' },
               { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={36} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
               { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={36} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
-              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors.jpg' },
+              { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={36} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors_v2.jpg' },
               { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={36} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/gal_facility_maintenance.jpg' },
-              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/gal_industrial_facility.jpg' },
-              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard.jpg' },
-              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security.jpg' },
+              { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={36} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/gal_industrial_facility_v2.jpg' },
+              { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={36} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard_v2.jpg' },
+              { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={36} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security_v2.jpg' },
             ].map((srv, idx) => (
               <FadeIn key={srv.slug} delay={idx * 0.05} direction="scale">
                 <Link href={`/services/${srv.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}>
@@ -354,9 +354,9 @@ export default function Home() {
 
           <div className={styles.industryGrid}>
             {[
-              { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies.jpg' },
+              { title: 'Housing Societies', icon: <Building2 size={32} />, desc: 'Gated community protection & visitor management.', img: '/ind_housing_societies_v2.jpg' },
               { title: 'Corporate Offices', icon: <Briefcase size={32} />, desc: 'Access control & receptionist security.', img: '/ind_corporate_offices.jpg' },
-              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/gal_reception_security.jpg' },
+              { title: 'IT Companies', icon: <Building size={32} />, desc: '24/7 turnstile control & asset protection.', img: '/gal_reception_security_v2.jpg' },
               { title: 'Hospitals', icon: <MapPin size={32} />, desc: 'Crowd control & patient safety management.', img: '/ind_hospitals.jpg' },
               { title: 'Schools & Colleges', icon: <Users size={32} />, desc: 'Student safety & strict campus entry protocols.', img: '/ind_schools_colleges.jpg' },
               { title: 'Banks', icon: <ShieldCheck size={32} />, desc: 'High-vigilance ATM & branch security.', img: '/ind_banks.jpg' },

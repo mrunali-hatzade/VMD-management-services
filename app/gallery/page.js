@@ -10,10 +10,10 @@ import LightboxModal from '../../components/LightboxModal/LightboxModal';
 
 const fullGallery = [
   // Security Guards
-  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards.jpg' },
-  { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard.jpg' },
-  { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/gal_gate_check.jpg' },
-  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/ind_housing_societies.jpg' },
+  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards_v2.jpg' },
+  { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard_v2.jpg' },
+  { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/gal_gate_check_v2.jpg' },
+  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/ind_housing_societies_v2.jpg' },
 
   // Housekeeping
   { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/srv_housekeeping.jpg' },
@@ -23,20 +23,20 @@ const fullGallery = [
   // Corporate
   { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/srv_office_boys.jpg' },
   { id: 9, title: 'Corporate Client Sites', category: 'Corporate', src: '/client_sites.jpg' },
-  { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security.jpg' },
+  { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security_v2.jpg' },
   { id: 11, title: 'Executive Support Staff', category: 'Corporate', src: '/gal_executive_staff.jpg' },
 
   // Industrial
-  { id: 12, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility.jpg' },
-  { id: 13, title: 'Control Room Surveillance', category: 'Industrial', src: '/gal_cctv_control_room.jpg' },
+  { id: 12, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility_v2.jpg' },
+  { id: 13, title: 'Control Room Surveillance', category: 'Industrial', src: '/gal_cctv_control_room_v2.jpg' },
   { id: 14, title: 'Facility Management Maintenance', category: 'Industrial', src: '/gal_facility_maintenance.jpg' },
 
   // Training
-  { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/training_sessions.jpg' },
+  { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/training_sessions_v2.jpg' },
 
   // Events
   { id: 17, title: 'Event Crowd Management', category: 'Events', src: '/gal_event_crowd.jpg' },
-  { id: 18, title: 'VIP Protection Supervisors', category: 'Events', src: '/gal_vip_supervisors.jpg' },
+  { id: 18, title: 'VIP Protection Supervisors', category: 'Events', src: '/gal_vip_supervisors_v2.jpg' },
 ];
 
 export default function GalleryPage() {

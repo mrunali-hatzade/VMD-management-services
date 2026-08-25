@@ -17,7 +17,7 @@ const servicesData = {
   'security-guards': {
     title: 'Professional Security Guards',
     subtitle: 'Police-verified, physically fit, and rigorously trained security guards for 24/7 vigil.',
-    heroImg: '/srv_security_guards.jpg',
+    heroImg: '/srv_security_guards_v2.jpg',
     icon: <ShieldCheck size={48} color="var(--gold)" />,
     overview: 'VMD Management Services provides elite, police-verified security guards trained in access control, visitor logs, emergency response, and perimeter defense. Whether protecting gated residential communities, IT parks, or industrial plants, our personnel maintain unmatched vigilance.',
     features: [

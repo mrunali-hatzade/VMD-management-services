@@ -11,7 +11,7 @@ import styles from './services.module.css';
 import FadeIn from '../../components/FadeIn/FadeIn';
 
 const servicesList = [
-  { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={40} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards.jpg' },
+  { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={40} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards_v2.jpg' },
   { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={40} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
   { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={40} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
   { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={40} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors.jpg' },
