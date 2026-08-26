@@ -20,7 +20,7 @@ import LightboxModal from '../components/LightboxModal/LightboxModal';
 import WhatsAppIcon from '../components/WhatsAppIcon/WhatsAppIcon';
 
 const heroImages = [
-  '/v2/gal_floor_cleaning_v2.jpg',
+  '/v2/hero_slide_1.jpg',
   '/v2/srv_housekeeping_v2.jpg',
   '/v2/hero_team_v2.jpg',
   '/v2/hero_surveillance_v2.jpg'
