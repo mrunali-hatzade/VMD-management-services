@@ -82,13 +82,6 @@ export default function Home() {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Redirect to WhatsApp with pre-filled message
-        const waNumber = '918799859129'; // Owner's WhatsApp number with country code (91)
-        const waMessage = `*New Website Inquiry*%0A%0A*Name:* ${contactForm.name}%0A*Phone:* ${contactForm.phone}%0A*Email:* ${contactForm.email}%0A*Service:* ${contactForm.service}%0A*Message:* ${contactForm.message}`;
-        
-        // Open WhatsApp in a new tab
-        window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
-
         alert(`Thank you, ${contactForm.name}! Your message has been submitted successfully.`);
       } else {
         alert('There was a problem submitting your inquiry. Please try again.');
