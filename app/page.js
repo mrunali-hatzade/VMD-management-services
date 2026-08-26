@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, Users, Briefcase, Building2, UserCheck, CheckCircle2, 
-  MapPin, Factory, Hotel, HardHat, Warehouse, Star, Phone, MessageCircle, 
+import {
+  ShieldCheck, Users, Briefcase, Building2, UserCheck, CheckCircle2,
+  MapPin, Factory, Hotel, HardHat, Warehouse, Star, Phone, MessageCircle,
   Clock, Award, FileCheck, ShieldAlert, BadgeCheck, FileText, Check, ArrowRight,
   Eye, HeartHandshake, Zap, Sparkles, Building, ChevronRight, Send, Mail
 } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [activeGalleryTab, setActiveGalleryTab] = useState('All');
   const [lightboxImg, setLightboxImg] = useState(null);
-  
+
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -48,7 +48,7 @@ export default function Home() {
 
   const handleContactSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       /*
       // WEB3FORMS (COMMENTED OUT)
@@ -82,6 +82,13 @@ export default function Home() {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        // Redirect to WhatsApp with pre-filled message
+        const waNumber = '918799859129'; // Owner's WhatsApp number with country code (91)
+        const waMessage = `*New Website Inquiry*%0A%0A*Name:* ${contactForm.name}%0A*Phone:* ${contactForm.phone}%0A*Email:* ${contactForm.email}%0A*Service:* ${contactForm.service}%0A*Message:* ${contactForm.message}`;
+        
+        // Open WhatsApp in a new tab
+        window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
+
         alert(`Thank you, ${contactForm.name}! Your message has been submitted successfully.`);
       } else {
         alert('There was a problem submitting your inquiry. Please try again.');
@@ -90,7 +97,7 @@ export default function Home() {
       console.error(error);
       alert('Submission error. Please try again.');
     }
-    
+
     setContactForm({ name: '', email: '', phone: '', service: 'Security Guards', message: '' });
   };
 
@@ -107,8 +114,8 @@ export default function Home() {
     { id: 9, title: 'Training Sessions', category: 'Training', src: '/v2/training_sessions_v2.jpg' },
   ];
 
-  const filteredGallery = activeGalleryTab === 'All' 
-    ? galleryItems 
+  const filteredGallery = activeGalleryTab === 'All'
+    ? galleryItems
     : galleryItems.filter(item => item.category === activeGalleryTab);
 
   const faqJsonLd = {
@@ -151,15 +158,15 @@ export default function Home() {
       {/* 1. FULL SCREEN HERO SECTION */}
       <section className={styles.hero}>
         {heroImages.map((src, index) => (
-          <div 
-            key={src} 
+          <div
+            key={src}
             className={`${styles.heroBg} ${index === currentImage ? styles.heroBgActive : ''}`}
             style={{ backgroundImage: `linear-gradient(rgba(14, 35, 69, 0.75), rgba(14, 35, 69, 0.82)), url(${src})` }}
           />
         ))}
-        
+
         <div className={`container ${styles.heroContent}`}>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -172,7 +179,7 @@ export default function Home() {
             <span>Safety</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -182,7 +189,7 @@ export default function Home() {
             <span>ISO 9001:2015 Certified Security & Facility Agency</span>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -191,7 +198,7 @@ export default function Home() {
             Professional Security & Facility Management Services in Pune
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -214,11 +221,11 @@ export default function Home() {
             <FadeIn direction="left">
               <div className={styles.aboutImageCol}>
                 <div className={styles.aboutImageCard}>
-                  <Image 
-                    src="/v2/about_v2.png" 
-                    alt="VMD Management Services Team" 
-                    width={600} 
-                    height={480} 
+                  <Image
+                    src="/v2/about_v2.png"
+                    alt="VMD Management Services Team"
+                    width={600}
+                    height={480}
                     className={styles.aboutImage}
                   />
                   <div className={styles.floatingExpCard}>
@@ -233,7 +240,7 @@ export default function Home() {
               <div className={styles.aboutTextCol}>
                 <span className="section-tag">About VMD Management Services</span>
                 <h2 className={styles.aboutHeading}>Enterprise Security & Operational Facility Excellence</h2>
-                
+
                 <p className={styles.aboutDesc}>
                   VMD Management Services is a trusted provider of professional Security & Facility Management Services in Pune. We specialize in delivering trained security guards, housekeeping staff, office support, and facility management solutions for residential, commercial, corporate, and industrial clients. Our commitment to safety, reliability, and service excellence helps businesses and communities operate with confidence. With experienced professionals, strict quality standards, and 24×7 support, we strive to build long-term relationships based on trust and performance.
                 </p>
@@ -327,8 +334,8 @@ export default function Home() {
 
           <div className={styles.whyGrid}>
             {[
-              'Trained Staff', 'Police Verified Guards', 'Uniformed Personnel', 
-              '24×7 Support', 'Quick Replacement', 'Regular Site Inspection', 
+              'Trained Staff', 'Police Verified Guards', 'Uniformed Personnel',
+              '24×7 Support', 'Quick Replacement', 'Regular Site Inspection',
               'Professional Management', 'Emergency Response', 'Dedicated Supervisor',
               'Background Verification', 'Fast Deployment', 'Quality Monitoring'
             ].map((item, idx) => (
@@ -515,8 +522,8 @@ export default function Home() {
           {/* Category Tabs */}
           <div className={styles.galleryTabs}>
             {['All', 'Security Guards', 'Housekeeping', 'Training', 'Corporate', 'Industrial', 'Events'].map((tab) => (
-              <button 
-                key={tab} 
+              <button
+                key={tab}
                 className={`${styles.tabBtn} ${activeGalleryTab === tab ? styles.activeTab : ''}`}
                 onClick={() => setActiveGalleryTab(tab)}
               >
@@ -563,14 +570,14 @@ export default function Home() {
                 <p>We provide comprehensive security solutions including trained security guards, residential security, corporate security, and industrial security across all major areas in Pune.</p>
               </div>
             </FadeIn>
-            
+
             <FadeIn delay={0.2}>
               <div className={styles.faqCard}>
                 <h3>Are your security guards police-verified?</h3>
                 <p>Yes, all our security guards undergo strict background checks and are police-verified before deployment to ensure maximum safety and reliability.</p>
               </div>
             </FadeIn>
-            
+
             <FadeIn delay={0.3}>
               <div className={styles.faqCard}>
                 <h3>Do you provide housekeeping services as well?</h3>
@@ -614,10 +621,10 @@ export default function Home() {
                     <div className={styles.detailIconCircle}><MapPin size={20} /></div>
                     <div>
                       <strong>Head Office (Mundhwa)</strong>
-                      <a 
-                        href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href="https://maps.google.com/?q=Sr.No.6,+Kumbhar+Wada,+Keshav+Nagar,+Mundhwa,+Near+Gairan+Vasti,+Pune+411036"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
                       >
                         Sr.No.6, Kumbhar Wada, Keshav Nagar, Mundhwa, Near Gairan Vasti, Pune 411036
@@ -628,10 +635,10 @@ export default function Home() {
                     <div className={styles.detailIconCircle}><MapPin size={20} /></div>
                     <div>
                       <strong>Branch Office (Sadashiv Peth)</strong>
-                      <a 
-                        href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href="https://maps.google.com/?q=Alka+Talkies,+Lal+Bahadur+Shastri+Rd,+Joshi+Wada,+Sadashiv+Peth,+Pune,+Maharashtra+411030"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         style={{ color: '#CBD5E0', textDecoration: 'none', display: 'block', fontSize: '0.9rem', marginTop: '0.2rem' }}
                       >
                         Alka Talkies, Lal Bahadur Shastri Rd, Joshi Wada, Sadashiv Peth, Pune 411030
@@ -648,22 +655,22 @@ export default function Home() {
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label htmlFor="hp_name">Full Name *</label>
-                      <input 
-                        type="text" 
-                        id="hp_name" 
-                        value={contactForm.name} 
-                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })} 
-                        required 
+                      <input
+                        type="text"
+                        id="hp_name"
+                        value={contactForm.name}
+                        onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                        required
                       />
                     </div>
                     <div className={styles.formGroup}>
                       <label htmlFor="hp_phone">Phone Number *</label>
-                      <input 
-                        type="tel" 
-                        id="hp_phone" 
-                        value={contactForm.phone} 
-                        onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })} 
-                        required 
+                      <input
+                        type="tel"
+                        id="hp_phone"
+                        value={contactForm.phone}
+                        onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                        required
                       />
                     </div>
                   </div>
@@ -671,19 +678,19 @@ export default function Home() {
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label htmlFor="hp_email">Email Address *</label>
-                      <input 
-                        type="email" 
-                        id="hp_email" 
-                        value={contactForm.email} 
-                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })} 
-                        required 
+                      <input
+                        type="email"
+                        id="hp_email"
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        required
                       />
                     </div>
                     <div className={styles.formGroup}>
                       <label htmlFor="hp_service">Service Required</label>
-                      <select 
-                        id="hp_service" 
-                        value={contactForm.service} 
+                      <select
+                        id="hp_service"
+                        value={contactForm.service}
                         onChange={(e) => setContactForm({ ...contactForm, service: e.target.value })}
                       >
                         <option value="Security Guards">Security Guards</option>
@@ -699,11 +706,11 @@ export default function Home() {
 
                   <div className={styles.formGroup}>
                     <label htmlFor="hp_message">Message *</label>
-                    <textarea 
-                      id="hp_message" 
-                      rows="4" 
-                      value={contactForm.message} 
-                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })} 
+                    <textarea
+                      id="hp_message"
+                      rows="4"
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                       required
                     ></textarea>
                   </div>
@@ -719,10 +726,10 @@ export default function Home() {
       </section>
 
       {/* Lightbox Modal */}
-      <LightboxModal 
-        isOpen={!!lightboxImg} 
-        image={lightboxImg} 
-        onClose={() => setLightboxImg(null)} 
+      <LightboxModal
+        isOpen={!!lightboxImg}
+        image={lightboxImg}
+        onClose={() => setLightboxImg(null)}
       />
     </div>
   );
