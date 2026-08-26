@@ -71,23 +71,22 @@ export async function POST(request) {
     let whatsappError = null;
     const adminPhone = process.env.ADMIN_WHATSAPP_TO || '+918799859129';
 
-    const whatsappBody = [
-      `📋 *New VMD Job Application*`,
-      ``,
-      `👤 *Candidate:* ${fullName}`,
-      `📞 *Phone:* ${phone}`,
-      `📧 *Email:* ${email}`,
-      `💼 *Experience:* ${experience}`,
-      `🏷️ *Position:* ${position}`,
-      `📍 *Address:* ${address}`,
-      ``,
-      `📝 *Notes:*`,
-      `${notes || 'N/A'}`
-    ].join('\n');
-
     const waResult = await sendWhatsAppMessage({
       to: adminPhone,
-      message: whatsappBody
+      templateName: 'vmd_job_application',
+      templateLanguage: 'en',
+      templateComponents: [
+        {
+          type: 'body',
+          parameters: [
+            { type: 'text', text: String(fullName || '') },
+            { type: 'text', text: String(phone || '') },
+            { type: 'text', text: String(experience || '') },
+            { type: 'text', text: String(position || '') },
+            { type: 'text', text: String(address || '') }
+          ]
+        }
+      ]
     });
 
     whatsappDispatched = waResult.success;
