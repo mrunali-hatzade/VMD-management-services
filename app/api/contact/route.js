@@ -74,8 +74,8 @@ export async function POST(request) {
     } else {
       const waResult = await sendWhatsAppMessage({
         to: adminPhone,
-        templateName: 'vmd_contact_details',
-        templateLanguage: 'en_US',
+        templateName: 'vmd_contact_alert',
+        templateLanguage: 'en',
         templateComponents: [
           {
             type: 'body',
