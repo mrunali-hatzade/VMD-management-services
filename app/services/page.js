@@ -11,11 +11,11 @@ import styles from './services.module.css';
 import FadeIn from '../../components/FadeIn/FadeIn';
 
 const servicesList = [
-  { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={40} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/srv_security_guards_v2.jpg' },
-  { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={40} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/srv_housekeeping.jpg' },
-  { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={40} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/srv_office_boys.jpg' },
+  { slug: 'security-guards', title: 'Security Guards', icon: <ShieldCheck size={40} />, desc: 'Police-verified, physically fit, and trained guards for 24/7 vigil.', img: '/v2/srv_security_guards_v2.jpg' },
+  { slug: 'housekeeping-services', title: 'Housekeeping Services', icon: <Users size={40} />, desc: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep.', img: '/v2/srv_housekeeping_v2.jpg' },
+  { slug: 'office-boys', title: 'Office Boys', icon: <Briefcase size={40} />, desc: 'Polite pantry, filing, and errand staff for seamless office operations.', img: '/v2/srv_office_boys_v3.jpg' },
   { slug: 'supervisors', title: 'Supervisors', icon: <UserCheck size={40} />, desc: 'Experienced field supervisors ensuring 100% guard vigilance & audit.', img: '/gal_vip_supervisors.jpg' },
-  { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={40} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/gal_facility_maintenance.jpg' },
+  { slug: 'facility-management', title: 'Facility Management', icon: <Building2 size={40} />, desc: 'End-to-end management of utilities, maintenance, and facility staff.', img: '/v2/srv_facility_mgmt_v4.png' },
   { slug: 'industrial-security', title: 'Industrial Security', icon: <Factory size={40} />, desc: 'Gate pass control, material audit, and perimeter protection for factories.', img: '/gal_industrial_facility.jpg' },
   { slug: 'residential-security', title: 'Residential Security', icon: <MapPin size={40} />, desc: 'Visitor management, parking order, and perimeter safety for societies.', img: '/gal_residential_guard.jpg' },
   { slug: 'corporate-security', title: 'Corporate Security', icon: <Building size={40} />, desc: 'Sophisticated reception security and IT park access management.', img: '/gal_reception_security.jpg' },

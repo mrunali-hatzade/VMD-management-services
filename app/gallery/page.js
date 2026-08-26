@@ -10,33 +10,33 @@ import LightboxModal from '../../components/LightboxModal/LightboxModal';
 
 const fullGallery = [
   // Security Guards
-  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/srv_security_guards_v2.jpg' },
-  { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/gal_residential_guard_v2.jpg' },
-  { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/gal_gate_check_v2.jpg' },
-  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/ind_housing_societies_v2.jpg' },
+  { id: 1, title: 'Security Guards in Uniform', category: 'Security Guards', src: '/v2/srv_security_guards_v2.jpg' },
+  { id: 2, title: 'Residential Guard Patrol', category: 'Security Guards', src: '/v2/gal_residential_guard_v2.jpg' },
+  { id: 3, title: 'Front Gate Security Check', category: 'Security Guards', src: '/v2/gal_gate_check_v2.jpg' },
+  { id: 4, title: 'Housing Societies Protection', category: 'Security Guards', src: '/v2/ind_housing_societies_v2.jpg' },
 
   // Housekeeping
-  { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/srv_housekeeping.jpg' },
-  { id: 6, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/gal_floor_cleaning.jpg' },
-  { id: 7, title: 'Deep Cleaning Services', category: 'Housekeeping', src: '/gal_deep_cleaning.jpg' },
+  { id: 5, title: 'Corporate Housekeeping Staff', category: 'Housekeeping', src: '/v2/srv_housekeeping_v2.jpg' },
+  { id: 6, title: 'Office Floor Cleaning', category: 'Housekeeping', src: '/v2/gal_floor_cleaning_v2.jpg' },
+  { id: 7, title: 'Deep Cleaning Services', category: 'Housekeeping', src: '/gal_deep_cleaning_v2.jpg' },
 
   // Corporate
-  { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/srv_office_boys.jpg' },
-  { id: 9, title: 'Corporate Client Sites', category: 'Corporate', src: '/client_sites.jpg' },
-  { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/gal_reception_security_v2.jpg' },
-  { id: 11, title: 'Executive Support Staff', category: 'Corporate', src: '/gal_executive_staff.jpg' },
+  { id: 8, title: 'Office Operations Team', category: 'Corporate', src: '/v2/srv_office_boys_v3.jpg' },
+  { id: 9, title: 'Corporate Client Sites', category: 'Corporate', src: '/v2/client_sites_v2.jpg' },
+  { id: 10, title: 'Reception & Access Control', category: 'Corporate', src: '/v2/gal_reception_security_v2.jpg' },
+  { id: 11, title: 'Executive Support Staff', category: 'Corporate', src: '/gal_executive_staff_v2.jpg' },
 
   // Industrial
-  { id: 12, title: 'Industrial Facility Security', category: 'Industrial', src: '/gal_industrial_facility_v2.jpg' },
-  { id: 13, title: 'Control Room Surveillance', category: 'Industrial', src: '/gal_cctv_control_room_v2.jpg' },
-  { id: 14, title: 'Facility Management Maintenance', category: 'Industrial', src: '/gal_facility_maintenance.jpg' },
+  { id: 12, title: 'Industrial Facility Security', category: 'Industrial', src: '/v2/gal_industrial_facility_v2.jpg' },
+  { id: 13, title: 'Control Room Surveillance', category: 'Industrial', src: '/v2/gal_cctv_control_room_v2.jpg' },
+  { id: 14, title: 'Facility Management Maintenance', category: 'Industrial', src: '/v2/srv_facility_mgmt_v4.png' },
 
   // Training
-  { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/training_sessions_v2.jpg' },
+  { id: 15, title: 'Guard Formation & Training Sessions', category: 'Training', src: '/v2/training_sessions_v2.jpg' },
 
   // Events
-  { id: 17, title: 'Event Crowd Management', category: 'Events', src: '/gal_event_crowd.jpg' },
-  { id: 18, title: 'VIP Protection Supervisors', category: 'Events', src: '/gal_vip_supervisors_v2.jpg' },
+  { id: 17, title: 'Event Crowd Management', category: 'Events', src: '/gal_event_crowd_v2.jpg' },
+  { id: 18, title: 'VIP Protection Supervisors', category: 'Events', src: '/v2/gal_vip_supervisors_v2.jpg' },
 ];
 
 export default function GalleryPage() {

@@ -44,7 +44,7 @@ const servicesData = {
   'housekeeping-services': {
     title: 'Corporate Housekeeping Services',
     subtitle: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep for modern facilities.',
-    heroImg: '/srv_housekeeping.jpg',
+    heroImg: '/srv_housekeeping_v2.jpg',
     icon: <Users size={48} color="var(--gold)" />,
     overview: 'Our housekeeping solutions combine trained cleaning staff with industrial-grade machinery and eco-friendly sanitation chemicals. We maintain spotless marble floors, sanitized washrooms, sparkling glass facades, and tidy office desks.',
     features: [
@@ -67,10 +67,10 @@ const servicesData = {
     ]
   },
 
-  'office-boys': {
-    title: 'Office Boys & Support Staff',
-    subtitle: 'Polite pantry, filing, and errand support personnel for smooth office routine.',
-    heroImg: '/srv_office_boys.jpg',
+    'office-boys': {
+      title: 'Office Boys & Support Staff',
+      subtitle: 'Polite pantry, filing, and errand support personnel for smooth office routine.',
+      heroImg: '/srv_office_boys_v3.jpg',
     icon: <Briefcase size={48} color="var(--gold)" />,
     overview: 'Our office boys handle pantry operations, beverage serving, document movement, photocopying, and receptionist assistance with utmost courtesy and speed.',
     features: [
@@ -118,7 +118,7 @@ const servicesData = {
   'facility-management': {
     title: 'Integrated Facility Management',
     subtitle: 'End-to-end management of utilities, soft services, and maintenance staff.',
-    heroImg: '/srv_facility_mgmt.jpg',
+    heroImg: '/v2/srv_facility_mgmt_v4.png',
     icon: <Building2 size={48} color="var(--gold)" />,
     overview: 'Comprehensive facility solutions integrating security, housekeeping, MEP maintenance, electrical checks, plumbing, and garden maintenance under one single contract.',
     features: [
