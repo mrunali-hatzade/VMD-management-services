@@ -33,7 +33,7 @@ export default function AboutPage() {
             <div className={styles.grid2Col}>
               <div className={styles.imageBox}>
                 <Image 
-                  src="/about2.jpg" 
+                  src="/v2/about_v2.png" 
                   alt="VMD Management Staff" 
                   width={600} 
                   height={450} 

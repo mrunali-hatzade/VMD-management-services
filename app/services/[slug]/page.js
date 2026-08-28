@@ -17,7 +17,7 @@ const servicesData = {
   'security-guards': {
     title: 'Professional Security Guards',
     subtitle: 'Police-verified, physically fit, and rigorously trained security guards for 24/7 vigil.',
-    heroImg: '/srv_security_guards_v2.jpg',
+    heroImg: '/v2/srv_security_guards_v2.jpg',
     icon: <ShieldCheck size={48} color="var(--gold)" />,
     overview: 'VMD Management Services provides elite, police-verified security guards trained in access control, visitor logs, emergency response, and perimeter defense. Whether protecting gated residential communities, IT parks, or industrial plants, our personnel maintain unmatched vigilance.',
     features: [
@@ -44,7 +44,7 @@ const servicesData = {
   'housekeeping-services': {
     title: 'Corporate Housekeeping Services',
     subtitle: 'Meticulous corporate cleaning, sanitation, and hygiene upkeep for modern facilities.',
-    heroImg: '/srv_housekeeping_v2.jpg',
+    heroImg: '/v2/srv_housekeeping_v2.jpg',
     icon: <Users size={48} color="var(--gold)" />,
     overview: 'Our housekeeping solutions combine trained cleaning staff with industrial-grade machinery and eco-friendly sanitation chemicals. We maintain spotless marble floors, sanitized washrooms, sparkling glass facades, and tidy office desks.',
     features: [
@@ -70,7 +70,7 @@ const servicesData = {
     'office-boys': {
       title: 'Office Boys & Support Staff',
       subtitle: 'Polite pantry, filing, and errand support personnel for smooth office routine.',
-      heroImg: '/srv_office_boys_v3.jpg',
+      heroImg: '/v2/srv_office_boys_v3.jpg',
     icon: <Briefcase size={48} color="var(--gold)" />,
     overview: 'Our office boys handle pantry operations, beverage serving, document movement, photocopying, and receptionist assistance with utmost courtesy and speed.',
     features: [
@@ -94,7 +94,7 @@ const servicesData = {
   'supervisors': {
     title: 'Security & Facility Supervisors',
     subtitle: 'Experienced field commanders ensuring 100% guard vigilance and operational compliance.',
-    heroImg: '/srv_supervisors.jpg',
+    heroImg: '/v2/gal_vip_supervisors_v2.jpg',
     icon: <UserCheck size={48} color="var(--gold)" />,
     overview: 'Supervisors act as the bridge between client management and ground staff. They manage shift rosters, conduct roll-call briefings, audit registers, and handle emergency escalations.',
     features: [
@@ -142,7 +142,7 @@ const servicesData = {
   'industrial-security': {
     title: 'Industrial & Factory Security',
     subtitle: 'Gate pass control, raw material audit, and perimeter protection for factories.',
-    heroImg: '/srv_industrial_security.jpg',
+    heroImg: '/v2/gal_industrial_facility_v2.jpg',
     icon: <Factory size={48} color="var(--gold)" />,
     overview: 'Specialized industrial guards trained in labor crowd control, truck weighbridge verification, inward/outward gate passes, and factory floor loss prevention.',
     features: [
@@ -166,7 +166,7 @@ const servicesData = {
   'residential-security': {
     title: 'Residential Society Security',
     subtitle: 'Visitor management, parking order, and perimeter safety for housing societies.',
-    heroImg: '/srv_residential_security.jpg',
+    heroImg: '/v2/gal_residential_guard_v2.jpg',
     icon: <MapPin size={48} color="var(--gold)" />,
     overview: 'Courteous yet firm security personnel ensuring safe living for families in apartments, villas, and cooperative housing societies.',
     features: [
@@ -190,7 +190,7 @@ const servicesData = {
   'corporate-security': {
     title: 'Corporate & IT Park Security',
     subtitle: 'Sophisticated reception security and IT park access management.',
-    heroImg: '/srv_corporate_security.jpg',
+    heroImg: '/v2/srv_corporate_security_v2.jpg',
     icon: <Building size={48} color="var(--gold)" />,
     overview: 'Polished security personnel trained in executive front-desk reception, turnstile access, key card issuance, and confidential IP protection.',
     features: [
